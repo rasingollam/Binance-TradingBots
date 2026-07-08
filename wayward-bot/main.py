@@ -138,6 +138,46 @@ def fetch_account_info():
     return signed_get("/fapi/v2/account")
 
 
+def signed_post(path: str, params=None):
+    if params is None:
+        params = {}
+
+    params["timestamp"] = int(time.time() * 1000)
+
+    query_string = urlencode(params)
+    signature = hmac.new(
+        SECRET_KEY.encode("utf-8"),
+        query_string.encode("utf-8"),
+        hashlib.sha256
+    ).hexdigest()
+
+    url = f"{BASE_URL}{path}?{query_string}&signature={signature}"
+
+    headers = {
+        "X-MBX-APIKEY": API_KEY
+    }
+
+    response = requests.post(url, headers=headers, timeout=10)
+    response.raise_for_status()
+
+    return response.json()
+
+
+def place_stop_entry_order(symbol: str, side: str, quantity: float, stop_price: float):
+    order_side = "BUY" if side == "BUY" else "SELL"
+
+    params = {
+        "symbol": symbol,
+        "side": order_side,
+        "type": "STOP_MARKET",
+        "quantity": quantity,
+        "stopPrice": stop_price,
+        "workingType": "MARK_PRICE",
+    }
+
+    return signed_post("/fapi/v1/order", params)
+
+
 def round_to_step(value: float, step: float):
     return round(value - (value % step), 10)
 
@@ -234,6 +274,16 @@ while True:
             print("TP:", signal["tp"])
             print("Quantity:", signal["quantity"])
             print("Risk: $", RISK_AMOUNT)
+
+            order = place_stop_entry_order(
+                symbol=SYMBOL,
+                side=signal["side"],
+                quantity=signal["quantity"],
+                stop_price=signal["entry"]
+            )
+
+            print("STOP ENTRY ORDER PLACED")
+            print(order)
 
         else:
             print("No trade signal")

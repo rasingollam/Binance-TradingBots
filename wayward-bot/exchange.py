@@ -121,10 +121,20 @@ def fetch_account_info():
 
 def fetch_position(symbol: str):
     positions = signed_get("/fapi/v2/positionRisk", {"symbol": symbol})
+    fallback = None
     for position in positions:
-        if position["symbol"] == symbol:
+        if position["symbol"] != symbol:
+            continue
+
+        fallback = position
+        if float(position.get("positionAmt", 0)) != 0:
             return position
-    return None
+
+    return fallback
+
+
+def fetch_order_history(symbol: str, limit: int = 10):
+    return signed_get("/fapi/v1/allOrders", {"symbol": symbol, "limit": limit})
 
 
 def cancel_order(symbol: str, order_id: int):

@@ -27,6 +27,8 @@ print("Available balance:", account["availableBalance"])
 last_checked_candle = None
 pending_order = None
 active_trade = None
+closing_trade = None
+close_attempt_ts = 0.0
 
 tick_size, step_size = fetch_symbol_rules(SYMBOL)
 
@@ -35,6 +37,30 @@ while True:
     df = calculate_indicators(df)
 
     current_price = float(df.iloc[-1]["close"])
+
+    if closing_trade:
+        position = fetch_position(SYMBOL)
+        position_amt = float(position["positionAmt"]) if position else 0.0
+
+        if position_amt == 0.0:
+            print(f"Position confirmed closed after {closing_trade['reason']}.")
+            active_trade = None
+            closing_trade = None
+            account = fetch_account_info()
+            print("Total wallet balance:", account["totalWalletBalance"])
+            print("Available balance:", account["availableBalance"])
+            continue
+
+        if time.time() - close_attempt_ts >= 5:
+            print(f"Close still pending after {closing_trade['reason']}. Retrying...")
+            try:
+                close_position_market(SYMBOL)
+                close_attempt_ts = time.time()
+            except Exception as e:
+                close_attempt_ts = time.time()
+                print("Close retry failed:", e)
+
+        continue
 
     # --- Manual stop entry: wait for price to cross entry level ---
     if pending_order:
@@ -83,16 +109,26 @@ while True:
 
         if hit_sl:
             print(f"\nSL hit ({active_trade['sl']}). Closing position...")
-            close_position_market(SYMBOL)
-            print("Position closed by SL")
-            active_trade = None
+            closing_trade = {"reason": "SL", "side": active_trade["side"]}
+            try:
+                close_position_market(SYMBOL)
+                close_attempt_ts = time.time()
+                print("Close order submitted for SL")
+            except Exception as e:
+                close_attempt_ts = time.time()
+                print("Close order failed:", e)
             continue
 
         if hit_tp:
             print(f"\nTP hit ({active_trade['tp']}). Closing position...")
-            close_position_market(SYMBOL)
-            print("Position closed by TP")
-            active_trade = None
+            closing_trade = {"reason": "TP", "side": active_trade["side"]}
+            try:
+                close_position_market(SYMBOL)
+                close_attempt_ts = time.time()
+                print("Close order submitted for TP")
+            except Exception as e:
+                close_attempt_ts = time.time()
+                print("Close order failed:", e)
             continue
 
         # Trailing SL

@@ -1,5 +1,6 @@
 import asyncio
 import sys
+import time
 from datetime import datetime
 
 from textual.app import App, ComposeResult
@@ -11,6 +12,8 @@ from exchange import (
     fetch_futures_klines,
     fetch_symbol_rules,
     fetch_account_info,
+    fetch_position,
+    fetch_order_history,
     place_market_order,
     close_position_market,
 )
@@ -58,6 +61,14 @@ class BotTUI(App):
         height: auto;
     }
 
+    #history-box {
+        border: solid $warning;
+        padding: 1;
+        margin: 0 1;
+        min-height: 8;
+        height: auto;
+    }
+
     RichLog {
         border: solid $accent;
         margin: 0 1;
@@ -94,6 +105,9 @@ class BotTUI(App):
         with Vertical(id="trade-box"):
             yield Static("TRADE PLAN / POSITION", classes="label")
             yield Static("No active trade", id="trade-text")
+        with Vertical(id="history-box"):
+            yield Static("ORDER HISTORY", classes="label")
+            yield Static("No recent orders", id="history-text")
         yield RichLog(id="log", highlight=True, max_lines=200)
         yield Footer()
 
@@ -106,6 +120,39 @@ class BotTUI(App):
 
     def set_trade(self, msg: str):
         self.query_one("#trade-text", Static).update(msg)
+
+    def set_order_history(self, orders):
+        if not orders:
+            text = "No recent orders"
+            self.query_one("#history-text", Static).update(text)
+            return
+
+        lines = []
+        for order in orders:
+            ts = order.get("updateTime") or order.get("time") or 0
+            when = datetime.fromtimestamp(ts / 1000).strftime("%H:%M:%S") if ts else "--:--:--"
+            side = order.get("side", "?")
+            status = order.get("status", "?")
+            order_type = order.get("type", "?")
+            avg_price = order.get("avgPrice", "0")
+            executed_qty = order.get("executedQty", "0")
+            lines.append(
+                f"{when} {side} {order_type} {status} qty={executed_qty} avg={avg_price}"
+            )
+
+        self.query_one("#history-text", Static).update("\n".join(lines[:8]))
+
+    def refresh_order_history(self):
+        try:
+            orders = fetch_order_history(SYMBOL, limit=8)
+            orders = sorted(
+                orders,
+                key=lambda o: o.get("updateTime") or o.get("time") or 0,
+                reverse=True,
+            )
+            self.set_order_history(orders)
+        except Exception as e:
+            self.add_log(f"[yellow]Order history unavailable: {e}[/]")
 
     def set_candle(self, d: dict):
         text = (
@@ -138,9 +185,13 @@ class BotTUI(App):
         last_checked_candle = None
         pending_order = None
         active_trade = None
+        closing_trade = None
+        close_attempt_ts = 0.0
         balance_ticks = 0
+        history_ticks = 0
 
         self.set_status("Waiting for signal...")
+        self.refresh_order_history()
 
         while True:
             try:
@@ -164,6 +215,40 @@ class BotTUI(App):
 
                 current_price = float(candle["close"])
 
+                # --- Wait for a close to settle before resuming trading ---
+                if closing_trade:
+                    position = fetch_position(SYMBOL)
+                    position_amt = float(position["positionAmt"]) if position else 0.0
+
+                    if position_amt == 0.0:
+                        self.add_log(
+                            f"[green]Position confirmed closed after {closing_trade['reason']}.[/]"
+                        )
+                        active_trade = None
+                        closing_trade = None
+                        account = fetch_account_info()
+                        self.update_balance(
+                            account["totalWalletBalance"],
+                            account["availableBalance"]
+                        )
+                        self.set_status("Waiting for signal...")
+                        self.set_trade("No active trade")
+                        self.refresh_order_history()
+                    elif time.time() - close_attempt_ts >= 5:
+                        self.add_log(
+                            f"[yellow]Close still pending after {closing_trade['reason']}. Retrying...[/]"
+                        )
+                        try:
+                            close_position_market(SYMBOL)
+                            close_attempt_ts = time.time()
+                            self.refresh_order_history()
+                        except Exception as e:
+                            close_attempt_ts = time.time()
+                            self.add_log(f"[red]Close retry failed: {e}[/]")
+
+                    # Do not re-run SL/TP logic while a close is settling.
+                    continue
+
                 # --- Manual stop entry ---
                 if pending_order:
                     should_cancel = False
@@ -186,6 +271,7 @@ class BotTUI(App):
                             self.update_balance(account["totalWalletBalance"], account["availableBalance"])
                             self.set_status("Position opened")
                             self.set_trade(f"[green]BUY[/] open | Entry: {active_trade['entry']} | SL: {active_trade['sl']} | TP: {active_trade['tp']}")
+                            self.refresh_order_history()
                             continue
 
                     elif pending_order["side"] == "SELL":
@@ -206,6 +292,7 @@ class BotTUI(App):
                             self.update_balance(account["totalWalletBalance"], account["availableBalance"])
                             self.set_status("Position opened")
                             self.set_trade(f"[red]SELL[/] open | Entry: {active_trade['entry']} | SL: {active_trade['sl']} | TP: {active_trade['tp']}")
+                            self.refresh_order_history()
                             continue
 
                     if should_cancel:
@@ -233,24 +320,36 @@ class BotTUI(App):
 
                     if hit_sl:
                         self.add_log(f"[red]SL hit ({active_trade['sl']}). Closing...[/]")
-                        close_position_market(SYMBOL)
-                        self.add_log("Position closed by SL")
-                        active_trade = None
-                        account = fetch_account_info()
-                        self.update_balance(account["totalWalletBalance"], account["availableBalance"])
-                        self.set_status("Waiting for signal...")
-                        self.set_trade("No active trade")
+                        closing_trade = {
+                            "reason": "SL",
+                            "side": active_trade["side"],
+                        }
+                        try:
+                            close_position_market(SYMBOL)
+                            self.add_log("Close order submitted for SL")
+                            close_attempt_ts = time.time()
+                        except Exception as e:
+                            self.add_log(f"[red]Close order failed: {e}[/]")
+                            close_attempt_ts = time.time()
+                        self.set_status("Closing position...")
+                        self.refresh_order_history()
                         continue
 
                     if hit_tp:
                         self.add_log(f"[green]TP hit ({active_trade['tp']}). Closing...[/]")
-                        close_position_market(SYMBOL)
-                        self.add_log("Position closed by TP")
-                        active_trade = None
-                        account = fetch_account_info()
-                        self.update_balance(account["totalWalletBalance"], account["availableBalance"])
-                        self.set_status("Waiting for signal...")
-                        self.set_trade("No active trade")
+                        closing_trade = {
+                            "reason": "TP",
+                            "side": active_trade["side"],
+                        }
+                        try:
+                            close_position_market(SYMBOL)
+                            self.add_log("Close order submitted for TP")
+                            close_attempt_ts = time.time()
+                        except Exception as e:
+                            self.add_log(f"[red]Close order failed: {e}[/]")
+                            close_attempt_ts = time.time()
+                        self.set_status("Closing position...")
+                        self.refresh_order_history()
                         continue
 
                     # Trailing SL
@@ -315,6 +414,12 @@ class BotTUI(App):
                     balance_ticks = 0
                     account = fetch_account_info()
                     self.update_balance(account["totalWalletBalance"], account["availableBalance"])
+
+                # Periodic order-history refresh (every 15 seconds)
+                history_ticks += 1
+                if history_ticks >= 15:
+                    history_ticks = 0
+                    self.refresh_order_history()
 
             except Exception as e:
                 self.add_log(f"[red]Error: {e}[/]")

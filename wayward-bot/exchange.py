@@ -45,6 +45,8 @@ def signed_post(path: str, params=None):
     headers = {"X-MBX-APIKEY": API_KEY}
 
     response = requests.post(url, headers=headers, timeout=10)
+    if not response.ok:
+        print("Binance API error:", response.text)
     response.raise_for_status()
     return response.json()
 
@@ -125,58 +127,26 @@ def fetch_position(symbol: str):
     return None
 
 
-def fetch_open_orders(symbol: str):
-    return signed_get("/fapi/v1/openOrders", {"symbol": symbol})
-
-
 def cancel_order(symbol: str, order_id: int):
     return signed_delete("/fapi/v1/order", {"symbol": symbol, "orderId": order_id})
 
 
-def cancel_all_open_orders(symbol: str):
-    open_orders = fetch_open_orders(symbol)
-    for order in open_orders:
-        cancel_order(symbol, order["orderId"])
-    return len(open_orders)
-
-
-def place_stop_entry_order(symbol: str, side: str, quantity: float, stop_price: float):
-    order_side = "BUY" if side == "BUY" else "SELL"
+def place_market_order(symbol: str, side: str, quantity: float):
     params = {
         "symbol": symbol,
-        "side": order_side,
-        "type": "STOP_MARKET",
+        "side": side,
+        "type": "MARKET",
         "quantity": quantity,
-        "stopPrice": stop_price,
-        "workingType": "MARK_PRICE",
     }
     return signed_post("/fapi/v1/order", params)
 
 
-def place_stop_loss(symbol: str, side: str, stop_price: float):
+def close_position_market(symbol: str, side: str):
     close_side = "SELL" if side == "BUY" else "BUY"
-    return signed_post("/fapi/v1/order", {
+    params = {
         "symbol": symbol,
         "side": close_side,
-        "type": "STOP_MARKET",
-        "stopPrice": stop_price,
+        "type": "MARKET",
         "closePosition": "true",
-        "workingType": "MARK_PRICE",
-    })
-
-
-def place_take_profit(symbol: str, side: str, take_profit_price: float):
-    close_side = "SELL" if side == "BUY" else "BUY"
-    return signed_post("/fapi/v1/order", {
-        "symbol": symbol,
-        "side": close_side,
-        "type": "TAKE_PROFIT_MARKET",
-        "stopPrice": take_profit_price,
-        "closePosition": "true",
-        "workingType": "MARK_PRICE",
-    })
-
-
-def update_stop_loss(symbol: str, side: str, old_sl_order_id: int, new_sl_price: float):
-    cancel_order(symbol, old_sl_order_id)
-    return place_stop_loss(symbol=symbol, side=side, stop_price=new_sl_price)
+    }
+    return signed_post("/fapi/v1/order", params)

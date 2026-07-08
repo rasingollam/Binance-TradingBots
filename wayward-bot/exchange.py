@@ -141,12 +141,27 @@ def place_market_order(symbol: str, side: str, quantity: float):
     return signed_post("/fapi/v1/order", params)
 
 
-def close_position_market(symbol: str, side: str):
-    close_side = "SELL" if side == "BUY" else "BUY"
+def close_position_market(symbol: str):
+    position = fetch_position(symbol)
+    if not position:
+        raise ValueError(f"No open position found for {symbol}")
+
+    position_amt = float(position["positionAmt"])
+    if position_amt == 0:
+        raise ValueError(f"No open position found for {symbol}")
+
+    # Binance returns positive quantity for longs and negative for shorts.
+    close_side = "SELL" if position_amt > 0 else "BUY"
     params = {
         "symbol": symbol,
         "side": close_side,
         "type": "MARKET",
-        "closePosition": "true",
+        "quantity": abs(position_amt),
+        "reduceOnly": "true",
     }
+
+    position_side = position.get("positionSide")
+    if position_side and position_side != "BOTH":
+        params["positionSide"] = position_side
+
     return signed_post("/fapi/v1/order", params)

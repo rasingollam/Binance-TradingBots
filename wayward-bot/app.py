@@ -233,7 +233,7 @@ class BotTUI(App):
 
                     if hit_sl:
                         self.add_log(f"[red]SL hit ({active_trade['sl']}). Closing...[/]")
-                        close_position_market(SYMBOL, active_trade["side"])
+                        close_position_market(SYMBOL)
                         self.add_log("Position closed by SL")
                         active_trade = None
                         account = fetch_account_info()
@@ -244,7 +244,7 @@ class BotTUI(App):
 
                     if hit_tp:
                         self.add_log(f"[green]TP hit ({active_trade['tp']}). Closing...[/]")
-                        close_position_market(SYMBOL, active_trade["side"])
+                        close_position_market(SYMBOL)
                         self.add_log("Position closed by TP")
                         active_trade = None
                         account = fetch_account_info()

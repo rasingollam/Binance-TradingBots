@@ -83,14 +83,14 @@ while True:
 
         if hit_sl:
             print(f"\nSL hit ({active_trade['sl']}). Closing position...")
-            close_position_market(SYMBOL, active_trade["side"])
+            close_position_market(SYMBOL)
             print("Position closed by SL")
             active_trade = None
             continue
 
         if hit_tp:
             print(f"\nTP hit ({active_trade['tp']}). Closing position...")
-            close_position_market(SYMBOL, active_trade["side"])
+            close_position_market(SYMBOL)
             print("Position closed by TP")
             active_trade = None
             continue

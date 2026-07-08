@@ -499,13 +499,17 @@ BASE_URL = "https://fapi.binance.com"  # Production endpoint
 **Stop orders:** `STOP_MARKET` and `TAKE_PROFIT_MARKET` work on mainnet's `/fapi/v1/order`. You can replace the manual polling in the bot loop with real stop orders:
 
 ```python
-def place_stop_loss(symbol: str, side: str, stop_price: float, quantity: float):
+def close_position_market(symbol: str):
+    position = fetch_position(symbol)
+    position_amt = float(position["positionAmt"])
+    close_side = "SELL" if position_amt > 0 else "BUY"
+
     params = {
         "symbol": symbol,
-        "side": side,
-        "type": "STOP_MARKET",
-        "stopPrice": stop_price,
-        "closePosition": "true",
+        "side": close_side,
+        "type": "MARKET",
+        "quantity": abs(position_amt),
+        "reduceOnly": "true",
     }
     return signed_post("/fapi/v1/order", params)
 ```

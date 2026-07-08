@@ -1,3 +1,4 @@
+import time
 import requests
 import pandas as pd
 
@@ -99,6 +100,10 @@ def round_to_step(value: float, step: float):
     return round(value - (value % step), 10)
 
 
+def get_last_open_time(df: pd.DataFrame):
+    return int(df.iloc[-1]["open_time"])
+
+
 def check_signal(df: pd.DataFrame):
     candle = df.iloc[-2]
 
@@ -145,33 +150,44 @@ def check_signal(df: pd.DataFrame):
     return None
 
 
+last_checked_candle = None
+
 tick_size, step_size = fetch_symbol_rules(SYMBOL)
 
-df = fetch_futures_klines(SYMBOL, TIMEFRAME, LIMIT)
-df = calculate_indicators(df)
+while True:
+    df = fetch_futures_klines(SYMBOL, TIMEFRAME, LIMIT)
+    df = calculate_indicators(df)
 
-signal = check_signal(df)
+    current_open_time = get_last_open_time(df)
 
-if signal:
-    quantity = calculate_quantity(
-        entry=signal["entry"],
-        sl=signal["sl"],
-        risk_amount=RISK_AMOUNT
-    )
+    if current_open_time != last_checked_candle:
+        last_checked_candle = current_open_time
 
-    signal["entry"] = round_to_step(signal["entry"], tick_size)
-    signal["sl"] = round_to_step(signal["sl"], tick_size)
-    signal["tp"] = round_to_step(signal["tp"], tick_size)
-    signal["quantity"] = round_to_step(quantity, step_size)
+        print("\nNew candle opened. Checking signal...")
 
-    print("TRADE PLAN FOUND")
-    print("Side:", signal["side"])
-    print("Entry:", signal["entry"])
-    print("SL:", signal["sl"])
-    print("TP:", signal["tp"])
-    print("ATR:", signal["atr"])
-    print("Quantity:", signal["quantity"])
-    print("Risk: $", RISK_AMOUNT)
+        signal = check_signal(df)
 
-else:
-    print("No trade signal")
+        if signal:
+            quantity = calculate_quantity(
+                entry=signal["entry"],
+                sl=signal["sl"],
+                risk_amount=RISK_AMOUNT
+            )
+
+            signal["entry"] = round_to_step(signal["entry"], tick_size)
+            signal["sl"] = round_to_step(signal["sl"], tick_size)
+            signal["tp"] = round_to_step(signal["tp"], tick_size)
+            signal["quantity"] = round_to_step(quantity, step_size)
+
+            print("TRADE PLAN FOUND")
+            print("Side:", signal["side"])
+            print("Entry:", signal["entry"])
+            print("SL:", signal["sl"])
+            print("TP:", signal["tp"])
+            print("Quantity:", signal["quantity"])
+            print("Risk: $", RISK_AMOUNT)
+
+        else:
+            print("No trade signal")
+
+    time.sleep(2)

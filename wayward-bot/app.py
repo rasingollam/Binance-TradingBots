@@ -21,6 +21,7 @@ from risk import calculate_quantity, round_to_step
 
 class BotTUI(App):
     TITLE = "Binance Futures Bot"
+    ENABLE_COMMAND_PALETTE = False
     CSS = """
     Screen {
         layout: vertical;

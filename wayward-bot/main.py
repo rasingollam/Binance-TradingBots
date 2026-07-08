@@ -5,6 +5,8 @@ SYMBOL = "BTCUSDT"
 TIMEFRAME = "1m"
 LIMIT = 1500
 
+RISK_AMOUNT = 10
+
 ATR_PERIOD = 1000
 BB_PERIOD = 20
 BB_STD = 2
@@ -59,6 +61,16 @@ def calculate_indicators(df: pd.DataFrame):
     return df
 
 
+def calculate_quantity(entry: float, sl: float, risk_amount: float):
+    risk_per_unit = abs(entry - sl)
+
+    if risk_per_unit <= 0:
+        raise ValueError("Invalid entry/SL. Risk per unit must be greater than 0.")
+
+    quantity = risk_amount / risk_per_unit
+    return quantity
+
+
 def check_signal(df: pd.DataFrame):
     candle = df.iloc[-2]
 
@@ -111,7 +123,22 @@ df = calculate_indicators(df)
 signal = check_signal(df)
 
 if signal:
-    print("TRADE SIGNAL FOUND")
-    print(signal)
+    quantity = calculate_quantity(
+        entry=signal["entry"],
+        sl=signal["sl"],
+        risk_amount=RISK_AMOUNT
+    )
+
+    signal["quantity"] = quantity
+
+    print("TRADE PLAN FOUND")
+    print("Side:", signal["side"])
+    print("Entry:", signal["entry"])
+    print("SL:", signal["sl"])
+    print("TP:", signal["tp"])
+    print("ATR:", signal["atr"])
+    print("Quantity:", signal["quantity"])
+    print("Risk: $", RISK_AMOUNT)
+
 else:
     print("No trade signal")

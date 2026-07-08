@@ -290,6 +290,21 @@ def round_to_step(value: float, step: float):
     return round(value - (value % step), 10)
 
 
+def fetch_open_orders(symbol: str):
+    return signed_get("/fapi/v1/openOrders", {
+        "symbol": symbol
+    })
+
+
+def cancel_all_open_orders(symbol: str):
+    open_orders = fetch_open_orders(symbol)
+
+    for order in open_orders:
+        cancel_order(symbol, order["orderId"])
+
+    return len(open_orders)
+
+
 def get_last_open_time(df: pd.DataFrame):
     return int(df.iloc[-1]["open_time"])
 
@@ -401,6 +416,18 @@ while True:
             continue
 
     if active_trade:
+        position = fetch_position(SYMBOL)
+        position_amount = float(position["positionAmt"])
+
+        if position_amount == 0:
+            cancelled_count = cancel_all_open_orders(SYMBOL)
+
+            print("Position closed.")
+            print("Remaining open orders cancelled:", cancelled_count)
+
+            active_trade = None
+            continue
+
         current_atr = float(df.iloc[-2]["atr"])
 
         new_sl = calculate_trailing_sl(

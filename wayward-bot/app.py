@@ -137,6 +137,7 @@ class BotTUI(App):
         last_checked_candle = None
         pending_order = None
         active_trade = None
+        balance_ticks = 0
 
         self.set_status("Waiting for signal...")
 
@@ -173,9 +174,17 @@ class BotTUI(App):
                             self.add_log(f"Entry price reached ({pending_order['entry']}). Placing MARKET BUY...")
                             order = place_market_order(SYMBOL, "BUY", pending_order["quantity"])
                             self.add_log(f"Entry filled: {order['orderId']}")
-                            self.set_status("Position opened")
-                            self.set_trade(f"[green]BUY[/] open | Entry: {pending_order['entry']} | SL: {pending_order['sl']} | TP: {pending_order['tp']}")
+                            active_trade = {
+                                "side": pending_order["side"],
+                                "entry": pending_order["entry"],
+                                "sl": pending_order["sl"],
+                                "tp": pending_order["tp"],
+                            }
                             pending_order = None
+                            account = fetch_account_info()
+                            self.update_balance(account["totalWalletBalance"], account["availableBalance"])
+                            self.set_status("Position opened")
+                            self.set_trade(f"[green]BUY[/] open | Entry: {active_trade['entry']} | SL: {active_trade['sl']} | TP: {active_trade['tp']}")
                             continue
 
                     elif pending_order["side"] == "SELL":
@@ -185,9 +194,17 @@ class BotTUI(App):
                             self.add_log(f"Entry price reached ({pending_order['entry']}). Placing MARKET SELL...")
                             order = place_market_order(SYMBOL, "SELL", pending_order["quantity"])
                             self.add_log(f"Entry filled: {order['orderId']}")
-                            self.set_status("Position opened")
-                            self.set_trade(f"[red]SELL[/] open | Entry: {pending_order['entry']} | SL: {pending_order['sl']} | TP: {pending_order['tp']}")
+                            active_trade = {
+                                "side": pending_order["side"],
+                                "entry": pending_order["entry"],
+                                "sl": pending_order["sl"],
+                                "tp": pending_order["tp"],
+                            }
                             pending_order = None
+                            account = fetch_account_info()
+                            self.update_balance(account["totalWalletBalance"], account["availableBalance"])
+                            self.set_status("Position opened")
+                            self.set_trade(f"[red]SELL[/] open | Entry: {active_trade['entry']} | SL: {active_trade['sl']} | TP: {active_trade['tp']}")
                             continue
 
                     if should_cancel:
@@ -218,6 +235,8 @@ class BotTUI(App):
                         close_position_market(SYMBOL, active_trade["side"])
                         self.add_log("Position closed by SL")
                         active_trade = None
+                        account = fetch_account_info()
+                        self.update_balance(account["totalWalletBalance"], account["availableBalance"])
                         self.set_status("Waiting for signal...")
                         self.set_trade("No active trade")
                         continue
@@ -227,6 +246,8 @@ class BotTUI(App):
                         close_position_market(SYMBOL, active_trade["side"])
                         self.add_log("Position closed by TP")
                         active_trade = None
+                        account = fetch_account_info()
+                        self.update_balance(account["totalWalletBalance"], account["availableBalance"])
                         self.set_status("Waiting for signal...")
                         self.set_trade("No active trade")
                         continue
@@ -286,6 +307,13 @@ class BotTUI(App):
                         }
                     else:
                         self.set_status("Waiting for signal...")
+
+                # Periodic balance refresh (every 10 seconds)
+                balance_ticks += 1
+                if balance_ticks >= 10:
+                    balance_ticks = 0
+                    account = fetch_account_info()
+                    self.update_balance(account["totalWalletBalance"], account["availableBalance"])
 
             except Exception as e:
                 self.add_log(f"[red]Error: {e}[/]")

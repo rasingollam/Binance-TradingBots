@@ -1,0 +1,7 @@
+# Binance Trading Bot Guide
+
+> Comprehensive guide for building cryptocurrency futures trading bots using the wayward-bot template, based on Binance Futures API.
+
+## Docs
+
+- [How to Build a Cryptocurrency Futures Trading Bot](/docs/how-to-build-a-trading-bot.md): Full guide covering architecture, config, exchange API client, indicators (ATR, Bollinger Bands), strategy logic, risk management, bot loop, TUI, adapting for any exchange/strategy, and going to mainnet.

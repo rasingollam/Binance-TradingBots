@@ -59,14 +59,59 @@ def calculate_indicators(df: pd.DataFrame):
     return df
 
 
+def check_signal(df: pd.DataFrame):
+    candle = df.iloc[-2]
+
+    candle_size = candle["high"] - candle["low"]
+
+    buy_signal = (
+        candle["close"] < candle["bb_lower"]
+        and candle_size > candle["atr"] * 1
+    )
+
+    sell_signal = (
+        candle["close"] > candle["bb_upper"]
+        and candle_size > candle["atr"] * 1
+    )
+
+    if buy_signal:
+        entry = candle["close"] + candle["atr"] * 0.2
+        sl = entry - candle["atr"] * 1
+        tp = candle["bb_middle"]
+
+        return {
+            "side": "BUY",
+            "entry": entry,
+            "sl": sl,
+            "tp": tp,
+            "atr": candle["atr"],
+            "close": candle["close"],
+        }
+
+    if sell_signal:
+        entry = candle["close"] - candle["atr"] * 0.2
+        sl = entry + candle["atr"] * 1
+        tp = candle["bb_middle"]
+
+        return {
+            "side": "SELL",
+            "entry": entry,
+            "sl": sl,
+            "tp": tp,
+            "atr": candle["atr"],
+            "close": candle["close"],
+        }
+
+    return None
+
+
 df = fetch_futures_klines(SYMBOL, TIMEFRAME, LIMIT)
 df = calculate_indicators(df)
 
-last = df.iloc[-1]
+signal = check_signal(df)
 
-print("Latest candle:")
-print("Close:", last["close"])
-print("ATR:", last["atr"])
-print("BB Upper:", last["bb_upper"])
-print("BB Middle:", last["bb_middle"])
-print("BB Lower:", last["bb_lower"])
+if signal:
+    print("TRADE SIGNAL FOUND")
+    print(signal)
+else:
+    print("No trade signal")

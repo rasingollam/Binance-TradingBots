@@ -195,6 +195,44 @@ def cancel_order(symbol: str, order_id: int):
     })
 
 
+def fetch_position(symbol: str):
+    positions = signed_get("/fapi/v2/positionRisk", {
+        "symbol": symbol
+    })
+
+    for position in positions:
+        if position["symbol"] == symbol:
+            return position
+
+    return None
+
+
+def place_stop_loss(symbol: str, side: str, stop_price: float):
+    close_side = "SELL" if side == "BUY" else "BUY"
+
+    return signed_post("/fapi/v1/order", {
+        "symbol": symbol,
+        "side": close_side,
+        "type": "STOP_MARKET",
+        "stopPrice": stop_price,
+        "closePosition": "true",
+        "workingType": "MARK_PRICE",
+    })
+
+
+def place_take_profit(symbol: str, side: str, take_profit_price: float):
+    close_side = "SELL" if side == "BUY" else "BUY"
+
+    return signed_post("/fapi/v1/order", {
+        "symbol": symbol,
+        "side": close_side,
+        "type": "TAKE_PROFIT_MARKET",
+        "stopPrice": take_profit_price,
+        "closePosition": "true",
+        "workingType": "MARK_PRICE",
+    })
+
+
 def should_cancel_pending_order(pending_order, current_price: float):
     if pending_order["side"] == "BUY":
         return current_price <= pending_order["sl"]
@@ -282,6 +320,7 @@ print("Available balance:", account["availableBalance"])
 
 last_checked_candle = None
 pending_order = None
+active_trade = None
 
 tick_size, step_size = fetch_symbol_rules(SYMBOL)
 
@@ -296,6 +335,39 @@ while True:
             result = cancel_order(SYMBOL, pending_order["order_id"])
             print("Pending order cancelled because price touched SL before entry")
             print(result)
+
+            pending_order = None
+            continue
+
+        position = fetch_position(SYMBOL)
+        position_amount = float(position["positionAmt"])
+
+        if position_amount != 0:
+            print("Entry filled. Position opened.")
+
+            sl_order = place_stop_loss(
+                symbol=SYMBOL,
+                side=pending_order["side"],
+                stop_price=pending_order["sl"]
+            )
+
+            tp_order = place_take_profit(
+                symbol=SYMBOL,
+                side=pending_order["side"],
+                take_profit_price=pending_order["tp"]
+            )
+
+            active_trade = {
+                "side": pending_order["side"],
+                "entry": pending_order["entry"],
+                "sl": pending_order["sl"],
+                "tp": pending_order["tp"],
+                "sl_order_id": sl_order["orderId"],
+                "tp_order_id": tp_order["orderId"],
+            }
+
+            print("SL placed:", sl_order["orderId"])
+            print("TP placed:", tp_order["orderId"])
 
             pending_order = None
             continue
@@ -344,6 +416,7 @@ while True:
                 "side": signal["side"],
                 "entry": signal["entry"],
                 "sl": signal["sl"],
+                "tp": signal["tp"],
             }
 
         else:

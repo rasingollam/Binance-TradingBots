@@ -258,6 +258,34 @@ def place_stop_entry_order(symbol: str, side: str, quantity: float, stop_price: 
     return signed_post("/fapi/v1/order", params)
 
 
+def update_stop_loss(symbol: str, side: str, old_sl_order_id: int, new_sl_price: float):
+    cancel_order(symbol, old_sl_order_id)
+
+    return place_stop_loss(
+        symbol=symbol,
+        side=side,
+        stop_price=new_sl_price
+    )
+
+
+def calculate_trailing_sl(active_trade, current_price: float, atr: float):
+    trail_distance = atr * 0.2
+
+    if active_trade["side"] == "BUY":
+        new_sl = current_price - trail_distance
+
+        if new_sl > active_trade["sl"]:
+            return new_sl
+
+    if active_trade["side"] == "SELL":
+        new_sl = current_price + trail_distance
+
+        if new_sl < active_trade["sl"]:
+            return new_sl
+
+    return None
+
+
 def round_to_step(value: float, step: float):
     return round(value - (value % step), 10)
 
@@ -371,6 +399,30 @@ while True:
 
             pending_order = None
             continue
+
+    if active_trade:
+        current_atr = float(df.iloc[-2]["atr"])
+
+        new_sl = calculate_trailing_sl(
+            active_trade=active_trade,
+            current_price=current_price,
+            atr=current_atr
+        )
+
+        if new_sl:
+            new_sl = round_to_step(new_sl, tick_size)
+
+            sl_order = update_stop_loss(
+                symbol=SYMBOL,
+                side=active_trade["side"],
+                old_sl_order_id=active_trade["sl_order_id"],
+                new_sl_price=new_sl
+            )
+
+            active_trade["sl"] = new_sl
+            active_trade["sl_order_id"] = sl_order["orderId"]
+
+            print("Trailing SL updated:", new_sl)
 
     current_open_time = get_last_open_time(df)
 

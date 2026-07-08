@@ -163,6 +163,48 @@ def signed_post(path: str, params=None):
     return response.json()
 
 
+def signed_delete(path: str, params=None):
+    if params is None:
+        params = {}
+
+    params["timestamp"] = int(time.time() * 1000)
+
+    query_string = urlencode(params)
+    signature = hmac.new(
+        SECRET_KEY.encode("utf-8"),
+        query_string.encode("utf-8"),
+        hashlib.sha256
+    ).hexdigest()
+
+    url = f"{BASE_URL}{path}?{query_string}&signature={signature}"
+
+    headers = {
+        "X-MBX-APIKEY": API_KEY
+    }
+
+    response = requests.delete(url, headers=headers, timeout=10)
+    response.raise_for_status()
+
+    return response.json()
+
+
+def cancel_order(symbol: str, order_id: int):
+    return signed_delete("/fapi/v1/order", {
+        "symbol": symbol,
+        "orderId": order_id,
+    })
+
+
+def should_cancel_pending_order(pending_order, current_price: float):
+    if pending_order["side"] == "BUY":
+        return current_price <= pending_order["sl"]
+
+    if pending_order["side"] == "SELL":
+        return current_price >= pending_order["sl"]
+
+    return False
+
+
 def place_stop_entry_order(symbol: str, side: str, quantity: float, stop_price: float):
     order_side = "BUY" if side == "BUY" else "SELL"
 
@@ -239,12 +281,24 @@ print("Total wallet balance:", account["totalWalletBalance"])
 print("Available balance:", account["availableBalance"])
 
 last_checked_candle = None
+pending_order = None
 
 tick_size, step_size = fetch_symbol_rules(SYMBOL)
 
 while True:
     df = fetch_futures_klines(SYMBOL, TIMEFRAME, LIMIT)
     df = calculate_indicators(df)
+
+    current_price = float(df.iloc[-1]["close"])
+
+    if pending_order:
+        if should_cancel_pending_order(pending_order, current_price):
+            result = cancel_order(SYMBOL, pending_order["order_id"])
+            print("Pending order cancelled because price touched SL before entry")
+            print(result)
+
+            pending_order = None
+            continue
 
     current_open_time = get_last_open_time(df)
 
@@ -284,6 +338,13 @@ while True:
 
             print("STOP ENTRY ORDER PLACED")
             print(order)
+
+            pending_order = {
+                "order_id": order["orderId"],
+                "side": signal["side"],
+                "entry": signal["entry"],
+                "sl": signal["sl"],
+            }
 
         else:
             print("No trade signal")

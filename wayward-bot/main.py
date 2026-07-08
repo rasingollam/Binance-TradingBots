@@ -71,6 +71,34 @@ def calculate_quantity(entry: float, sl: float, risk_amount: float):
     return quantity
 
 
+def fetch_symbol_rules(symbol: str):
+    url = "https://fapi.binance.com/fapi/v1/exchangeInfo"
+    response = requests.get(url, timeout=10)
+    response.raise_for_status()
+
+    data = response.json()
+
+    for item in data["symbols"]:
+        if item["symbol"] == symbol:
+            tick_size = None
+            step_size = None
+
+            for f in item["filters"]:
+                if f["filterType"] == "PRICE_FILTER":
+                    tick_size = float(f["tickSize"])
+
+                if f["filterType"] == "LOT_SIZE":
+                    step_size = float(f["stepSize"])
+
+            return tick_size, step_size
+
+    raise ValueError(f"Symbol rules not found for {symbol}")
+
+
+def round_to_step(value: float, step: float):
+    return round(value - (value % step), 10)
+
+
 def check_signal(df: pd.DataFrame):
     candle = df.iloc[-2]
 
@@ -117,6 +145,8 @@ def check_signal(df: pd.DataFrame):
     return None
 
 
+tick_size, step_size = fetch_symbol_rules(SYMBOL)
+
 df = fetch_futures_klines(SYMBOL, TIMEFRAME, LIMIT)
 df = calculate_indicators(df)
 
@@ -129,7 +159,10 @@ if signal:
         risk_amount=RISK_AMOUNT
     )
 
-    signal["quantity"] = quantity
+    signal["entry"] = round_to_step(signal["entry"], tick_size)
+    signal["sl"] = round_to_step(signal["sl"], tick_size)
+    signal["tp"] = round_to_step(signal["tp"], tick_size)
+    signal["quantity"] = round_to_step(quantity, step_size)
 
     print("TRADE PLAN FOUND")
     print("Side:", signal["side"])

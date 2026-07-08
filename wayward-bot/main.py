@@ -1,6 +1,19 @@
+import os
 import time
+import hmac
+import hashlib
+from urllib.parse import urlencode
+
 import requests
 import pandas as pd
+from dotenv import load_dotenv
+
+load_dotenv()
+
+API_KEY = os.getenv("BINANCE_API_KEY")
+SECRET_KEY = os.getenv("BINANCE_SECRET_KEY")
+
+BASE_URL = "https://testnet.binancefuture.com"
 
 SYMBOL = "BTCUSDT"
 TIMEFRAME = "1m"
@@ -96,6 +109,35 @@ def fetch_symbol_rules(symbol: str):
     raise ValueError(f"Symbol rules not found for {symbol}")
 
 
+def signed_get(path: str, params=None):
+    if params is None:
+        params = {}
+
+    params["timestamp"] = int(time.time() * 1000)
+
+    query_string = urlencode(params)
+    signature = hmac.new(
+        SECRET_KEY.encode("utf-8"),
+        query_string.encode("utf-8"),
+        hashlib.sha256
+    ).hexdigest()
+
+    url = f"{BASE_URL}{path}?{query_string}&signature={signature}"
+
+    headers = {
+        "X-MBX-APIKEY": API_KEY
+    }
+
+    response = requests.get(url, headers=headers, timeout=10)
+    response.raise_for_status()
+
+    return response.json()
+
+
+def fetch_account_info():
+    return signed_get("/fapi/v2/account")
+
+
 def round_to_step(value: float, step: float):
     return round(value - (value % step), 10)
 
@@ -150,6 +192,12 @@ def check_signal(df: pd.DataFrame):
     return None
 
 
+account = fetch_account_info()
+
+print("Connected to Binance Futures Testnet")
+print("Total wallet balance:", account["totalWalletBalance"])
+print("Available balance:", account["availableBalance"])
+
 last_checked_candle = None
 
 tick_size, step_size = fetch_symbol_rules(SYMBOL)
@@ -190,4 +238,4 @@ while True:
         else:
             print("No trade signal")
 
-    time.sleep(2)
+    time.sleep(1)

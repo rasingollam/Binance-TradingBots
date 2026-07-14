@@ -16,8 +16,8 @@ PAIRS = [
     ("ETHUSDT", 10),
 ]
 
-TP_MULTIPLIER = 1.5  # Sell when price reaches previous sell ATH * this value.
-TP_PERCENTAGE = 0.50  # Position fraction to sell at take profit.
+TP_MULTIPLIER = 1  # Sell when price reaches previous sell ATH * this value.
+TP_PERCENTAGE = 0.20  # Position fraction to sell at take profit.
 
 # (minimum drawdown from ATH %, reserve percentage to deploy)
 # No extra reserve buy occurs at a fresh ATH.

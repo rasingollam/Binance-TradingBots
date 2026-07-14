@@ -6,19 +6,41 @@ const layout = (extra = {}) => ({ paper_bgcolor: 'transparent', plot_bgcolor: 't
 function metrics(data) {
   const records = data.records;
   const values = records.map(row => row.portfolio_value);
-  const returns = values.slice(1).map((value, i) => (value / values[i] - 1) * 100);
+  const monthlyContributions = records.slice(1).map((row, i) => row.injected - records[i].injected);
+  const returns = values.slice(1).map((value, i) => ((value - monthlyContributions[i]) / values[i] - 1) * 100);
   let peak = values[0], maxDd = 0;
   const drawdowns = values.map(value => { peak = Math.max(peak, value); const dd = (value / peak - 1) * 100; maxDd = Math.min(maxDd, dd); return dd; });
   const last = records.at(-1);
-  const returnPct = (last.portfolio_value / last.injected - 1) * 100;
   const months = records.length;
-  const annual = (Math.pow(last.portfolio_value / last.injected, 12 / months) - 1) * 100;
+  const returnPct = (last.portfolio_value / last.injected - 1) * 100;
+  const elapsedYears = (new Date(last.date) - new Date(records[0].date)) / (365.2425 * 24 * 60 * 60 * 1000);
+  const annual = elapsedYears > 0 ? (Math.pow(last.portfolio_value / last.injected, 1 / elapsedYears) - 1) * 100 : 0;
   const avg = returns.reduce((a, b) => a + b, 0) / returns.length;
   const variance = returns.reduce((a, value) => a + (value - avg) ** 2, 0) / returns.length;
   const sharpe = variance ? avg / Math.sqrt(variance) * Math.sqrt(12) : 0;
+  const downsideVariance = returns.reduce((sum, value) => sum + Math.min(value, 0) ** 2, 0) / returns.length;
+  const sortino = downsideVariance ? avg / Math.sqrt(downsideVariance) * Math.sqrt(12) : 0;
   const positives = returns.filter(value => value > 0).reduce((a, b) => a + b, 0);
   const negatives = returns.filter(value => value < 0).reduce((a, b) => a + Math.abs(b), 0);
-  return { last, values, returns, drawdowns, maxDd, returnPct, annual, sharpe, profitFactor: negatives ? positives / negatives : 0, winRate: returns.filter(value => value > 0).length / returns.length * 100 };
+  const ulcerIndex = Math.sqrt(drawdowns.reduce((sum, value) => sum + value ** 2, 0) / drawdowns.length);
+  let peakIndex = 0, maxRecoveryMonths = 0;
+  for (let index = 1; index < values.length; index += 1) {
+    if (values[index] >= values[peakIndex]) {
+      maxRecoveryMonths = Math.max(maxRecoveryMonths, index - peakIndex);
+      peakIndex = index;
+    }
+  }
+  maxRecoveryMonths = Math.max(maxRecoveryMonths, values.length - 1 - peakIndex);
+  const rollingReturn = windowSize => {
+    if (returns.length < windowSize) return null;
+    let worst = Infinity;
+    for (let index = windowSize - 1; index < returns.length; index += 1) {
+      const result = returns.slice(index - windowSize + 1, index + 1).reduce((product, value) => product * (1 + value / 100), 1) - 1;
+      worst = Math.min(worst, result * 100);
+    }
+    return worst;
+  };
+  return { last, values, returns, drawdowns, maxDd, returnPct, annual, sharpe, sortino, ulcerIndex, calmar: maxDd ? annual / Math.abs(maxDd) : 0, maxRecoveryMonths, worst3Year: rollingReturn(36), worst5Year: rollingReturn(60), profitFactor: negatives ? positives / negatives : 0, winRate: returns.filter(value => value > 0).length / returns.length * 100 };
 }
 
 function render(data) {
@@ -48,7 +70,7 @@ function render(data) {
   document.querySelector('#notice').className = 'notice success';
   document.querySelector('#notice').textContent = `Loaded ${records.length} monthly records and ${events.length} trade events.`;
   document.querySelector('#metrics').innerHTML = [
-    ['Portfolio', fmtUsd(stat.last.portfolio_value)], ['External investment', fmtUsd(stat.last.injected)], ['Total return', fmtPct(stat.returnPct)], ['Annualized', fmtPct(stat.annual)], ['Max drawdown', fmtPct(stat.maxDd)], ['Sharpe', stat.sharpe.toFixed(2)], ['Profit factor', stat.profitFactor.toFixed(2)], ['Idle reserve', fmtUsd(stat.last.usdt)],
+    ['Portfolio', fmtUsd(stat.last.portfolio_value)], ['External investment', fmtUsd(stat.last.injected)], ['Total return', fmtPct(stat.returnPct)], ['CAGR (simple)', fmtPct(stat.annual)], ['Max drawdown', fmtPct(stat.maxDd)], ['Sortino', stat.sortino.toFixed(2)], ['Calmar', stat.calmar.toFixed(2)], ['Ulcer index', fmtPct(stat.ulcerIndex)], ['Max recovery', `${stat.maxRecoveryMonths} mo`], ['Worst 3-year', stat.worst3Year == null ? 'N/A' : fmtPct(stat.worst3Year)], ['Worst 5-year', stat.worst5Year == null ? 'N/A' : fmtPct(stat.worst5Year)], ['Idle reserve', fmtUsd(stat.last.usdt)],
   ].map(([label, value]) => `<div class="metric"><span>${label}</span><strong>${value}</strong></div>`).join('');
   const tiers = (config.drawdown_tiers || []).map(tier => `${tier.minimum_drawdown_pct}% DD -> ${tier.reserve_percentage}% reserve`).join(' | ');
   const minimums = config.min_order_usdt || {};

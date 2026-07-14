@@ -12,7 +12,7 @@ import requests
 # (symbol, monthly_invest, reinvest_start_pct, reinvest_step_pct, reinvest_cap_pct)
 PAIRS = [
     ("BTCUSDT", 10, 1, 2, 50),
-    # ("BNBUSDT", 10, 1, 1, 40),
+    ("BNBUSDT", 10, 1, 1, 40),
 ]
 
 TP_MULTIPLIER = 1.5  # Sell when price reaches previous sell ATH * this value.

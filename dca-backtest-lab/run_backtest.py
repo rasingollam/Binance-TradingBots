@@ -9,7 +9,7 @@ import requests
 
 
 # ===== PARAMETERS =====
-# (symbol, monthly_invest, reinvest_start_pct, reinvest_step_pct, reinvest_cap_pct)
+# (symbol, monthly_invest, legacy settings kept only for easy editing)
 PAIRS = [
     ("BTCUSDT", 10, 1, 2, 50),
     ("BNBUSDT", 10, 1, 1, 40),
@@ -17,7 +17,18 @@ PAIRS = [
 ]
 
 TP_MULTIPLIER = 1.5  # Sell when price reaches previous sell ATH * this value.
-TP_PERCENTAGE = 0.80  # Position fraction to sell at take profit.
+TP_PERCENTAGE = 0.50  # Position fraction to sell at take profit.
+
+# (minimum drawdown from ATH %, reserve percentage to deploy)
+# No extra reserve buy occurs at a fresh ATH.
+DRAWDOWN_TIERS = [
+    (0, 0),
+    (10, 1),
+    (20, 3),
+    (30, 7),
+    (40, 15),
+    (50, 40),
+]
 # ===== END PARAMETERS =====
 
 KLINE_COLUMNS = [
@@ -60,6 +71,15 @@ def fetch_monthly_klines(symbol):
     ]
 
 
+def reinvest_rate(drawdown_pct):
+    """Return the reserve percentage for the current ATH drawdown."""
+    rate = 0
+    for minimum_drawdown, percentage in DRAWDOWN_TIERS:
+        if drawdown_pct >= minimum_drawdown:
+            rate = percentage
+    return rate
+
+
 def run_backtest():
     monthly_total = sum(pair[1] for pair in PAIRS)
     candles = {symbol: fetch_monthly_klines(symbol) for symbol, *_ in PAIRS}
@@ -76,7 +96,7 @@ def run_backtest():
         for symbol, series in candles.items()
     }
     state = {
-        symbol: {"units": 0.0, "ath": 0.0, "ath_sell": 0.0, "reinvest": float(start), "cap": float(cap)}
+        symbol: {"units": 0.0, "ath": 0.0, "ath_sell": 0.0, "reinvest": 0.0}
         for symbol, _, start, _, cap in PAIRS
     }
     records = []
@@ -94,13 +114,17 @@ def run_backtest():
             candle = candle_by_date[symbol][date]
             close = candle["close"]
 
-            # Reserve is deliberately used before the new monthly DCA allocation.
-            if candle["close"] < candle["open"]:
+            previous_ath = asset["ath"] or close
+            drawdown_pct = max(0.0, (1 - close / previous_ath) * 100)
+            asset["reinvest"] = reinvest_rate(drawdown_pct)
+
+            # Reserve is used only on red candles and scales with ATH drawdown.
+            if candle["close"] < candle["open"] and asset["reinvest"] > 0:
                 dip_amount = min(usdt * asset["reinvest"] / 100, usdt - monthly_total)
                 if dip_amount > 5:
                     asset["units"] += dip_amount / close
                     usdt -= dip_amount
-                    events.append({"date": date, "symbol": symbol, "type": "dip", "price": close, "amount": dip_amount})
+                    events.append({"date": date, "symbol": symbol, "type": "dip", "price": close, "amount": dip_amount, "drawdown_pct": drawdown_pct, "reinvest_pct": asset["reinvest"]})
                     actions.append(f"{symbol[:3]} dip ${dip_amount:.0f}")
 
             if usdt >= monthly_invest:
@@ -116,12 +140,10 @@ def run_backtest():
                 sell_amount = asset["units"] * TP_PERCENTAGE * close
                 asset["units"] -= asset["units"] * TP_PERCENTAGE
                 usdt += sell_amount
-                asset["reinvest"] = float(start)
+                asset["reinvest"] = 0.0
                 asset["ath_sell"] = asset["ath"]
                 events.append({"date": date, "symbol": symbol, "type": "sell", "price": close, "amount": sell_amount})
                 actions.append(f"{symbol[:3]} sell {TP_PERCENTAGE * 100:.0f}%")
-            else:
-                asset["reinvest"] = min(float(cap), asset["reinvest"] + float(step))
 
         positions = {}
         portfolio_value = usdt
@@ -164,6 +186,10 @@ def run_backtest():
             "monthly_total": monthly_total,
             "tp_multiplier": TP_MULTIPLIER,
             "tp_percentage": TP_PERCENTAGE,
+            "drawdown_tiers": [
+                {"minimum_drawdown_pct": minimum, "reserve_percentage": percentage}
+                for minimum, percentage in DRAWDOWN_TIERS
+            ],
         },
         "records": records,
         "events": events,

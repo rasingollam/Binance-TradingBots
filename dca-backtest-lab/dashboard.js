@@ -50,7 +50,8 @@ function render(data) {
   document.querySelector('#metrics').innerHTML = [
     ['Portfolio', fmtUsd(stat.last.portfolio_value)], ['External investment', fmtUsd(stat.last.injected)], ['Total return', fmtPct(stat.returnPct)], ['Annualized', fmtPct(stat.annual)], ['Max drawdown', fmtPct(stat.maxDd)], ['Sharpe', stat.sharpe.toFixed(2)], ['Profit factor', stat.profitFactor.toFixed(2)], ['Idle reserve', fmtUsd(stat.last.usdt)],
   ].map(([label, value]) => `<div class="metric"><span>${label}</span><strong>${value}</strong></div>`).join('');
-  document.querySelector('#strategy').innerHTML = `<b>Monthly investment:</b> ${fmtUsd(config.monthly_total)}. <b>Take profit:</b> sell ${(config.tp_percentage * 100).toFixed(0)}% when price reaches ${config.tp_multiplier}x the prior sell ATH. <b>Pairs:</b> ${config.pairs.map(pair => `${pair.symbol} (${fmtUsd(pair.monthly_invest)}/mo, ${pair.reinvest_start_pct}% + ${pair.reinvest_step_pct}% to ${pair.reinvest_cap_pct}%)`).join(' | ')}.`;
+  const tiers = (config.drawdown_tiers || []).map(tier => `${tier.minimum_drawdown_pct}% DD -> ${tier.reserve_percentage}% reserve`).join(' | ');
+  document.querySelector('#strategy').innerHTML = `<b>Monthly investment:</b> ${fmtUsd(config.monthly_total)}. <b>Take profit:</b> sell ${(config.tp_percentage * 100).toFixed(0)}% when price reaches ${config.tp_multiplier}x the prior sell ATH. <b>Drawdown reinvestment:</b> ${tiers || 'legacy progressive settings'}. <b>Pairs:</b> ${config.pairs.map(pair => `${pair.symbol} (${fmtUsd(pair.monthly_invest)}/mo)`).join(' | ')}.`;
 
   Plotly.react('equity-chart', [
     { x: dates, y: records.map(row => row.injected), name: 'Cost basis', mode: 'lines', line: { color: '#94a3b8', dash: 'dot' } },
@@ -78,14 +79,14 @@ function render(data) {
     { x: dates, y: records.map(row => row.usdt), name: 'USDT reserve', mode: 'lines', yaxis: 'y2', line: { color: '#f8fafc', width: 2 }, hovertemplate: '%{x}<br>Reserve: $%{y:,.2f}<extra></extra>' },
   ], layout({ barmode: 'group', yaxis: { tickprefix: '$' }, yaxis2: { title: 'Reserve', tickprefix: '$', overlaying: 'y', side: 'right', gridcolor: 'transparent' } }), { responsive: true });
   choosePair(select.value);
-  document.querySelector('#events-table').innerHTML = [...events].reverse().map(event => `<tr><td>${event.date}</td><td>${event.symbol}</td><td class="${event.type}">${event.type}</td><td>${fmtUsd(event.price)}</td><td>${fmtUsd(event.amount)}</td></tr>`).join('');
+  document.querySelector('#events-table').innerHTML = [...events].reverse().map(event => `<tr><td>${event.date}</td><td>${event.symbol}</td><td class="${event.type}">${event.type}</td><td>${fmtUsd(event.price)}</td><td>${fmtUsd(event.amount)}</td><td>${event.drawdown_pct == null ? '-' : `${event.drawdown_pct.toFixed(1)}%`}</td><td>${event.reinvest_pct == null ? '-' : `${event.reinvest_pct.toFixed(0)}%`}</td></tr>`).join('');
 }
 
 function renderPrice(data, symbol) {
   const eventTrace = type => data.events.filter(event => event.symbol === symbol && event.type === type);
   const markers = { buy: { name: 'DCA buy', color: '#42d392', symbol: 'triangle-up', size: 8 }, dip: { name: 'Dip buy', color: '#60a5fa', symbol: 'triangle-up', size: 10 }, sell: { name: 'Sell', color: '#ff6b7a', symbol: 'triangle-down', size: 11 } };
   const traces = [{ x: data.records.map(row => row.date), y: data.records.map(row => row.positions[symbol].close), name: symbol, mode: 'lines', line: { color: colors[symbol] || '#60a5fa', width: 2 } }];
-  for (const type of Object.keys(markers)) { const points = eventTrace(type), style = markers[type]; traces.push({ x: points.map(point => point.date), y: points.map(point => point.price), customdata: points.map(point => point.amount), name: style.name, mode: 'markers', marker: { color: style.color, symbol: style.symbol, size: points.map(point => Math.max(style.size, Math.min(32, Math.sqrt(point.amount) * 2.2))), sizemode: 'diameter' }, hovertemplate: '%{x}<br>Price: $%{y:,.2f}<br>USDT amount: $%{customdata:,.2f}<extra>' + style.name + '</extra>' }); }
+  for (const type of Object.keys(markers)) { const points = eventTrace(type), style = markers[type]; traces.push({ x: points.map(point => point.date), y: points.map(point => point.price), customdata: points.map(point => [point.amount, point.drawdown_pct, point.reinvest_pct]), name: style.name, mode: 'markers', marker: { color: style.color, symbol: style.symbol, size: points.map(point => Math.max(style.size, Math.min(32, Math.sqrt(point.amount) * 2.2))), sizemode: 'diameter' }, hovertemplate: '%{x}<br>Price: $%{y:,.2f}<br>USDT amount: $%{customdata[0]:,.2f}<br>ATH drawdown: %{customdata[1]:.1f}%<br>Reserve rate: %{customdata[2]:.0f}%<extra>' + style.name + '</extra>' }); }
   const chart = document.querySelector('#price-chart');
   if (chart.data) Plotly.purge(chart);
   Plotly.newPlot(chart, traces, layout({ title: { text: `${symbol}: marker size represents USDT invested or sold`, font: { size: 12, color: '#93a4c7' } }, yaxis: { tickprefix: '$' } }), { responsive: true });

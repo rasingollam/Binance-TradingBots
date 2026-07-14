@@ -45,7 +45,13 @@ function render(data) {
   ], layout({ yaxis: { tickprefix: '$' } }), { responsive: true });
   Plotly.react('returns-chart', [{ x: dates.slice(1), y: stat.returns, type: 'bar', marker: { color: stat.returns.map(value => value >= 0 ? '#42d392' : '#ff6b7a') } }], layout({ yaxis: { ticksuffix: '%' } }), { responsive: true });
   const eventTypes = ['buy', 'dip', 'sell'];
-  Plotly.react('events-chart', eventTypes.map(type => ({ x: dates, y: dates.map(date => events.filter(event => event.date === date && event.type === type).reduce((sum, event) => sum + event.amount, 0)), name: type, type: 'bar', marker: { color: { buy: '#42d392', dip: '#60a5fa', sell: '#ff6b7a' }[type] } })), layout({ barmode: 'group', yaxis: { tickprefix: '$' } }), { responsive: true });
+  const eventLabels = { buy: 'Monthly DCA', dip: 'Dip reinvestment', sell: 'Sell proceeds' };
+  const eventColors = { buy: '#42d392', dip: '#60a5fa', sell: '#ff6b7a' };
+  const monthlyFlow = type => dates.map(date => events.filter(event => event.date === date && event.type === type).reduce((sum, event) => sum + event.amount, 0));
+  Plotly.react('events-chart', [
+    ...eventTypes.map(type => ({ x: dates, y: monthlyFlow(type), name: eventLabels[type], type: 'bar', marker: { color: eventColors[type] }, hovertemplate: '%{x}<br>' + eventLabels[type] + ': $%{y:,.2f}<extra></extra>' })),
+    { x: dates, y: records.map(row => row.usdt), name: 'USDT reserve', mode: 'lines', yaxis: 'y2', line: { color: '#f8fafc', width: 2 }, hovertemplate: '%{x}<br>Reserve: $%{y:,.2f}<extra></extra>' },
+  ], layout({ barmode: 'group', yaxis: { tickprefix: '$' }, yaxis2: { title: 'Reserve', tickprefix: '$', overlaying: 'y', side: 'right', gridcolor: 'transparent' } }), { responsive: true });
   const select = document.querySelector('#pair-select');
   select.innerHTML = pairs.map(symbol => `<option>${symbol}</option>`).join('');
   select.onchange = () => renderPrice(data, select.value);
@@ -57,8 +63,8 @@ function renderPrice(data, symbol) {
   const eventTrace = type => data.events.filter(event => event.symbol === symbol && event.type === type);
   const markers = { buy: { name: 'DCA buy', color: '#42d392', symbol: 'triangle-up', size: 8 }, dip: { name: 'Dip buy', color: '#60a5fa', symbol: 'triangle-up', size: 10 }, sell: { name: 'Sell', color: '#ff6b7a', symbol: 'triangle-down', size: 11 } };
   const traces = [{ x: data.records.map(row => row.date), y: data.records.map(row => row.positions[symbol].close), name: symbol, mode: 'lines', line: { color: colors[symbol] || '#60a5fa', width: 2 } }];
-  for (const type of Object.keys(markers)) { const points = eventTrace(type), style = markers[type]; traces.push({ x: points.map(point => point.date), y: points.map(point => point.price), customdata: points.map(point => point.amount), name: style.name, mode: 'markers', marker: { color: style.color, symbol: style.symbol, size: style.size }, hovertemplate: '%{x}<br>$%{y:,.2f}<br>USDT %{customdata:,.2f}<extra>' + style.name + '</extra>' }); }
-  Plotly.react('price-chart', traces, layout({ yaxis: { tickprefix: '$' } }), { responsive: true });
+  for (const type of Object.keys(markers)) { const points = eventTrace(type), style = markers[type]; traces.push({ x: points.map(point => point.date), y: points.map(point => point.price), customdata: points.map(point => point.amount), name: style.name, mode: 'markers', marker: { color: style.color, symbol: style.symbol, size: points.map(point => Math.max(style.size, Math.min(32, Math.sqrt(point.amount) * 2.2))), sizemode: 'diameter' }, hovertemplate: '%{x}<br>Price: $%{y:,.2f}<br>USDT amount: $%{customdata:,.2f}<extra>' + style.name + '</extra>' }); }
+  Plotly.react('price-chart', traces, layout({ title: { text: 'Marker size represents USDT invested or sold', font: { size: 12, color: '#93a4c7' } }, yaxis: { tickprefix: '$' } }), { responsive: true });
 }
 
 async function loadDefault() {

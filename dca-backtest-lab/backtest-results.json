@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-07-14T14:58:11Z",
+  "generated_at": "2026-07-14T15:00:07Z",
   "config": {
     "pairs": [
       {
@@ -2593,18 +2593,18 @@
       "date": "2026-07-01",
       "injected": 2100.0,
       "usdt": 725.7574327796723,
-      "portfolio_value": 11268.236404235575,
+      "portfolio_value": 11301.607167256352,
       "positions": {
         "BTCUSDT": {
-          "close": 64079.99,
-          "units": 0.13171194467557262,
-          "value": 8440.100097691247,
+          "close": 64311.75,
+          "units": 0.13171138230094387,
+          "value": 8470.589490692726,
           "reinvest_pct": 41.0
         },
         "BNBUSDT": {
-          "close": 580.94,
-          "units": 3.6189260057228885,
-          "value": 2102.378873764655,
+          "close": 581.74,
+          "units": 3.6189023340048028,
+          "value": 2105.260243783954,
           "reinvest_pct": 11.0
         }
       },
@@ -4565,14 +4565,14 @@
       "date": "2026-07-01",
       "symbol": "BTCUSDT",
       "type": "buy",
-      "price": 64079.99,
+      "price": 64311.75,
       "amount": 10
     },
     {
       "date": "2026-07-01",
       "symbol": "BNBUSDT",
       "type": "buy",
-      "price": 580.94,
+      "price": 581.74,
       "amount": 10
     }
   ]

@@ -26,6 +26,24 @@ function render(data) {
   const stat = metrics(data);
   const pairs = config.pairs.map(pair => pair.symbol);
   const dates = records.map(row => row.date);
+  const select = document.querySelector('#pair-select');
+  const tabs = document.querySelector('#pair-tabs');
+  select.replaceChildren(...pairs.map(symbol => new Option(symbol, symbol)));
+  select.value = pairs[0];
+  tabs.replaceChildren(...pairs.map(symbol => {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.textContent = symbol;
+    button.dataset.symbol = symbol;
+    button.addEventListener('click', () => choosePair(symbol));
+    return button;
+  }));
+  const choosePair = symbol => {
+    select.value = symbol;
+    tabs.querySelectorAll('button').forEach(button => button.classList.toggle('active', button.dataset.symbol === symbol));
+    renderPrice(data, symbol);
+  };
+  select.onchange = event => choosePair(event.currentTarget.value);
   document.querySelector('#report-meta').textContent = `${records[0].date} to ${records.at(-1).date} | ${records.length} monthly candles | generated ${new Date(data.generated_at).toLocaleString()}`;
   document.querySelector('#notice').className = 'notice success';
   document.querySelector('#notice').textContent = `Loaded ${records.length} monthly records and ${events.length} trade events.`;
@@ -52,10 +70,7 @@ function render(data) {
     ...eventTypes.map(type => ({ x: dates, y: monthlyFlow(type), name: eventLabels[type], type: 'bar', marker: { color: eventColors[type] }, hovertemplate: '%{x}<br>' + eventLabels[type] + ': $%{y:,.2f}<extra></extra>' })),
     { x: dates, y: records.map(row => row.usdt), name: 'USDT reserve', mode: 'lines', yaxis: 'y2', line: { color: '#f8fafc', width: 2 }, hovertemplate: '%{x}<br>Reserve: $%{y:,.2f}<extra></extra>' },
   ], layout({ barmode: 'group', yaxis: { tickprefix: '$' }, yaxis2: { title: 'Reserve', tickprefix: '$', overlaying: 'y', side: 'right', gridcolor: 'transparent' } }), { responsive: true });
-  const select = document.querySelector('#pair-select');
-  select.innerHTML = pairs.map(symbol => `<option>${symbol}</option>`).join('');
-  select.onchange = () => renderPrice(data, select.value);
-  renderPrice(data, pairs[0]);
+  choosePair(select.value);
   document.querySelector('#events-table').innerHTML = [...events].reverse().map(event => `<tr><td>${event.date}</td><td>${event.symbol}</td><td class="${event.type}">${event.type}</td><td>${fmtUsd(event.price)}</td><td>${fmtUsd(event.amount)}</td></tr>`).join('');
 }
 
@@ -64,7 +79,9 @@ function renderPrice(data, symbol) {
   const markers = { buy: { name: 'DCA buy', color: '#42d392', symbol: 'triangle-up', size: 8 }, dip: { name: 'Dip buy', color: '#60a5fa', symbol: 'triangle-up', size: 10 }, sell: { name: 'Sell', color: '#ff6b7a', symbol: 'triangle-down', size: 11 } };
   const traces = [{ x: data.records.map(row => row.date), y: data.records.map(row => row.positions[symbol].close), name: symbol, mode: 'lines', line: { color: colors[symbol] || '#60a5fa', width: 2 } }];
   for (const type of Object.keys(markers)) { const points = eventTrace(type), style = markers[type]; traces.push({ x: points.map(point => point.date), y: points.map(point => point.price), customdata: points.map(point => point.amount), name: style.name, mode: 'markers', marker: { color: style.color, symbol: style.symbol, size: points.map(point => Math.max(style.size, Math.min(32, Math.sqrt(point.amount) * 2.2))), sizemode: 'diameter' }, hovertemplate: '%{x}<br>Price: $%{y:,.2f}<br>USDT amount: $%{customdata:,.2f}<extra>' + style.name + '</extra>' }); }
-  Plotly.react('price-chart', traces, layout({ title: { text: 'Marker size represents USDT invested or sold', font: { size: 12, color: '#93a4c7' } }, yaxis: { tickprefix: '$' } }), { responsive: true });
+  const chart = document.querySelector('#price-chart');
+  if (chart.data) Plotly.purge(chart);
+  Plotly.newPlot(chart, traces, layout({ title: { text: `${symbol}: marker size represents USDT invested or sold`, font: { size: 12, color: '#93a4c7' } }, yaxis: { tickprefix: '$' } }), { responsive: true });
 }
 
 async function loadDefault() {

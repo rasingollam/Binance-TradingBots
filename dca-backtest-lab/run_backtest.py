@@ -13,6 +13,7 @@ import requests
 PAIRS = [
     ("BTCUSDT", 10, 1, 2, 50),
     ("BNBUSDT", 10, 1, 1, 40),
+    ('ETHUSDT', 10, 1, 1, 40),
 ]
 
 TP_MULTIPLIER = 1.5  # Sell when price reaches previous sell ATH * this value.

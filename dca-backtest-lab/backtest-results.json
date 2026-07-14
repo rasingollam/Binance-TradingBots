@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-07-14T15:00:07Z",
+  "generated_at": "2026-07-14T15:59:42Z",
   "config": {
     "pairs": [
       {
@@ -16,18 +16,25 @@
         "reinvest_start_pct": 1,
         "reinvest_step_pct": 1,
         "reinvest_cap_pct": 40
+      },
+      {
+        "symbol": "ETHUSDT",
+        "monthly_invest": 10,
+        "reinvest_start_pct": 1,
+        "reinvest_step_pct": 1,
+        "reinvest_cap_pct": 40
       }
     ],
-    "monthly_total": 20,
+    "monthly_total": 30,
     "tp_multiplier": 1.5,
     "tp_percentage": 0.8
   },
   "records": [
     {
       "date": "2017-11-01",
-      "injected": 20.0,
+      "injected": 30.0,
       "usdt": 0.0,
-      "portfolio_value": 20.0,
+      "portfolio_value": 30.0,
       "positions": {
         "BTCUSDT": {
           "close": 9838.96,
@@ -40,18 +47,25 @@
           "units": 5.128205128205129,
           "value": 10.0,
           "reinvest_pct": 1.0
+        },
+        "ETHUSDT": {
+          "close": 427.43,
+          "units": 0.023395643731137263,
+          "value": 10.0,
+          "reinvest_pct": 1.0
         }
       },
       "actions": [
         "BTC DCA $10",
-        "BNB DCA $10"
+        "BNB DCA $10",
+        "ETH DCA $10"
       ]
     },
     {
       "date": "2017-12-01",
-      "injected": 40.0,
-      "usdt": 42.9948717948718,
-      "portfolio_value": 77.68445341210756,
+      "injected": 60.0,
+      "usdt": 64.7324194634959,
+      "portfolio_value": 104.85638799788768,
       "positions": {
         "BTCUSDT": {
           "close": 13716.36,
@@ -64,19 +78,27 @@
           "units": 1.2601076141521625,
           "value": 10.748717948717946,
           "reinvest_pct": 1.0
+        },
+        "ETHUSDT": {
+          "close": 733.98,
+          "units": 0.007403998633690324,
+          "value": 5.434386917156025,
+          "reinvest_pct": 1.0
         }
       },
       "actions": [
         "BTC DCA $10",
         "BNB DCA $10",
-        "BNB sell 80%"
+        "BNB sell 80%",
+        "ETH DCA $10",
+        "ETH sell 80%"
       ]
     },
     {
       "date": "2018-01-01",
-      "injected": 60.0,
-      "usdt": 42.9948717948718,
-      "portfolio_value": 95.20245542588741,
+      "injected": 90.0,
+      "usdt": 79.39489282602487,
+      "portfolio_value": 135.26809479767275,
       "positions": {
         "BTCUSDT": {
           "close": 10285.1,
@@ -89,18 +111,26 @@
           "units": 2.144038632175516,
           "value": 24.25572344966483,
           "reinvest_pct": 2.0
+        },
+        "ETHUSDT": {
+          "close": 1124.81,
+          "units": 0.0032588778021463566,
+          "value": 3.665618340632243,
+          "reinvest_pct": 1.0
         }
       },
       "actions": [
         "BTC DCA $10",
-        "BNB DCA $10"
+        "BNB DCA $10",
+        "ETH DCA $10",
+        "ETH sell 80%"
       ]
     },
     {
       "date": "2018-02-01",
-      "injected": 80.0,
-      "usdt": 42.9948717948718,
-      "portfolio_value": 113.47287378139634,
+      "injected": 120.0,
+      "usdt": 79.39489282602487,
+      "portfolio_value": 162.65434701668133,
       "positions": {
         "BTCUSDT": {
           "close": 10326.76,
@@ -113,23 +143,30 @@
           "units": 3.100646881965062,
           "value": 32.41292224530997,
           "reinvest_pct": 3.0
+        },
+        "ETHUSDT": {
+          "close": 853.5,
+          "units": 0.014975339430734523,
+          "value": 12.781452204131917,
+          "reinvest_pct": 2.0
         }
       },
       "actions": [
         "BTC DCA $10",
-        "BNB DCA $10"
+        "BNB DCA $10",
+        "ETH DCA $10"
       ]
     },
     {
       "date": "2018-03-01",
-      "injected": 100.0,
-      "usdt": 42.9948717948718,
-      "portfolio_value": 122.78208345271459,
+      "injected": 150.0,
+      "usdt": 71.73725032820313,
+      "portfolio_value": 175.08119019242258,
       "positions": {
         "BTCUSDT": {
           "close": 6923.91,
-          "units": 0.005130332856037541,
-          "value": 35.521962965246885,
+          "units": 0.006236303687232882,
+          "value": 43.179605463068626,
           "reinvest_pct": 9.0
         },
         "BNBUSDT": {
@@ -137,23 +174,31 @@
           "units": 4.005542366536594,
           "value": 44.265248692595904,
           "reinvest_pct": 4.0
+        },
+        "ETHUSDT": {
+          "close": 393.92,
+          "units": 0.04036120458101884,
+          "value": 15.899085708554942,
+          "reinvest_pct": 3.0
         }
       },
       "actions": [
+        "BTC dip $8",
         "BTC DCA $10",
-        "BNB DCA $10"
+        "BNB DCA $10",
+        "ETH DCA $10"
       ]
     },
     {
       "date": "2018-04-01",
-      "injected": 120.0,
-      "usdt": 96.91152549434341,
-      "portfolio_value": 167.82579780946296,
+      "injected": 180.0,
+      "usdt": 125.65390402767474,
+      "portfolio_value": 243.86748251659057,
       "positions": {
         "BTCUSDT": {
           "close": 9246.01,
-          "units": 0.006211880464140928,
-          "value": 57.43510889025167,
+          "units": 0.0073178512953362695,
+          "value": 67.66092625519211,
           "reinvest_pct": 11.0
         },
         "BNBUSDT": {
@@ -161,24 +206,31 @@
           "units": 0.9406845806692603,
           "value": 13.479163424867899,
           "reinvest_pct": 1.0
+        },
+        "ETHUSDT": {
+          "close": 670.78,
+          "units": 0.05526922211284746,
+          "value": 37.07348880885582,
+          "reinvest_pct": 4.0
         }
       },
       "actions": [
         "BTC DCA $10",
         "BNB DCA $10",
-        "BNB sell 80%"
+        "BNB sell 80%",
+        "ETH DCA $10"
       ]
     },
     {
       "date": "2018-05-01",
-      "injected": 140.0,
-      "usdt": 84.05125768996564,
-      "portfolio_value": 176.76523393274638,
+      "injected": 210.0,
+      "usdt": 108.53197458463052,
+      "portfolio_value": 255.72092442630756,
       "positions": {
         "BTCUSDT": {
           "close": 7485.01,
-          "units": 0.009266020379034533,
-          "value": 69.35625519727726,
+          "units": 0.010941350721929451,
+          "value": 81.89611956714916,
           "reinvest_pct": 13.0
         },
         "BNBUSDT": {
@@ -186,24 +238,31 @@
           "units": 1.6449099327819363,
           "value": 23.357721045503496,
           "reinvest_pct": 2.0
+        },
+        "ETHUSDT": {
+          "close": 577.81,
+          "units": 0.07257594923768089,
+          "value": 41.93510922902439,
+          "reinvest_pct": 5.0
         }
       },
       "actions": [
-        "BTC dip $13",
+        "BTC dip $17",
         "BTC DCA $10",
-        "BNB DCA $10"
+        "BNB DCA $10",
+        "ETH DCA $10"
       ]
     },
     {
       "date": "2018-06-01",
-      "injected": 160.0,
-      "usdt": 70.52459419027011,
-      "portfolio_value": 187.41744338731885,
+      "injected": 240.0,
+      "usdt": 85.49667699419713,
+      "portfolio_value": 265.5596512355448,
       "positions": {
         "BTCUSDT": {
           "close": 6390.07,
-          "units": 0.012947774021748232,
-          "value": 82.73718234315272,
+          "units": 0.01532458231344597,
+          "value": 97.92515370368169,
           "reinvest_pct": 15.0
         },
         "BNBUSDT": {
@@ -211,24 +270,32 @@
           "units": 2.3258722687551336,
           "value": 34.155666853896015,
           "reinvest_pct": 3.0
+        },
+        "ETHUSDT": {
+          "close": 454.09,
+          "units": 0.10566661605357956,
+          "value": 47.982153683769944,
+          "reinvest_pct": 6.0
         }
       },
       "actions": [
-        "BTC dip $14",
+        "BTC dip $18",
         "BTC DCA $10",
-        "BNB DCA $10"
+        "BNB DCA $10",
+        "ETH dip $5",
+        "ETH DCA $10"
       ]
     },
     {
       "date": "2018-07-01",
-      "injected": 180.0,
-      "usdt": 70.52459419027011,
-      "portfolio_value": 222.80579080376208,
+      "injected": 270.0,
+      "usdt": 79.7668763745453,
+      "portfolio_value": 311.82403692490203,
       "positions": {
         "BTCUSDT": {
           "close": 7730.93,
-          "units": 0.014241279460291849,
-          "value": 110.09833461795407,
+          "units": 0.016618087751989585,
+          "value": 128.47327314448884,
           "reinvest_pct": 17.0
         },
         "BNBUSDT": {
@@ -236,23 +303,31 @@
           "units": 3.0485774989728847,
           "value": 42.182861995537905,
           "reinvest_pct": 4.0
+        },
+        "ETHUSDT": {
+          "close": 432.22,
+          "units": 0.1420596580684142,
+          "value": 61.401025410329986,
+          "reinvest_pct": 7.0
         }
       },
       "actions": [
         "BTC DCA $10",
-        "BNB DCA $10"
+        "BNB DCA $10",
+        "ETH dip $6",
+        "ETH DCA $10"
       ]
     },
     {
       "date": "2018-08-01",
-      "injected": 200.0,
-      "usdt": 55.13541317792419,
-      "portfolio_value": 223.87675701102506,
+      "injected": 300.0,
+      "usdt": 61.10650739087261,
+      "portfolio_value": 299.7603496351668,
       "positions": {
         "BTCUSDT": {
           "close": 7011.21,
-          "units": 0.017862506183260626,
-          "value": 125.23778197713874,
+          "units": 0.020705879871134883,
+          "value": 145.17327201129962,
           "reinvest_pct": 19.0
         },
         "BNBUSDT": {
@@ -260,24 +335,31 @@
           "units": 3.95850388592818,
           "value": 43.503561855962104,
           "reinvest_pct": 5.0
+        },
+        "ETHUSDT": {
+          "close": 281.41,
+          "units": 0.1775949979639403,
+          "value": 49.97700837703244,
+          "reinvest_pct": 8.0
         }
       },
       "actions": [
-        "BTC dip $15",
+        "BTC dip $19",
         "BTC DCA $10",
-        "BNB DCA $10"
+        "BNB DCA $10",
+        "ETH DCA $10"
       ]
     },
     {
       "date": "2018-09-01",
-      "injected": 220.0,
-      "usdt": 40.8596846741186,
-      "portfolio_value": 233.1556859028533,
+      "injected": 330.0,
+      "usdt": 43.796270986606814,
+      "portfolio_value": 309.33757372037894,
       "positions": {
         "BTCUSDT": {
           "close": 6626.57,
-          "units": 0.021525898934533997,
-          "value": 142.64287610261493,
+          "units": 0.024827203029913224,
+          "value": 164.51919878193206,
           "reinvest_pct": 21.0
         },
         "BNBUSDT": {
@@ -285,24 +367,31 @@
           "units": 4.956786839248469,
           "value": 49.65312512611977,
           "reinvest_pct": 6.0
+        },
+        "ETHUSDT": {
+          "close": 232.94,
+          "units": 0.220524507708939,
+          "value": 51.36897882572025,
+          "reinvest_pct": 9.0
         }
       },
       "actions": [
-        "BTC dip $14",
+        "BTC dip $17",
         "BTC DCA $10",
-        "BNB DCA $10"
+        "BNB DCA $10",
+        "ETH DCA $10"
       ]
     },
     {
       "date": "2018-10-01",
-      "injected": 240.0,
-      "usdt": 28.07915089255369,
-      "portfolio_value": 245.0150148589068,
+      "injected": 360.0,
+      "usdt": 28.299054079419385,
+      "portfolio_value": 322.8121151928622,
       "positions": {
         "BTCUSDT": {
           "close": 6371.93,
-          "units": 0.025101037672964097,
-          "value": 159.94205497949014,
+          "units": 0.028828693458588277,
+          "value": 183.6944167095824,
           "reinvest_pct": 23.0
         },
         "BNBUSDT": {
@@ -310,24 +399,31 @@
           "units": 6.011561275735226,
           "value": 56.99380898686296,
           "reinvest_pct": 7.0
+        },
+        "ETHUSDT": {
+          "close": 198.73,
+          "units": 0.2708440367181475,
+          "value": 53.82483541699745,
+          "reinvest_pct": 10.0
         }
       },
       "actions": [
-        "BTC dip $13",
+        "BTC dip $15",
         "BTC DCA $10",
-        "BNB DCA $10"
+        "BNB DCA $10",
+        "ETH DCA $10"
       ]
     },
     {
       "date": "2018-11-01",
-      "injected": 260.0,
-      "usdt": 17.020946187266347,
-      "portfolio_value": 180.26961238644265,
+      "injected": 390.0,
+      "usdt": 14.890271641152928,
+      "portfolio_value": 236.357257748822,
       "positions": {
         "BTCUSDT": {
           "close": 4041.32,
-          "units": 0.030311762066302744,
-          "value": 122.49953027379061,
+          "units": 0.03462105398392813,
+          "value": 139.91475788632846,
           "reinvest_pct": 25.0
         },
         "BNBUSDT": {
@@ -335,24 +431,31 @@
           "units": 7.966595488833955,
           "value": 40.74913592538569,
           "reinvest_pct": 8.0
+        },
+        "ETHUSDT": {
+          "close": 113.73,
+          "units": 0.3587715844188421,
+          "value": 40.80309229595491,
+          "reinvest_pct": 11.0
         }
       },
       "actions": [
-        "BTC dip $11",
+        "BTC dip $13",
         "BTC DCA $10",
-        "BNB DCA $10"
+        "BNB DCA $10",
+        "ETH DCA $10"
       ]
     },
     {
       "date": "2018-12-01",
-      "injected": 280.0,
-      "usdt": 7.76570964044976,
-      "portfolio_value": 197.94703163439198,
+      "injected": 420.0,
+      "usdt": 3.6677037308646945,
+      "portfolio_value": 268.93375890191044,
       "positions": {
         "BTCUSDT": {
           "close": 3702.9,
-          "units": 0.03551180434311729,
-          "value": 131.49666030212902,
+          "units": 0.040352391019842754,
+          "value": 149.42086870737575,
           "reinvest_pct": 27.0
         },
         "BNBUSDT": {
@@ -360,24 +463,31 @@
           "units": 9.602962100409613,
           "value": 58.68466169181319,
           "reinvest_pct": 9.0
+        },
+        "ETHUSDT": {
+          "close": 131.45,
+          "units": 0.4348461374808429,
+          "value": 57.16052477185679,
+          "reinvest_pct": 12.0
         }
       },
       "actions": [
-        "BTC dip $9",
+        "BTC dip $11",
         "BTC DCA $10",
-        "BNB DCA $10"
+        "BNB DCA $10",
+        "ETH DCA $10"
       ]
     },
     {
       "date": "2019-01-01",
-      "injected": 300.0,
-      "usdt": 0.26896803752832454,
-      "portfolio_value": 209.44722119969666,
+      "injected": 450.0,
+      "usdt": 3.6677037308646945,
+      "portfolio_value": 278.2572968701154,
       "positions": {
         "BTCUSDT": {
           "close": 3434.1,
-          "units": 0.04060680495548194,
-          "value": 139.44782889762052,
+          "units": 0.04326436213308931,
+          "value": 148.57414600124199,
           "reinvest_pct": 29.0
         },
         "BNBUSDT": {
@@ -385,24 +495,30 @@
           "units": 11.210679142210257,
           "value": 69.73042426454779,
           "reinvest_pct": 10.0
+        },
+        "ETHUSDT": {
+          "close": 106.44,
+          "units": 0.5287957804721996,
+          "value": 56.28502287346092,
+          "reinvest_pct": 13.0
         }
       },
       "actions": [
-        "BTC dip $7",
         "BTC DCA $10",
-        "BNB DCA $10"
+        "BNB DCA $10",
+        "ETH DCA $10"
       ]
     },
     {
       "date": "2019-02-01",
-      "injected": 320.0,
-      "usdt": 0.26896803752832454,
-      "portfolio_value": 290.35297318392304,
+      "injected": 480.0,
+      "usdt": 3.6677037308646945,
+      "portfolio_value": 385.4540290390364,
       "positions": {
         "BTCUSDT": {
           "close": 3813.69,
-          "units": 0.04322893732596827,
-          "value": 164.86176599067193,
+          "units": 0.04588649450357564,
+          "value": 174.9968652233414,
           "reinvest_pct": 31.0
         },
         "BNBUSDT": {
@@ -410,23 +526,30 @@
           "units": 12.183640544831414,
           "value": 125.2222391557228,
           "reinvest_pct": 11.0
+        },
+        "ETHUSDT": {
+          "close": 135.34,
+          "units": 0.6026837662857063,
+          "value": 81.56722092910749,
+          "reinvest_pct": 14.0
         }
       },
       "actions": [
         "BTC DCA $10",
-        "BNB DCA $10"
+        "BNB DCA $10",
+        "ETH DCA $10"
       ]
     },
     {
       "date": "2019-03-01",
-      "injected": 340.0,
-      "usdt": 0.26896803752832454,
-      "portfolio_value": 411.35017979547126,
+      "injected": 510.0,
+      "usdt": 3.6677037308646945,
+      "portfolio_value": 520.8628281453225,
       "positions": {
         "BTCUSDT": {
           "close": 4103.95,
-          "units": 0.04566561418606647,
-          "value": 187.40939733890747,
+          "units": 0.04832317136367384,
+          "value": 198.31587911794924,
           "reinvest_pct": 33.0
         },
         "BNBUSDT": {
@@ -434,23 +557,30 @@
           "units": 12.75384399342187,
           "value": 223.67181441903543,
           "reinvest_pct": 12.0
+        },
+        "ETHUSDT": {
+          "close": 141.38,
+          "units": 0.6734151285717439,
+          "value": 95.20743087747314,
+          "reinvest_pct": 15.0
         }
       },
       "actions": [
         "BTC DCA $10",
-        "BNB DCA $10"
+        "BNB DCA $10",
+        "ETH DCA $10"
       ]
     },
     {
       "date": "2019-04-01",
-      "injected": 360.0,
-      "usdt": 233.13556256186752,
-      "portfolio_value": 544.3302678103166,
+      "injected": 540.0,
+      "usdt": 236.53429825520388,
+      "portfolio_value": 680.8481305666035,
       "positions": {
         "BTCUSDT": {
           "close": 5320.81,
-          "units": 0.047545027282944574,
-          "value": 252.97805661736433,
+          "units": 0.050202584460551945,
+          "value": 267.11841342354944,
           "reinvest_pct": 35.0
         },
         "BNBUSDT": {
@@ -458,24 +588,31 @@
           "units": 2.64151660599048,
           "value": 58.216648631084794,
           "reinvest_pct": 1.0
+        },
+        "ETHUSDT": {
+          "close": 161.83,
+          "units": 0.7352083683913077,
+          "value": 118.97877025676533,
+          "reinvest_pct": 16.0
         }
       },
       "actions": [
         "BTC DCA $10",
         "BNB DCA $10",
-        "BNB sell 80%"
+        "BNB sell 80%",
+        "ETH DCA $10"
       ]
     },
     {
       "date": "2019-05-01",
-      "injected": 380.0,
-      "usdt": 233.13556256186752,
-      "portfolio_value": 746.7527143753824,
+      "injected": 570.0,
+      "usdt": 236.5342982552039,
+      "portfolio_value": 979.8491736151811,
       "positions": {
         "BTCUSDT": {
           "close": 8555.0,
-          "units": 0.04871393435483236,
-          "value": 416.7477084055908,
+          "units": 0.05137149153243973,
+          "value": 439.4831100600219,
           "reinvest_pct": 37.0
         },
         "BNBUSDT": {
@@ -483,2134 +620,2770 @@
           "units": 2.9455955205503868,
           "value": 96.86944340792414,
           "reinvest_pct": 2.0
-        }
-      },
-      "actions": [
-        "BTC DCA $10",
-        "BNB DCA $10"
-      ]
-    },
-    {
-      "date": "2019-06-01",
-      "injected": 400.0,
-      "usdt": 233.13556256186752,
-      "portfolio_value": 876.4763319896085,
-      "positions": {
-        "BTCUSDT": {
-          "close": 10854.1,
-          "units": 0.04963524519589702,
-          "value": 538.7459148807859,
-          "reinvest_pct": 39.0
         },
-        "BNBUSDT": {
-          "close": 32.114,
-          "units": 3.2569861912858915,
-          "value": 104.5948545469551,
-          "reinvest_pct": 3.0
-        }
-      },
-      "actions": [
-        "BTC DCA $10",
-        "BNB DCA $10"
-      ]
-    },
-    {
-      "date": "2019-07-01",
-      "injected": 420.0,
-      "usdt": 134.41269316273917,
-      "portfolio_value": 843.8665076246468,
-      "positions": {
-        "BTCUSDT": {
-          "close": 10080.53,
-          "units": 0.06042067705306409,
-          "value": 609.0724476537241,
-          "reinvest_pct": 41.0
-        },
-        "BNBUSDT": {
-          "close": 27.75,
-          "units": 3.6173465516462517,
-          "value": 100.38136680818349,
-          "reinvest_pct": 4.0
-        }
-      },
-      "actions": [
-        "BTC dip $99",
-        "BTC DCA $10",
-        "BNB DCA $10"
-      ]
-    },
-    {
-      "date": "2019-08-01",
-      "injected": 440.0,
-      "usdt": 71.10348896601612,
-      "portfolio_value": 809.8768871049701,
-      "positions": {
-        "BTCUSDT": {
-          "close": 9587.47,
-          "units": 0.06806703257717243,
-          "value": 652.5906328226633,
-          "reinvest_pct": 43.0
-        },
-        "BNBUSDT": {
-          "close": 21.0604,
-          "units": 4.09217134129887,
-          "value": 86.18276531629071,
-          "reinvest_pct": 5.0
-        }
-      },
-      "actions": [
-        "BTC dip $63",
-        "BTC DCA $10",
-        "BNB DCA $10"
-      ]
-    },
-    {
-      "date": "2019-09-01",
-      "injected": 460.0,
-      "usdt": 31.928988710629184,
-      "portfolio_value": 720.1333887616081,
-      "positions": {
-        "BTCUSDT": {
-          "close": 8289.34,
-          "units": 0.07399929018216715,
-          "value": 613.4052760786454,
-          "reinvest_pct": 45.0
-        },
-        "BNBUSDT": {
-          "close": 15.8349,
-          "units": 4.723687801775412,
-          "value": 74.79912397233348,
-          "reinvest_pct": 6.0
-        }
-      },
-      "actions": [
-        "BTC dip $39",
-        "BTC DCA $10",
-        "BNB DCA $10"
-      ]
-    },
-    {
-      "date": "2019-10-01",
-      "injected": 480.0,
-      "usdt": 31.928988710629184,
-      "portfolio_value": 822.39355213686,
-      "positions": {
-        "BTCUSDT": {
-          "close": 9140.85,
-          "units": 0.07509328034719556,
-          "value": 686.4164116616626,
-          "reinvest_pct": 47.0
-        },
-        "BNBUSDT": {
-          "close": 19.9099,
-          "units": 5.225950495209332,
-          "value": 104.04815176456829,
-          "reinvest_pct": 7.0
-        }
-      },
-      "actions": [
-        "BTC DCA $10",
-        "BNB DCA $10"
-      ]
-    },
-    {
-      "date": "2019-11-01",
-      "injected": 500.0,
-      "usdt": 7.5223640166334675,
-      "portfolio_value": 700.3833378189698,
-      "positions": {
-        "BTCUSDT": {
-          "close": 7541.89,
-          "units": 0.07965534962876765,
-          "value": 600.7518848117064,
-          "reinvest_pct": 49.0
-        },
-        "BNBUSDT": {
-          "close": 15.7118,
-          "units": 5.862414808655277,
-          "value": 92.10908899062999,
-          "reinvest_pct": 8.0
-        }
-      },
-      "actions": [
-        "BTC dip $24",
-        "BTC DCA $10",
-        "BNB DCA $10"
-      ]
-    },
-    {
-      "date": "2019-12-01",
-      "injected": 520.0,
-      "usdt": 0.0,
-      "portfolio_value": 681.0703930830279,
-      "positions": {
-        "BTCUSDT": {
-          "close": 7195.23,
-          "units": 0.08209062466745765,
-          "value": 590.6609253260312,
-          "reinvest_pct": 50.0
-        },
-        "BNBUSDT": {
-          "close": 13.7161,
-          "units": 6.591485025407852,
-          "value": 90.40946775699665,
-          "reinvest_pct": 9.0
-        }
-      },
-      "actions": [
-        "BTC dip $8",
-        "BTC DCA $10",
-        "BNB DCA $10"
-      ]
-    },
-    {
-      "date": "2020-01-01",
-      "injected": 540.0,
-      "usdt": 0.0,
-      "portfolio_value": 908.1741016440772,
-      "positions": {
-        "BTCUSDT": {
-          "close": 9352.89,
-          "units": 0.08315981290767004,
-          "value": 777.784582546018,
-          "reinvest_pct": 50.0
-        },
-        "BNBUSDT": {
-          "close": 18.2644,
-          "units": 7.1389982204758535,
-          "value": 130.38951909805917,
-          "reinvest_pct": 10.0
-        }
-      },
-      "actions": [
-        "BTC DCA $10",
-        "BNB DCA $10"
-      ]
-    },
-    {
-      "date": "2020-02-01",
-      "injected": 560.0,
-      "usdt": 0.0,
-      "portfolio_value": 866.1047486776961,
-      "positions": {
-        "BTCUSDT": {
-          "close": 8523.61,
-          "units": 0.08433302472754448,
-          "value": 718.8218128979454,
-          "reinvest_pct": 50.0
-        },
-        "BNBUSDT": {
-          "close": 19.23,
-          "units": 7.659019021307887,
-          "value": 147.28293577975066,
-          "reinvest_pct": 11.0
-        }
-      },
-      "actions": [
-        "BTC DCA $10",
-        "BNB DCA $10"
-      ]
-    },
-    {
-      "date": "2020-03-01",
-      "injected": 580.0,
-      "usdt": 0.0,
-      "portfolio_value": 656.6949545586498,
-      "positions": {
-        "BTCUSDT": {
-          "close": 6410.44,
-          "units": 0.08589298005042403,
-          "value": 550.6117950344402,
-          "reinvest_pct": 50.0
-        },
-        "BNBUSDT": {
-          "close": 12.5451,
-          "units": 8.456142997999981,
-          "value": 106.08315952420956,
-          "reinvest_pct": 12.0
-        }
-      },
-      "actions": [
-        "BTC DCA $10",
-        "BNB DCA $10"
-      ]
-    },
-    {
-      "date": "2020-04-01",
-      "injected": 600.0,
-      "usdt": 0.0,
-      "portfolio_value": 903.7646276513465,
-      "positions": {
-        "BTCUSDT": {
-          "close": 8620.0,
-          "units": 0.08705307285784863,
-          "value": 750.3974880346552,
-          "reinvest_pct": 50.0
-        },
-        "BNBUSDT": {
-          "close": 16.9542,
-          "units": 9.045967348308459,
-          "value": 153.36713961669128,
-          "reinvest_pct": 13.0
-        }
-      },
-      "actions": [
-        "BTC DCA $10",
-        "BNB DCA $10"
-      ]
-    },
-    {
-      "date": "2020-05-01",
-      "injected": 620.0,
-      "usdt": 0.0,
-      "portfolio_value": 997.1109922209744,
-      "positions": {
-        "BTCUSDT": {
-          "close": 9448.27,
-          "units": 0.08811146767510089,
-          "value": 832.5009366906255,
-          "reinvest_pct": 50.0
-        },
-        "BNBUSDT": {
-          "close": 17.0916,
-          "units": 9.63105007900658,
-          "value": 164.61005553034886,
-          "reinvest_pct": 14.0
-        }
-      },
-      "actions": [
-        "BTC DCA $10",
-        "BNB DCA $10"
-      ]
-    },
-    {
-      "date": "2020-06-01",
-      "injected": 640.0,
-      "usdt": 0.0,
-      "portfolio_value": 973.3732011277145,
-      "positions": {
-        "BTCUSDT": {
-          "close": 9138.55,
-          "units": 0.08920573317673955,
-          "value": 815.2110529222931,
-          "reinvest_pct": 50.0
-        },
-        "BNBUSDT": {
-          "close": 15.3838,
-          "units": 10.281084530832526,
-          "value": 158.16214820542143,
-          "reinvest_pct": 15.0
-        }
-      },
-      "actions": [
-        "BTC DCA $10",
-        "BNB DCA $10"
-      ]
-    },
-    {
-      "date": "2020-07-01",
-      "injected": 660.0,
-      "usdt": 0.0,
-      "portfolio_value": 1243.6106482294003,
-      "positions": {
-        "BTCUSDT": {
-          "close": 11335.46,
-          "units": 0.09008792057804484,
-          "value": 1021.188020195604,
-          "reinvest_pct": 50.0
-        },
-        "BNBUSDT": {
-          "close": 20.6615,
-          "units": 10.765076496565895,
-          "value": 222.42262803379623,
-          "reinvest_pct": 16.0
-        }
-      },
-      "actions": [
-        "BTC DCA $10",
-        "BNB DCA $10"
-      ]
-    },
-    {
-      "date": "2020-08-01",
-      "injected": 680.0,
-      "usdt": 0.0,
-      "portfolio_value": 1318.6668928726974,
-      "positions": {
-        "BTCUSDT": {
-          "close": 11649.51,
-          "units": 0.09094632578135381,
-          "value": 1059.480131653139,
-          "reinvest_pct": 50.0
-        },
-        "BNBUSDT": {
-          "close": 23.1477,
-          "units": 11.197084860247816,
-          "value": 259.1867612195584,
+        "ETHUSDT": {
+          "close": 267.9,
+          "units": 0.7725357293468881,
+          "value": 206.9623218920313,
           "reinvest_pct": 17.0
         }
       },
       "actions": [
         "BTC DCA $10",
-        "BNB DCA $10"
+        "BNB DCA $10",
+        "ETH DCA $10"
       ]
     },
     {
-      "date": "2020-09-01",
-      "injected": 700.0,
-      "usdt": 0.0,
-      "portfolio_value": 1327.780671638148,
+      "date": "2019-06-01",
+      "injected": 600.0,
+      "usdt": 231.40361229009983,
+      "portfolio_value": 1144.8416670242473,
       "positions": {
         "BTCUSDT": {
-          "close": 10776.59,
-          "units": 0.09187426309733224,
-          "value": 990.0912649520797,
-          "reinvest_pct": 50.0
+          "close": 10854.1,
+          "units": 0.05229280237350439,
+          "value": 567.5913062422541,
+          "reinvest_pct": 39.0
         },
         "BNBUSDT": {
-          "close": 29.2656,
-          "units": 11.53878296313995,
-          "value": 337.6894066860685,
+          "close": 32.114,
+          "units": 3.4167509656865915,
+          "value": 109.7255405120592,
+          "reinvest_pct": 3.0
+        },
+        "ETHUSDT": {
+          "close": 292.7,
+          "units": 0.806700403074254,
+          "value": 236.1212079798341,
           "reinvest_pct": 18.0
         }
       },
       "actions": [
         "BTC DCA $10",
-        "BNB DCA $10"
-      ]
-    },
-    {
-      "date": "2020-10-01",
-      "injected": 720.0,
-      "usdt": 0.0,
-      "portfolio_value": 1615.9602017659836,
-      "positions": {
-        "BTCUSDT": {
-          "close": 13791.0,
-          "units": 0.09259937367669559,
-          "value": 1277.0379623753088,
-          "reinvest_pct": 50.0
-        },
-        "BNBUSDT": {
-          "close": 28.5058,
-          "units": 11.889588764064673,
-          "value": 338.92223939067475,
-          "reinvest_pct": 19.0
-        }
-      },
-      "actions": [
-        "BTC DCA $10",
-        "BNB DCA $10"
-      ]
-    },
-    {
-      "date": "2020-11-01",
-      "injected": 740.0,
-      "usdt": 1467.0601808140946,
-      "portfolio_value": 2218.269989758689,
-      "positions": {
-        "BTCUSDT": {
-          "close": 19695.87,
-          "units": 0.018621418866164516,
-          "value": 366.7650452035237,
-          "reinvest_pct": 1.0
-        },
-        "BNBUSDT": {
-          "close": 31.4935,
-          "units": 12.207114602729794,
-          "value": 384.4447637410708,
-          "reinvest_pct": 20.0
-        }
-      },
-      "actions": [
-        "BTC DCA $10",
-        "BTC sell 80%",
-        "BNB DCA $10"
-      ]
-    },
-    {
-      "date": "2020-12-01",
-      "injected": 760.0,
-      "usdt": 1839.894703230464,
-      "portfolio_value": 2481.7023631945185,
-      "positions": {
-        "BTCUSDT": {
-          "close": 28923.63,
-          "units": 0.018967156935694517,
-          "value": 548.5990293599621,
-          "reinvest_pct": 3.0
-        },
-        "BNBUSDT": {
-          "close": 37.3588,
-          "units": 2.4949578306608444,
-          "value": 93.20863060409236,
-          "reinvest_pct": 1.0
-        }
-      },
-      "actions": [
-        "BTC DCA $10",
+        "BNB dip $5",
         "BNB DCA $10",
-        "BNB sell 80%"
+        "ETH DCA $10"
       ]
     },
     {
-      "date": "2021-01-01",
-      "injected": 780.0,
-      "usdt": 2350.038499334304,
-      "portfolio_value": 2598.1739330271944,
+      "date": "2019-07-01",
+      "injected": 630.0,
+      "usdt": 104.35408686750793,
+      "portfolio_value": 1059.5571167375635,
       "positions": {
         "BTCUSDT": {
-          "close": 33092.98,
-          "units": 0.0038538671653613535,
-          "value": 127.53594902595998,
-          "reinvest_pct": 1.0
+          "close": 10080.53,
+          "units": 0.06339811219284315,
+          "value": 639.0865719033212,
+          "reinvest_pct": 41.0
         },
         "BNBUSDT": {
-          "close": 44.3292,
-          "units": 2.7205427724148126,
-          "value": 120.5994846669307,
-          "reinvest_pct": 2.0
-        }
-      },
-      "actions": [
-        "BTC DCA $10",
-        "BTC sell 80%",
-        "BNB DCA $10"
-      ]
-    },
-    {
-      "date": "2021-02-01",
-      "injected": 800.0,
-      "usdt": 2815.5550067357863,
-      "portfolio_value": 3115.8809716470705,
-      "positions": {
-        "BTCUSDT": {
-          "close": 45135.66,
-          "units": 0.004075421475190876,
-          "value": 183.94683806091385,
-          "reinvest_pct": 3.0
-        },
-        "BNBUSDT": {
-          "close": 210.2138,
-          "units": 0.5536226777232063,
-          "value": 116.37912685037054,
-          "reinvest_pct": 1.0
-        }
-      },
-      "actions": [
-        "BTC DCA $10",
-        "BNB DCA $10",
-        "BNB sell 80%"
-      ]
-    },
-    {
-      "date": "2021-03-01",
-      "injected": 820.0,
-      "usdt": 3015.069005883405,
-      "portfolio_value": 3242.3477234279026,
-      "positions": {
-        "BTCUSDT": {
-          "close": 58740.55,
-          "units": 0.0008491323248914877,
-          "value": 49.878499786904676,
-          "reinvest_pct": 1.0
-        },
-        "BNBUSDT": {
-          "close": 302.3724,
-          "units": 0.5866944792500652,
-          "value": 177.40021775759243,
-          "reinvest_pct": 2.0
-        }
-      },
-      "actions": [
-        "BTC DCA $10",
-        "BTC sell 80%",
-        "BNB DCA $10"
-      ]
-    },
-    {
-      "date": "2021-04-01",
-      "injected": 840.0,
-      "usdt": 3284.9625698286136,
-      "portfolio_value": 3449.3643930064754,
-      "positions": {
-        "BTCUSDT": {
-          "close": 57694.27,
-          "units": 0.0015485204973882376,
-          "value": 89.34075967685128,
-          "reinvest_pct": 3.0
-        },
-        "BNBUSDT": {
-          "close": 622.65,
-          "units": 0.12055097326107866,
-          "value": 75.06106350101062,
-          "reinvest_pct": 1.0
-        }
-      },
-      "actions": [
-        "BTC dip $30",
-        "BTC DCA $10",
-        "BNB DCA $10",
-        "BNB sell 80%"
-      ]
-    },
-    {
-      "date": "2021-05-01",
-      "injected": 860.0,
-      "usdt": 3153.8555558064177,
-      "portfolio_value": 3405.245133601757,
-      "positions": {
-        "BTCUSDT": {
-          "close": 37253.81,
-          "units": 0.004478392021800328,
-          "value": 166.83716548566528,
-          "reinvest_pct": 5.0
-        },
-        "BNBUSDT": {
-          "close": 353.33,
-          "units": 0.23930153768339646,
-          "value": 84.55241230967447,
-          "reinvest_pct": 2.0
-        }
-      },
-      "actions": [
-        "BTC dip $99",
-        "BTC DCA $10",
-        "BNB dip $32",
-        "BNB DCA $10"
-      ]
-    },
-    {
-      "date": "2021-06-01",
-      "injected": 880.0,
-      "usdt": 2935.0595224557746,
-      "portfolio_value": 3403.479074220234,
-      "positions": {
-        "BTCUSDT": {
-          "close": 35045.0,
-          "units": 0.009291996752584202,
-          "value": 325.63802619431334,
-          "reinvest_pct": 7.0
-        },
-        "BNBUSDT": {
-          "close": 303.71,
-          "units": 0.4701245450269872,
-          "value": 142.78152557014627,
-          "reinvest_pct": 3.0
-        }
-      },
-      "actions": [
-        "BTC dip $159",
-        "BTC DCA $10",
-        "BNB dip $60",
-        "BNB DCA $10"
-      ]
-    },
-    {
-      "date": "2021-07-01",
-      "injected": 900.0,
-      "usdt": 2935.0595224557746,
-      "portfolio_value": 3496.582708448043,
-      "positions": {
-        "BTCUSDT": {
-          "close": 41461.83,
-          "units": 0.009533182440721943,
-          "value": 395.26318971619827,
-          "reinvest_pct": 9.0
-        },
-        "BNBUSDT": {
-          "close": 332.38,
-          "units": 0.5002105911188098,
-          "value": 166.25999627607,
+          "close": 27.75,
+          "units": 3.7771113260469518,
+          "value": 104.8148392978029,
           "reinvest_pct": 4.0
-        }
-      },
-      "actions": [
-        "BTC DCA $10",
-        "BNB DCA $10"
-      ]
-    },
-    {
-      "date": "2021-08-01",
-      "injected": 920.0,
-      "usdt": 2935.0595224557746,
-      "portfolio_value": 3636.1285931661664,
-      "positions": {
-        "BTCUSDT": {
-          "close": 47100.89,
-          "units": 0.009745492653968443,
-          "value": 459.0213774903757,
-          "reinvest_pct": 11.0
         },
-        "BNBUSDT": {
-          "close": 463.9,
-          "units": 0.5217669610261174,
-          "value": 242.04769322001584,
-          "reinvest_pct": 5.0
-        }
-      },
-      "actions": [
-        "BTC DCA $10",
-        "BNB DCA $10"
-      ]
-    },
-    {
-      "date": "2021-09-01",
-      "injected": 940.0,
-      "usdt": 2479.0028262363576,
-      "portfolio_value": 3584.3316644701736,
-      "positions": {
-        "BTCUSDT": {
-          "close": 43824.1,
-          "units": 0.017390978755682684,
-          "value": 762.1439920869135,
-          "reinvest_pct": 13.0
-        },
-        "BNBUSDT": {
-          "close": 387.5,
-          "units": 0.8856383126371676,
-          "value": 343.1848461469025,
-          "reinvest_pct": 6.0
-        }
-      },
-      "actions": [
-        "BTC dip $325",
-        "BTC DCA $10",
-        "BNB dip $131",
-        "BNB DCA $10"
-      ]
-    },
-    {
-      "date": "2021-10-01",
-      "injected": 960.0,
-      "usdt": 2479.0028262363576,
-      "portfolio_value": 4029.672204573413,
-      "positions": {
-        "BTCUSDT": {
-          "close": 61299.8,
-          "units": 0.0175541114249573,
-          "value": 1076.0635195275975,
-          "reinvest_pct": 15.0
-        },
-        "BNBUSDT": {
-          "close": 524.6,
-          "units": 0.9047004552219942,
-          "value": 474.60585880945814,
-          "reinvest_pct": 7.0
-        }
-      },
-      "actions": [
-        "BTC DCA $10",
-        "BNB DCA $10"
-      ]
-    },
-    {
-      "date": "2021-11-01",
-      "injected": 980.0,
-      "usdt": 2104.1524023009038,
-      "portfolio_value": 4061.895335565765,
-      "positions": {
-        "BTCUSDT": {
-          "close": 56950.56,
-          "units": 0.024311734597327397,
-          "value": 1384.5668998891697,
-          "reinvest_pct": 17.0
-        },
-        "BNBUSDT": {
-          "close": 622.5,
-          "units": 0.9207647122501066,
-          "value": 573.1760333756913,
-          "reinvest_pct": 8.0
-        }
-      },
-      "actions": [
-        "BTC dip $375",
-        "BTC DCA $10",
-        "BNB DCA $10"
-      ]
-    },
-    {
-      "date": "2021-12-01",
-      "injected": 1000.0,
-      "usdt": 1602.80277439697,
-      "portfolio_value": 3718.6452122088667,
-      "positions": {
-        "BTCUSDT": {
-          "close": 46216.93,
-          "units": 0.03234138754898718,
-          "value": 1494.7196444544122,
+        "ETHUSDT": {
+          "close": 218.42,
+          "units": 0.9674096633501122,
+          "value": 211.3016186689315,
           "reinvest_pct": 19.0
-        },
-        "BNBUSDT": {
-          "close": 511.4,
-          "units": 1.2145537609649677,
-          "value": 621.1227933574844,
-          "reinvest_pct": 9.0
-        }
-      },
-      "actions": [
-        "BTC dip $361",
-        "BTC DCA $10",
-        "BNB dip $140",
-        "BNB DCA $10"
-      ]
-    },
-    {
-      "date": "2022-01-01",
-      "injected": 1020.0,
-      "usdt": 1177.0679250080068,
-      "portfolio_value": 3321.4831678342925,
-      "positions": {
-        "BTCUSDT": {
-          "close": 38466.9,
-          "units": 0.0406168796509092,
-          "value": 1562.4054478435594,
-          "reinvest_pct": 21.0
-        },
-        "BNBUSDT": {
-          "close": 374.3,
-          "units": 1.5549286534403595,
-          "value": 582.0097949827266,
-          "reinvest_pct": 10.0
-        }
-      },
-      "actions": [
-        "BTC dip $308",
-        "BTC DCA $10",
-        "BNB dip $117",
-        "BNB DCA $10"
-      ]
-    },
-    {
-      "date": "2022-02-01",
-      "injected": 1040.0,
-      "usdt": 1177.0679250080068,
-      "portfolio_value": 3565.2222260422545,
-      "positions": {
-        "BTCUSDT": {
-          "close": 43160.0,
-          "units": 0.04084857566573775,
-          "value": 1763.0245257332413,
-          "reinvest_pct": 23.0
-        },
-        "BNBUSDT": {
-          "close": 395.6,
-          "units": 1.5802067120854555,
-          "value": 625.1297753010062,
-          "reinvest_pct": 11.0
-        }
-      },
-      "actions": [
-        "BTC DCA $10",
-        "BNB DCA $10"
-      ]
-    },
-    {
-      "date": "2022-03-01",
-      "injected": 1060.0,
-      "usdt": 1177.0679250080068,
-      "portfolio_value": 3733.8511508849097,
-      "positions": {
-        "BTCUSDT": {
-          "close": 45510.34,
-          "units": 0.04106830595120694,
-          "value": 1869.032567063451,
-          "reinvest_pct": 25.0
-        },
-        "BNBUSDT": {
-          "close": 428.9,
-          "units": 1.6035221702342082,
-          "value": 687.7506588134519,
-          "reinvest_pct": 12.0
-        }
-      },
-      "actions": [
-        "BTC DCA $10",
-        "BNB DCA $10"
-      ]
-    },
-    {
-      "date": "2022-04-01",
-      "injected": 1080.0,
-      "usdt": 771.2648305052845,
-      "portfolio_value": 3347.1893429920055,
-      "positions": {
-        "BTCUSDT": {
-          "close": 37630.8,
-          "units": 0.04928675948533329,
-          "value": 1854.70018884068,
-          "reinvest_pct": 27.0
-        },
-        "BNBUSDT": {
-          "close": 377.1,
-          "units": 1.9125545575339182,
-          "value": 721.2243236460406,
-          "reinvest_pct": 13.0
-        }
-      },
-      "actions": [
-        "BTC dip $299",
-        "BTC DCA $10",
-        "BNB dip $107",
-        "BNB DCA $10"
-      ]
-    },
-    {
-      "date": "2022-05-01",
-      "injected": 1100.0,
-      "usdt": 483.8322938539062,
-      "portfolio_value": 2972.3737978813824,
-      "positions": {
-        "BTCUSDT": {
-          "close": 31801.04,
-          "units": 0.056319281196460555,
-          "value": 1791.01171409989,
-          "reinvest_pct": 29.0
-        },
-        "BNBUSDT": {
-          "close": 320.9,
-          "units": 2.173667154651249,
-          "value": 697.5297899275859,
-          "reinvest_pct": 14.0
-        }
-      },
-      "actions": [
-        "BTC dip $214",
-        "BTC DCA $10",
-        "BNB dip $74",
-        "BNB DCA $10"
-      ]
-    },
-    {
-      "date": "2022-06-01",
-      "injected": 1120.0,
-      "usdt": 289.03999862719513,
-      "portfolio_value": 2104.300533684188,
-      "positions": {
-        "BTCUSDT": {
-          "close": 19942.21,
-          "units": 0.06414746900601792,
-          "value": 1279.2422978865006,
-          "reinvest_pct": 31.0
-        },
-        "BNBUSDT": {
-          "close": 219.6,
-          "units": 2.440884504419365,
-          "value": 536.0182371704925,
-          "reinvest_pct": 15.0
-        }
-      },
-      "actions": [
-        "BTC dip $146",
-        "BTC DCA $10",
-        "BNB dip $49",
-        "BNB DCA $10"
-      ]
-    },
-    {
-      "date": "2022-07-01",
-      "injected": 1140.0,
-      "usdt": 289.03999862719513,
-      "portfolio_value": 2494.9941899269006,
-      "positions": {
-        "BTCUSDT": {
-          "close": 23293.32,
-          "units": 0.06457677663584484,
-          "value": 1504.2075227472571,
-          "reinvest_pct": 33.0
-        },
-        "BNBUSDT": {
-          "close": 283.4,
-          "units": 2.4761703195216938,
-          "value": 701.746668552448,
-          "reinvest_pct": 16.0
-        }
-      },
-      "actions": [
-        "BTC DCA $10",
-        "BNB DCA $10"
-      ]
-    },
-    {
-      "date": "2022-08-01",
-      "injected": 1160.0,
-      "usdt": 155.52771122738542,
-      "portfolio_value": 2295.152414921874,
-      "positions": {
-        "BTCUSDT": {
-          "close": 20050.02,
-          "units": 0.07016196804946809,
-          "value": 1406.748862631196,
-          "reinvest_pct": 35.0
-        },
-        "BNBUSDT": {
-          "close": 279.2,
-          "units": 2.624913470857064,
-          "value": 732.8758410632922,
-          "reinvest_pct": 17.0
         }
       },
       "actions": [
         "BTC dip $102",
         "BTC DCA $10",
-        "BNB dip $32",
-        "BNB DCA $10"
+        "BNB DCA $10",
+        "ETH dip $25",
+        "ETH DCA $10"
       ]
     },
     {
-      "date": "2022-09-01",
-      "injected": 1180.0,
-      "usdt": 94.09301229780053,
-      "portfolio_value": 2285.8316099847566,
+      "date": "2019-08-01",
+      "injected": 660.0,
+      "usdt": 38.00781811398204,
+      "portfolio_value": 987.7075368850839,
       "positions": {
         "BTCUSDT": {
-          "close": 19422.61,
-          "units": 0.07383988254857943,
-          "value": 1434.1632411868643,
-          "reinvest_pct": 37.0
+          "close": 9587.47,
+          "units": 0.07018667847943161,
+          "value": 672.9126743211962,
+          "reinvest_pct": 43.0
         },
         "BNBUSDT": {
-          "close": 284.8,
-          "units": 2.6600258304076254,
-          "value": 757.5753565000917,
-          "reinvest_pct": 18.0
-        }
-      },
-      "actions": [
-        "BTC dip $61",
-        "BTC DCA $10",
-        "BNB DCA $10"
-      ]
-    },
-    {
-      "date": "2022-10-01",
-      "injected": 1200.0,
-      "usdt": 94.09301229780053,
-      "portfolio_value": 2493.4972601950426,
-      "positions": {
-        "BTCUSDT": {
-          "close": 20490.74,
-          "units": 0.07432790787123737,
-          "value": 1523.0338349334786,
-          "reinvest_pct": 39.0
+          "close": 21.0604,
+          "units": 4.25193611569957,
+          "value": 89.54747537107922,
+          "reinvest_pct": 5.0
         },
-        "BNBUSDT": {
-          "close": 325.7,
-          "units": 2.6907289314208276,
-          "value": 876.3704129637636,
-          "reinvest_pct": 19.0
-        }
-      },
-      "actions": [
-        "BTC DCA $10",
-        "BNB DCA $10"
-      ]
-    },
-    {
-      "date": "2022-11-01",
-      "injected": 1220.0,
-      "usdt": 38.27335737634323,
-      "portfolio_value": 2198.6635817379856,
-      "positions": {
-        "BTCUSDT": {
-          "close": 17163.64,
-          "units": 0.07750300795467784,
-          "value": 1330.2337274512267,
-          "reinvest_pct": 41.0
-        },
-        "BNBUSDT": {
-          "close": 300.6,
-          "units": 2.761664993048622,
-          "value": 830.1564969104159,
+        "ETHUSDT": {
+          "close": 171.57,
+          "units": 1.091330471987098,
+          "value": 187.2395690788264,
           "reinvest_pct": 20.0
         }
       },
       "actions": [
-        "BTC dip $44",
+        "BTC dip $55",
         "BTC DCA $10",
-        "BNB dip $11",
-        "BNB DCA $10"
+        "BNB DCA $10",
+        "ETH dip $11",
+        "ETH DCA $10"
       ]
     },
     {
-      "date": "2022-12-01",
-      "injected": 1240.0,
-      "usdt": 14.381280852042508,
-      "portfolio_value": 2020.557203953682,
+      "date": "2019-09-01",
+      "injected": 690.0,
+      "usdt": 8.764456324969757,
+      "portfolio_value": 914.5051585580313,
       "positions": {
         "BTCUSDT": {
-          "close": 16542.4,
-          "units": 0.07955180840227316,
-          "value": 1315.9778353137638,
-          "reinvest_pct": 43.0
+          "close": 8289.34,
+          "units": 0.07492087466260328,
+          "value": 621.0446031757039,
+          "reinvest_pct": 45.0
         },
         "BNBUSDT": {
-          "close": 246.3,
-          "units": 2.8022658862682728,
-          "value": 690.1980877878756,
+          "close": 15.8349,
+          "units": 4.883452576176112,
+          "value": 77.32898319849112,
+          "reinvest_pct": 6.0
+        },
+        "ETHUSDT": {
+          "close": 180.85,
+          "units": 1.1466249148955856,
+          "value": 207.36711585886664,
           "reinvest_pct": 21.0
         }
       },
       "actions": [
-        "BTC dip $24",
+        "BTC dip $29",
         "BTC DCA $10",
-        "BNB DCA $10"
+        "BNB DCA $10",
+        "ETH DCA $10"
       ]
     },
     {
-      "date": "2023-01-01",
-      "injected": 1260.0,
-      "usdt": 14.381280852042508,
-      "portfolio_value": 2748.3341484054026,
+      "date": "2019-10-01",
+      "injected": 720.0,
+      "usdt": 8.764456324969757,
+      "portfolio_value": 1029.7261129267135,
       "positions": {
         "BTCUSDT": {
-          "close": 23125.13,
-          "units": 0.07998423840374774,
-          "value": 1849.645911037659,
-          "reinvest_pct": 45.0
+          "close": 9140.85,
+          "units": 0.07601486482763169,
+          "value": 694.8404771596571,
+          "reinvest_pct": 47.0
         },
         "BNBUSDT": {
-          "close": 312.0,
-          "units": 2.8343171683195547,
-          "value": 884.306956515701,
+          "close": 19.9099,
+          "units": 5.385715269610032,
+          "value": 107.22905244640879,
+          "reinvest_pct": 7.0
+        },
+        "ETHUSDT": {
+          "close": 182.18,
+          "units": 1.2015156822685136,
+          "value": 218.8921269956778,
           "reinvest_pct": 22.0
         }
       },
       "actions": [
         "BTC DCA $10",
-        "BNB DCA $10"
+        "BNB DCA $10",
+        "ETH DCA $10"
       ]
     },
     {
-      "date": "2023-02-01",
-      "injected": 1280.0,
-      "usdt": 14.381280852042508,
-      "portfolio_value": 2739.6053273005728,
+      "date": "2019-11-01",
+      "injected": 750.0,
+      "usdt": 0.0,
+      "portfolio_value": 878.5529152178807,
       "positions": {
         "BTCUSDT": {
-          "close": 23141.57,
-          "units": 0.08041636120267626,
-          "value": 1860.9608519170167,
-          "reinvest_pct": 47.0
+          "close": 7541.89,
+          "units": 0.07850289585499615,
+          "value": 592.0602052198369,
+          "reinvest_pct": 49.0
         },
         "BNBUSDT": {
-          "close": 301.4,
-          "units": 2.8674956686513395,
-          "value": 864.2631945315137,
+          "close": 15.7118,
+          "units": 6.022179583055977,
+          "value": 94.61928117305891,
+          "reinvest_pct": 8.0
+        },
+        "ETHUSDT": {
+          "close": 151.37,
+          "units": 1.2675789708990215,
+          "value": 191.8734288249849,
           "reinvest_pct": 23.0
         }
       },
       "actions": [
+        "BTC dip $9",
         "BTC DCA $10",
-        "BNB DCA $10"
+        "BNB DCA $10",
+        "ETH DCA $10"
       ]
     },
     {
-      "date": "2023-03-01",
-      "injected": 1300.0,
-      "usdt": 14.381280852042508,
-      "portfolio_value": 3232.1713297718643,
+      "date": "2019-12-01",
+      "injected": 780.0,
+      "usdt": 0.0,
+      "portfolio_value": 841.1677086032155,
       "positions": {
         "BTCUSDT": {
-          "close": 28465.36,
-          "units": 0.08076766538432019,
-          "value": 2299.0806715242124,
-          "reinvest_pct": 49.0
+          "close": 7195.23,
+          "units": 0.07989270549277006,
+          "value": 574.8463913427438,
+          "reinvest_pct": 50.0
         },
         "BNBUSDT": {
-          "close": 316.9,
-          "units": 2.899051364454432,
-          "value": 918.7093773956094,
+          "close": 13.7161,
+          "units": 6.751249799808552,
+          "value": 92.6008173791541,
+          "reinvest_pct": 9.0
+        },
+        "ETHUSDT": {
+          "close": 129.16,
+          "units": 1.3450023217816476,
+          "value": 173.7204998813176,
           "reinvest_pct": 24.0
         }
       },
       "actions": [
         "BTC DCA $10",
-        "BNB DCA $10"
+        "BNB DCA $10",
+        "ETH DCA $10"
       ]
     },
     {
-      "date": "2023-04-01",
-      "injected": 1320.0,
-      "usdt": 14.381280852042508,
-      "portfolio_value": 3373.909239744976,
+      "date": "2020-01-01",
+      "injected": 810.0,
+      "usdt": 0.0,
+      "portfolio_value": 1142.622181017376,
       "positions": {
         "BTCUSDT": {
-          "close": 29233.21,
-          "units": 0.08110974208407365,
-          "value": 2371.0981233895627,
+          "close": 9352.89,
+          "units": 0.08096189373298245,
+          "value": 757.2276862762741,
           "reinvest_pct": 50.0
         },
         "BNBUSDT": {
-          "close": 337.5,
-          "units": 2.9286809940840617,
-          "value": 988.4298355033708,
+          "close": 18.2644,
+          "units": 7.298762994876554,
+          "value": 133.30752684362332,
+          "reinvest_pct": 10.0
+        },
+        "ETHUSDT": {
+          "close": 179.99,
+          "units": 1.4005609639284335,
+          "value": 252.08696789747876,
           "reinvest_pct": 25.0
         }
       },
       "actions": [
         "BTC DCA $10",
-        "BNB DCA $10"
+        "BNB DCA $10",
+        "ETH DCA $10"
       ]
     },
     {
-      "date": "2023-05-01",
-      "injected": 1340.0,
+      "date": "2020-02-01",
+      "injected": 840.0,
       "usdt": 0.0,
-      "portfolio_value": 3139.9250803544055,
+      "portfolio_value": 1164.6586664077577,
       "positions": {
         "BTCUSDT": {
-          "close": 27210.35,
-          "units": 0.0820057717511688,
-          "value": 2231.4057513694156,
+          "close": 8523.61,
+          "units": 0.08213510555285689,
+          "value": 700.0876070413865,
           "reinvest_pct": 50.0
         },
         "BNBUSDT": {
-          "close": 306.8,
-          "units": 2.9612755182040096,
-          "value": 908.5193289849901,
+          "close": 19.23,
+          "units": 7.818783795708587,
+          "value": 150.35521239147613,
+          "reinvest_pct": 11.0
+        },
+        "ETHUSDT": {
+          "close": 217.21,
+          "units": 1.446599359950716,
+          "value": 314.21584697489504,
           "reinvest_pct": 26.0
         }
       },
       "actions": [
-        "BTC dip $14",
         "BTC DCA $10",
-        "BNB DCA $10"
+        "BNB DCA $10",
+        "ETH DCA $10"
       ]
     },
     {
-      "date": "2023-06-01",
-      "injected": 1360.0,
+      "date": "2020-03-01",
+      "injected": 870.0,
       "usdt": 0.0,
-      "portfolio_value": 3230.474383826039,
+      "portfolio_value": 846.6022576884587,
       "positions": {
         "BTCUSDT": {
-          "close": 30472.0,
-          "units": 0.08233394187456076,
-          "value": 2508.8798768016154,
+          "close": 6410.44,
+          "units": 0.08369506087573644,
+          "value": 536.5221660402559,
           "reinvest_pct": 50.0
         },
         "BNBUSDT": {
-          "close": 240.3,
-          "units": 3.002890166560231,
-          "value": 721.5945070244235,
+          "close": 12.5451,
+          "units": 8.615907772400682,
+          "value": 108.0874245955438,
+          "reinvest_pct": 12.0
+        },
+        "ETHUSDT": {
+          "close": 132.72,
+          "units": 1.5219459542846523,
+          "value": 201.99266705265904,
           "reinvest_pct": 27.0
         }
       },
       "actions": [
         "BTC DCA $10",
-        "BNB DCA $10"
+        "BNB DCA $10",
+        "ETH DCA $10"
       ]
     },
     {
-      "date": "2023-07-01",
-      "injected": 1380.0,
+      "date": "2020-04-01",
+      "injected": 900.0,
       "usdt": 0.0,
-      "portfolio_value": 3150.5029025036442,
+      "portfolio_value": 1211.169870562665,
       "positions": {
         "BTCUSDT": {
-          "close": 29232.25,
-          "units": 0.08267602980826412,
-          "value": 2416.8063723626287,
+          "close": 8620.0,
+          "units": 0.08485515368316104,
+          "value": 731.4514247488482,
           "reinvest_pct": 50.0
         },
         "BNBUSDT": {
-          "close": 241.0,
-          "units": 3.0443839424938406,
-          "value": 733.6965301410156,
+          "close": 16.9542,
+          "units": 9.20573212270916,
+          "value": 156.07582355483564,
+          "reinvest_pct": 13.0
+        },
+        "ETHUSDT": {
+          "close": 206.08,
+          "units": 1.5704707990051492,
+          "value": 323.6426222589812,
           "reinvest_pct": 28.0
         }
       },
       "actions": [
         "BTC DCA $10",
-        "BNB DCA $10"
+        "BNB DCA $10",
+        "ETH DCA $10"
       ]
     },
     {
-      "date": "2023-08-01",
-      "injected": 1400.0,
+      "date": "2020-05-01",
+      "injected": 930.0,
       "usdt": 0.0,
-      "portfolio_value": 2824.398700868037,
+      "portfolio_value": 1352.7490169641183,
       "positions": {
         "BTCUSDT": {
-          "close": 25940.78,
-          "units": 0.08306152322827694,
-          "value": 2154.680700529622,
+          "close": 9448.27,
+          "units": 0.0859135485004133,
+          "value": 811.73440289,
           "reinvest_pct": 50.0
         },
         "BNBUSDT": {
-          "close": 216.7,
-          "units": 3.0905306891482014,
-          "value": 669.7180003384152,
+          "close": 17.0916,
+          "units": 9.79081485340728,
+          "value": 167.34069114849586,
+          "reinvest_pct": 14.0
+        },
+        "ETHUSDT": {
+          "close": 231.57,
+          "units": 1.6136542856398601,
+          "value": 373.6739229256224,
           "reinvest_pct": 29.0
         }
       },
       "actions": [
         "BTC DCA $10",
-        "BNB DCA $10"
+        "BNB DCA $10",
+        "ETH DCA $10"
       ]
     },
     {
-      "date": "2023-09-01",
-      "injected": 1420.0,
+      "date": "2020-06-01",
+      "injected": 960.0,
       "usdt": 0.0,
-      "portfolio_value": 2922.779189625015,
+      "portfolio_value": 1329.7856030306514,
       "positions": {
         "BTCUSDT": {
-          "close": 26962.56,
-          "units": 0.08343240789204774,
-          "value": 2249.551303733811,
+          "close": 9138.55,
+          "units": 0.08700781400205196,
+          "value": 795.1252586484519,
           "reinvest_pct": 50.0
         },
         "BNBUSDT": {
-          "close": 214.6,
-          "units": 3.137129011608593,
-          "value": 673.2278858912041,
+          "close": 15.3838,
+          "units": 10.440849305233227,
+          "value": 160.61993754184692,
+          "reinvest_pct": 15.0
+        },
+        "ETHUSDT": {
+          "close": 225.6,
+          "units": 1.657980526774612,
+          "value": 374.04040684035243,
           "reinvest_pct": 30.0
         }
       },
       "actions": [
         "BTC DCA $10",
-        "BNB DCA $10"
+        "BNB DCA $10",
+        "ETH DCA $10"
       ]
     },
     {
-      "date": "2023-10-01",
-      "injected": 1440.0,
+      "date": "2020-07-01",
+      "injected": 990.0,
       "usdt": 0.0,
-      "portfolio_value": 3619.698002352582,
+      "portfolio_value": 1806.2055990656272,
       "positions": {
         "BTCUSDT": {
-          "close": 34639.77,
-          "units": 0.08372109341161095,
-          "value": 2900.0794199267184,
+          "close": 11335.46,
+          "units": 0.08789000140335725,
+          "value": 996.2735953076998,
           "reinvest_pct": 50.0
         },
         "BNBUSDT": {
-          "close": 226.2,
-          "units": 3.1813376765069132,
-          "value": 719.6185824258638,
+          "close": 20.6615,
+          "units": 10.924841270966596,
+          "value": 225.72360792007632,
+          "reinvest_pct": 16.0
+        },
+        "ETHUSDT": {
+          "close": 346.33,
+          "units": 1.6868547219064227,
+          "value": 584.2083958378513,
           "reinvest_pct": 31.0
         }
       },
       "actions": [
         "BTC DCA $10",
-        "BNB DCA $10"
+        "BNB DCA $10",
+        "ETH DCA $10"
       ]
     },
     {
-      "date": "2023-11-01",
-      "injected": 1460.0,
+      "date": "2020-08-01",
+      "injected": 1020.0,
       "usdt": 0.0,
-      "portfolio_value": 3902.3636341888487,
+      "portfolio_value": 2038.5011083521647,
       "positions": {
         "BTCUSDT": {
-          "close": 37723.96,
-          "units": 0.08398617692882389,
-          "value": 3168.291179015875,
+          "close": 11649.51,
+          "units": 0.08874840660666622,
+          "value": 1033.8754502484242,
           "reinvest_pct": 50.0
         },
         "BNBUSDT": {
-          "close": 227.6,
-          "units": 3.2252744076141187,
-          "value": 734.0724551729734,
+          "close": 23.1477,
+          "units": 11.356849634648517,
+          "value": 262.8849482879535,
+          "reinvest_pct": 17.0
+        },
+        "ETHUSDT": {
+          "close": 433.79,
+          "units": 1.7099073510587774,
+          "value": 741.7407098157871,
           "reinvest_pct": 32.0
         }
       },
       "actions": [
         "BTC DCA $10",
-        "BNB DCA $10"
+        "BNB DCA $10",
+        "ETH DCA $10"
       ]
     },
     {
-      "date": "2023-12-01",
-      "injected": 1480.0,
+      "date": "2020-09-01",
+      "injected": 1050.0,
       "usdt": 0.0,
-      "portfolio_value": 4576.876791358161,
+      "portfolio_value": 1934.0461719525827,
       "positions": {
         "BTCUSDT": {
-          "close": 42283.58,
-          "units": 0.0842226753520889,
-          "value": 3561.236231064079,
+          "close": 10776.59,
+          "units": 0.08967634392264465,
+          "value": 966.4051911533331,
           "reinvest_pct": 50.0
         },
         "BNBUSDT": {
-          "close": 311.8,
-          "units": 3.2573462485377878,
-          "value": 1015.6405602940822,
+          "close": 29.2656,
+          "units": 11.69854773754065,
+          "value": 342.3650186677697,
+          "reinvest_pct": 18.0
+        },
+        "ETHUSDT": {
+          "close": 359.83,
+          "units": 1.7376982523177054,
+          "value": 625.2759621314799,
           "reinvest_pct": 33.0
         }
       },
       "actions": [
         "BTC DCA $10",
-        "BNB DCA $10"
+        "BNB DCA $10",
+        "ETH DCA $10"
       ]
     },
     {
-      "date": "2024-01-01",
-      "injected": 1500.0,
+      "date": "2020-10-01",
+      "injected": 1080.0,
       "usdt": 0.0,
-      "portfolio_value": 4585.03406417755,
+      "portfolio_value": 2271.7537877246787,
       "positions": {
         "BTCUSDT": {
-          "close": 42580.0,
-          "units": 0.08445752739530167,
-          "value": 3596.2015164919453,
+          "close": 13791.0,
+          "units": 0.090401454502008,
+          "value": 1246.7264590371922,
           "reinvest_pct": 50.0
         },
         "BNBUSDT": {
-          "close": 300.5,
-          "units": 3.290624118754094,
-          "value": 988.8325476856052,
+          "close": 28.5058,
+          "units": 12.049353538465374,
+          "value": 343.47646209678624,
+          "reinvest_pct": 19.0
+        },
+        "ETHUSDT": {
+          "close": 386.46,
+          "units": 1.7635741515052021,
+          "value": 681.5508665907004,
           "reinvest_pct": 34.0
         }
       },
       "actions": [
         "BTC DCA $10",
-        "BNB DCA $10"
+        "BNB DCA $10",
+        "ETH DCA $10"
       ]
     },
     {
-      "date": "2024-02-01",
-      "injected": 1520.0,
-      "usdt": 0.0,
-      "portfolio_value": 6497.246691082024,
+      "date": "2020-11-01",
+      "injected": 1110.0,
+      "usdt": 1432.4282365459715,
+      "portfolio_value": 3277.537247613321,
       "positions": {
         "BTCUSDT": {
-          "close": 61130.98,
-          "units": 0.08462111057358541,
-          "value": 5172.9714180516385,
-          "reinvest_pct": 50.0
+          "close": 19695.87,
+          "units": 0.018181835031226987,
+          "value": 358.10705913649264,
+          "reinvest_pct": 1.0
         },
         "BNBUSDT": {
-          "close": 399.4,
-          "units": 3.3156616750885957,
-          "value": 1324.275273030385,
+          "close": 31.4935,
+          "units": 12.366879377130495,
+          "value": 389.47631566365925,
+          "reinvest_pct": 20.0
+        },
+        "ETHUSDT": {
+          "close": 616.66,
+          "units": 1.7797905430337593,
+          "value": 1097.525636267198,
           "reinvest_pct": 35.0
         }
       },
       "actions": [
         "BTC DCA $10",
-        "BNB DCA $10"
+        "BTC sell 80%",
+        "BNB DCA $10",
+        "ETH DCA $10"
       ]
     },
     {
-      "date": "2024-03-01",
-      "injected": 1540.0,
-      "usdt": 0.0,
-      "portfolio_value": 8063.405546172526,
+      "date": "2020-12-01",
+      "injected": 1140.0,
+      "usdt": 1810.0376551654458,
+      "portfolio_value": 3760.998030685483,
       "positions": {
         "BTCUSDT": {
-          "close": 71280.01,
-          "units": 0.0847614023608621,
-          "value": 6041.793607896274,
-          "reinvest_pct": 50.0
+          "close": 28923.63,
+          "units": 0.018527573100756988,
+          "value": 535.8846691642478,
+          "reinvest_pct": 3.0
         },
         "BNBUSDT": {
-          "close": 606.7,
-          "units": 3.3321442859341537,
-          "value": 2021.6119382762513,
+          "close": 37.3588,
+          "units": 2.5269107855409843,
+          "value": 94.40235465486853,
+          "reinvest_pct": 1.0
+        },
+        "ETHUSDT": {
+          "close": 736.42,
+          "units": 1.7933697505512085,
+          "value": 1320.6733517009209,
           "reinvest_pct": 36.0
         }
       },
       "actions": [
         "BTC DCA $10",
-        "BNB DCA $10"
+        "BNB DCA $10",
+        "BNB sell 80%",
+        "ETH DCA $10"
       ]
     },
     {
-      "date": "2024-04-01",
-      "injected": 1560.0,
-      "usdt": 0.0,
-      "portfolio_value": 7089.95605902254,
+      "date": "2021-01-01",
+      "injected": 1170.0,
+      "usdt": 2308.543740022957,
+      "portfolio_value": 4919.0736609177275,
       "positions": {
         "BTCUSDT": {
-          "close": 60672.0,
-          "units": 0.08492622303596759,
-          "value": 5152.643804038225,
-          "reinvest_pct": 50.0
+          "close": 33092.98,
+          "units": 0.0037659503983738483,
+          "value": 124.6265212143778,
+          "reinvest_pct": 1.0
         },
         "BNBUSDT": {
-          "close": 578.4,
-          "units": 3.3494333592398244,
-          "value": 1937.3122549843144,
+          "close": 44.3292,
+          "units": 2.7524957272949524,
+          "value": 122.0159335944034,
+          "reinvest_pct": 2.0
+        },
+        "ETHUSDT": {
+          "close": 1312.55,
+          "units": 1.8009885079318797,
+          "value": 2363.8874660859888,
           "reinvest_pct": 37.0
         }
       },
       "actions": [
         "BTC DCA $10",
-        "BNB DCA $10"
+        "BTC sell 80%",
+        "BNB DCA $10",
+        "ETH DCA $10"
       ]
     },
     {
-      "date": "2024-05-01",
-      "injected": 1580.0,
-      "usdt": 0.0,
-      "portfolio_value": 7744.476538492166,
+      "date": "2021-02-01",
+      "injected": 1200.0,
+      "usdt": 2779.4338090777055,
+      "portfolio_value": 5643.061853786025,
       "positions": {
         "BTCUSDT": {
-          "close": 67540.01,
-          "units": 0.08507428342269244,
-          "value": 5745.917953111481,
-          "reinvest_pct": 50.0
+          "close": 45135.66,
+          "units": 0.003987504708203371,
+          "value": 179.9786567578666,
+          "reinvest_pct": 3.0
         },
         "BNBUSDT": {
-          "close": 593.7,
-          "units": 3.3662768829049754,
-          "value": 1998.558585380684,
+          "close": 210.2138,
+          "units": 0.5600132686992345,
+          "value": 117.72251726368714,
+          "reinvest_pct": 1.0
+        },
+        "ETHUSDT": {
+          "close": 1419.18,
+          "units": 1.8080348304561542,
+          "value": 2565.926870686765,
           "reinvest_pct": 38.0
         }
       },
       "actions": [
         "BTC DCA $10",
-        "BNB DCA $10"
+        "BNB DCA $10",
+        "BNB sell 80%",
+        "ETH DCA $10"
       ]
     },
     {
-      "date": "2024-06-01",
-      "injected": 1600.0,
-      "usdt": 0.0,
-      "portfolio_value": 7320.130170979361,
+      "date": "2021-03-01",
+      "injected": 1230.0,
+      "usdt": 5759.046634853773,
+      "portfolio_value": 6683.282397386221,
       "positions": {
         "BTCUSDT": {
-          "close": 62772.01,
-          "units": 0.08523359009456737,
-          "value": 5350.283769752084,
-          "reinvest_pct": 50.0
-        },
-        "BNBUSDT": {
-          "close": 582.2,
-          "units": 3.383453111005285,
-          "value": 1969.846401227277,
-          "reinvest_pct": 39.0
-        }
-      },
-      "actions": [
-        "BTC DCA $10",
-        "BNB DCA $10"
-      ]
-    },
-    {
-      "date": "2024-07-01",
-      "injected": 1620.0,
-      "usdt": 0.0,
-      "portfolio_value": 7479.037179126246,
-      "positions": {
-        "BTCUSDT": {
-          "close": 64628.0,
-          "units": 0.08538832178980782,
-          "value": 5518.476460631699,
-          "reinvest_pct": 50.0
-        },
-        "BNBUSDT": {
-          "close": 576.5,
-          "units": 3.4007991647780513,
-          "value": 1960.5607184945466,
-          "reinvest_pct": 40.0
-        }
-      },
-      "actions": [
-        "BTC DCA $10",
-        "BNB DCA $10"
-      ]
-    },
-    {
-      "date": "2024-08-01",
-      "injected": 1640.0,
-      "usdt": 0.0,
-      "portfolio_value": 6867.9759102591315,
-      "positions": {
-        "BTCUSDT": {
-          "close": 58973.99,
-          "units": 0.08555788806809422,
-          "value": 5045.690035348908,
-          "reinvest_pct": 50.0
-        },
-        "BNBUSDT": {
-          "close": 532.9,
-          "units": 3.4195644115410464,
-          "value": 1822.2858749102236,
-          "reinvest_pct": 40.0
-        }
-      },
-      "actions": [
-        "BTC DCA $10",
-        "BNB DCA $10"
-      ]
-    },
-    {
-      "date": "2024-09-01",
-      "injected": 1660.0,
-      "usdt": 0.0,
-      "portfolio_value": 7378.435703950553,
-      "positions": {
-        "BTCUSDT": {
-          "close": 63327.59,
-          "units": 0.08571579712479448,
-          "value": 5428.1748568421635,
-          "reinvest_pct": 50.0
-        },
-        "BNBUSDT": {
-          "close": 567.4,
-          "units": 3.4371886625103802,
-          "value": 1950.2608471083897,
-          "reinvest_pct": 40.0
-        }
-      },
-      "actions": [
-        "BTC DCA $10",
-        "BNB DCA $10"
-      ]
-    },
-    {
-      "date": "2024-10-01",
-      "injected": 1680.0,
-      "usdt": 0.0,
-      "portfolio_value": 8027.018651457509,
-      "positions": {
-        "BTCUSDT": {
-          "close": 70292.01,
-          "units": 0.08585806080454983,
-          "value": 6035.135668654024,
-          "reinvest_pct": 50.0
-        },
-        "BNBUSDT": {
-          "close": 576.6,
-          "units": 3.454531707949159,
-          "value": 1991.8829828034852,
-          "reinvest_pct": 40.0
-        }
-      },
-      "actions": [
-        "BTC DCA $10",
-        "BNB DCA $10"
-      ]
-    },
-    {
-      "date": "2024-11-01",
-      "injected": 1700.0,
-      "usdt": 6629.922453971546,
-      "portfolio_value": 10554.697721389652,
-      "positions": {
-        "BTCUSDT": {
-          "close": 96407.99,
-          "units": 0.01719235732943801,
-          "value": 1657.4806134928865,
+          "close": 58740.55,
+          "units": 0.0008315489714939865,
+          "value": 48.84564393749109,
           "reinvest_pct": 1.0
         },
         "BNBUSDT": {
-          "close": 653.43,
-          "units": 3.4698355660517866,
-          "value": 2267.294653925219,
-          "reinvest_pct": 40.0
+          "close": 302.3724,
+          "units": 0.5930850702260935,
+          "value": 179.33255608843245,
+          "reinvest_pct": 2.0
+        },
+        "ETHUSDT": {
+          "close": 1919.37,
+          "units": 0.3626489746669612,
+          "value": 696.0575625065253,
+          "reinvest_pct": 1.0
         }
       },
       "actions": [
         "BTC DCA $10",
         "BTC sell 80%",
-        "BNB DCA $10"
+        "BNB DCA $10",
+        "ETH DCA $10",
+        "ETH sell 80%"
       ]
     },
     {
-      "date": "2024-12-01",
-      "injected": 1720.0,
-      "usdt": 6563.423229431831,
-      "portfolio_value": 10695.580001469209,
+      "date": "2021-04-01",
+      "injected": 1260.0,
+      "usdt": 6004.583703686258,
+      "portfolio_value": 7211.721935055823,
       "positions": {
         "BTCUSDT": {
-          "close": 93576.0,
-          "units": 0.018009866354612367,
-          "value": 1685.291253999207,
+          "close": 57694.27,
+          "units": 0.0020082770304249292,
+          "value": 115.86607722813407,
           "reinvest_pct": 3.0
         },
         "BNBUSDT": {
-          "close": 702.3,
-          "units": 3.4840744952843083,
-          "value": 2446.8655180381697,
-          "reinvest_pct": 40.0
+          "close": 622.65,
+          "units": 0.12182909145628429,
+          "value": 75.85688379525541,
+          "reinvest_pct": 1.0
+        },
+        "ETHUSDT": {
+          "close": 2772.42,
+          "units": 0.3662559317658135,
+          "value": 1015.4152703461767,
+          "reinvest_pct": 2.0
         }
       },
       "actions": [
-        "BTC dip $66",
+        "BTC dip $58",
         "BTC DCA $10",
-        "BNB DCA $10"
+        "BNB DCA $10",
+        "BNB sell 80%",
+        "ETH DCA $10"
       ]
     },
     {
-      "date": "2025-01-01",
-      "injected": 1740.0,
-      "usdt": 3934.053937659098,
-      "portfolio_value": 10788.52186411384,
+      "date": "2021-05-01",
+      "injected": 1290.0,
+      "usdt": 5649.608516036915,
+      "portfolio_value": 7143.589037237378,
       "positions": {
         "BTCUSDT": {
-          "close": 102429.56,
-          "units": 0.01810749442213506,
-          "value": 1854.7426863617486,
+          "close": 37253.81,
+          "units": 0.007136276317225064,
+          "value": 265.85348202940224,
           "reinvest_pct": 5.0
         },
         "BNBUSDT": {
-          "close": 677.47,
-          "units": 7.379995040508056,
-          "value": 4999.725240092993,
-          "reinvest_pct": 40.0
+          "close": 353.33,
+          "units": 0.31551618829424516,
+          "value": 111.48133481000563,
+          "reinvest_pct": 2.0
+        },
+        "ETHUSDT": {
+          "close": 2706.15,
+          "units": 0.41263259773517896,
+          "value": 1116.6457043610546,
+          "reinvest_pct": 3.0
         }
       },
       "actions": [
+        "BTC dip $181",
         "BTC DCA $10",
-        "BNB dip $2629",
-        "BNB DCA $10"
+        "BNB dip $58",
+        "BNB DCA $10",
+        "ETH dip $116",
+        "ETH DCA $10"
       ]
     },
     {
-      "date": "2025-02-01",
-      "injected": 1760.0,
-      "usdt": 2237.810744465686,
-      "portfolio_value": 9821.373689188098,
+      "date": "2021-06-01",
+      "injected": 1320.0,
+      "usdt": 5099.878062577457,
+      "portfolio_value": 6964.544491134904,
       "positions": {
         "BTCUSDT": {
-          "close": 84349.94,
-          "units": 0.020569887363765547,
-          "value": 1735.0687649403822,
+          "close": 35045.0,
+          "units": 0.015524931640433674,
+          "value": 544.0712293389981,
           "reinvest_pct": 7.0
         },
         "BNBUSDT": {
-          "close": 588.07,
-          "units": 9.94523471658481,
-          "value": 5848.49417978203,
-          "reinvest_pct": 40.0
+          "close": 303.71,
+          "units": 0.7030982955831108,
+          "value": 213.53798335154656,
+          "reinvest_pct": 3.0
+        },
+        "ETHUSDT": {
+          "close": 2275.68,
+          "units": 0.4864731490661706,
+          "value": 1107.057215866903,
+          "reinvest_pct": 4.0
         }
       },
       "actions": [
-        "BTC dip $198",
+        "BTC dip $284",
         "BTC DCA $10",
-        "BNB dip $1499",
-        "BNB DCA $10"
+        "BNB dip $108",
+        "BNB DCA $10",
+        "ETH dip $158",
+        "ETH DCA $10"
       ]
     },
     {
-      "date": "2025-03-01",
-      "injected": 1780.0,
-      "usdt": 2079.7639923530883,
-      "portfolio_value": 9970.832560981064,
+      "date": "2021-07-01",
+      "injected": 1350.0,
+      "usdt": 5099.878062577457,
+      "portfolio_value": 7238.5538144445845,
       "positions": {
         "BTCUSDT": {
-          "close": 82550.01,
-          "units": 0.022605583690302612,
-          "value": 1866.0911596903175,
+          "close": 41461.83,
+          "units": 0.015766117328571413,
+          "value": 653.6920764372821,
           "reinvest_pct": 9.0
         },
         "BNBUSDT": {
-          "close": 604.81,
-          "units": 9.961768834737619,
-          "value": 6024.977408937659,
-          "reinvest_pct": 40.0
+          "close": 332.38,
+          "units": 0.7331843416749334,
+          "value": 243.69581148591436,
+          "reinvest_pct": 4.0
+        },
+        "ETHUSDT": {
+          "close": 2531.05,
+          "units": 0.49042407852232517,
+          "value": 1241.2878639439311,
+          "reinvest_pct": 5.0
         }
       },
       "actions": [
-        "BTC dip $158",
         "BTC DCA $10",
-        "BNB DCA $10"
+        "BNB DCA $10",
+        "ETH DCA $10"
       ]
     },
     {
-      "date": "2025-04-01",
-      "injected": 1800.0,
-      "usdt": 1243.858395411853,
-      "portfolio_value": 10204.442908218669,
+      "date": "2021-08-01",
+      "injected": 1380.0,
+      "usdt": 6453.287862632464,
+      "portfolio_value": 7894.362686769352,
       "positions": {
         "BTCUSDT": {
-          "close": 94172.0,
-          "units": 0.022711772366342198,
-          "value": 2138.8130272831772,
+          "close": 47100.89,
+          "units": 0.015978427541817913,
+          "value": 752.5981580201359,
           "reinvest_pct": 11.0
         },
         "BNBUSDT": {
-          "close": 599.88,
-          "units": 11.371893521243646,
-          "value": 6821.771485523638,
-          "reinvest_pct": 40.0
-        }
-      },
-      "actions": [
-        "BTC DCA $10",
-        "BNB dip $836",
-        "BNB DCA $10"
-      ]
-    },
-    {
-      "date": "2025-05-01",
-      "injected": 1820.0,
-      "usdt": 1243.858395411853,
-      "portfolio_value": 11122.145021253164,
-      "positions": {
-        "BTCUSDT": {
-          "close": 104591.88,
-          "units": 0.022807382082889984,
-          "value": 2385.4669699277792,
-          "reinvest_pct": 13.0
+          "close": 463.9,
+          "units": 0.754740711582241,
+          "value": 350.1242161030016,
+          "reinvest_pct": 5.0
         },
-        "BNBUSDT": {
-          "close": 658.01,
-          "units": 11.387090858670128,
-          "value": 7492.81965591353,
-          "reinvest_pct": 40.0
-        }
-      },
-      "actions": [
-        "BTC DCA $10",
-        "BNB DCA $10"
-      ]
-    },
-    {
-      "date": "2025-06-01",
-      "injected": 1840.0,
-      "usdt": 742.3150372471118,
-      "portfolio_value": 11187.76954481663,
-      "positions": {
-        "BTCUSDT": {
-          "close": 107146.5,
-          "units": 0.022900712242997875,
-          "value": 2453.731164344372,
-          "reinvest_pct": 15.0
-        },
-        "BNBUSDT": {
-          "close": 656.9,
-          "units": 12.165814192761681,
-          "value": 7991.723343225148,
-          "reinvest_pct": 40.0
-        }
-      },
-      "actions": [
-        "BTC DCA $10",
-        "BNB dip $502",
-        "BNB DCA $10"
-      ]
-    },
-    {
-      "date": "2025-07-01",
-      "injected": 1860.0,
-      "usdt": 742.3150372471118,
-      "portfolio_value": 12940.93064832188,
-      "positions": {
-        "BTCUSDT": {
-          "close": 115764.08,
-          "units": 0.02298709482384679,
-          "value": 2661.0798841553856,
-          "reinvest_pct": 17.0
-        },
-        "BNBUSDT": {
-          "close": 783.14,
-          "units": 12.178583301733257,
-          "value": 9537.535726919383,
-          "reinvest_pct": 40.0
-        }
-      },
-      "actions": [
-        "BTC DCA $10",
-        "BNB DCA $10"
-      ]
-    },
-    {
-      "date": "2025-08-01",
-      "injected": 1880.0,
-      "usdt": 612.7214809151028,
-      "portfolio_value": 13695.546117763946,
-      "positions": {
-        "BTCUSDT": {
-          "close": 108246.35,
-          "units": 0.02427668617110246,
-          "value": 2627.862668117317,
-          "reinvest_pct": 19.0
-        },
-        "BNBUSDT": {
-          "close": 857.65,
-          "units": 12.190243069703874,
-          "value": 10454.961968731526,
-          "reinvest_pct": 40.0
-        }
-      },
-      "actions": [
-        "BTC dip $130",
-        "BTC DCA $10",
-        "BNB DCA $10"
-      ]
-    },
-    {
-      "date": "2025-09-01",
-      "injected": 1900.0,
-      "usdt": 10455.907111496746,
-      "portfolio_value": 15695.433600902188,
-      "positions": {
-        "BTCUSDT": {
-          "close": 114048.93,
-          "units": 0.02436436783545477,
-          "value": 2778.730081760032,
-          "reinvest_pct": 21.0
-        },
-        "BNBUSDT": {
-          "close": 1008.51,
-          "units": 2.440031737558785,
-          "value": 2460.7964076454105,
+        "ETHUSDT": {
+          "close": 3429.2,
+          "units": 0.09866804211295677,
+          "value": 338.3524500137513,
           "reinvest_pct": 1.0
         }
       },
       "actions": [
         "BTC DCA $10",
         "BNB DCA $10",
-        "BNB sell 80%"
+        "ETH DCA $10",
+        "ETH sell 80%"
       ]
     },
     {
-      "date": "2025-10-01",
-      "injected": 1920.0,
-      "usdt": 8255.96661808243,
-      "portfolio_value": 15803.387543876712,
+      "date": "2021-09-01",
+      "injected": 1410.0,
+      "usdt": 5397.498688977191,
+      "portfolio_value": 7772.054408650524,
       "positions": {
         "BTCUSDT": {
-          "close": 109608.01,
-          "units": 0.044526584934499965,
-          "value": 4880.470366766521,
-          "reinvest_pct": 23.0
+          "close": 43824.1,
+          "units": 0.032479888265245685,
+          "value": 1423.4018713249534,
+          "reinvest_pct": 13.0
         },
         "BNBUSDT": {
-          "close": 1088.9,
-          "units": 2.449215317318175,
-          "value": 2666.950559027761,
+          "close": 387.5,
+          "units": 1.5237892532264854,
+          "value": 590.4683356252631,
+          "reinvest_pct": 6.0
+        },
+        "ETHUSDT": {
+          "close": 3000.61,
+          "units": 0.12020406274828008,
+          "value": 360.6855127231167,
           "reinvest_pct": 2.0
         }
       },
       "actions": [
-        "BTC dip $2200",
+        "BTC dip $713",
         "BTC DCA $10",
-        "BNB DCA $10"
+        "BNB dip $288",
+        "BNB DCA $10",
+        "ETH dip $55",
+        "ETH DCA $10"
       ]
     },
     {
-      "date": "2025-11-01",
-      "injected": 1940.0,
-      "usdt": 6225.244410005002,
-      "portfolio_value": 14443.21149216562,
+      "date": "2021-10-01",
+      "injected": 1440.0,
+      "usdt": 5397.498688977191,
+      "portfolio_value": 8733.229245756766,
       "positions": {
         "BTCUSDT": {
-          "close": 90360.0,
-          "units": 0.0657026841173127,
-          "value": 5936.894536840376,
-          "reinvest_pct": 25.0
+          "close": 61299.8,
+          "units": 0.032643020934520296,
+          "value": 2001.0106546819075,
+          "reinvest_pct": 15.0
         },
         "BNBUSDT": {
-          "close": 875.31,
-          "units": 2.6060167772791822,
-          "value": 2281.072545320241,
+          "close": 524.6,
+          "units": 1.542851395811312,
+          "value": 809.3798422426142,
+          "reinvest_pct": 7.0
+        },
+        "ETHUSDT": {
+          "close": 4287.21,
+          "units": 0.12253658203238325,
+          "value": 525.3400598550538,
           "reinvest_pct": 3.0
         }
       },
       "actions": [
-        "BTC dip $1903",
         "BTC DCA $10",
-        "BNB dip $127",
-        "BNB DCA $10"
+        "BNB DCA $10",
+        "ETH DCA $10"
       ]
     },
     {
-      "date": "2025-12-01",
-      "injected": 1960.0,
-      "usdt": 4523.715308278639,
-      "portfolio_value": 14256.348022712129,
+      "date": "2021-11-01",
+      "injected": 1470.0,
+      "usdt": 4583.373885630612,
+      "portfolio_value": 8814.33823950365,
       "positions": {
         "BTCUSDT": {
-          "close": 87648.22,
-          "units": 0.08363015717382485,
-          "value": 7330.034414605979,
-          "reinvest_pct": 27.0
+          "close": 56950.56,
+          "units": 0.04711390240340451,
+          "value": 2683.1631256592327,
+          "reinvest_pct": 17.0
         },
         "BNBUSDT": {
-          "close": 864.3,
-          "units": 2.7798198540177137,
-          "value": 2402.59829982751,
+          "close": 622.5,
+          "units": 1.5589156528394243,
+          "value": 970.4249938925417,
+          "reinvest_pct": 8.0
+        },
+        "ETHUSDT": {
+          "close": 4630.26,
+          "units": 0.12469628796682322,
+          "value": 577.3762343212629,
           "reinvest_pct": 4.0
         }
       },
       "actions": [
-        "BTC dip $1561",
+        "BTC dip $814",
         "BTC DCA $10",
-        "BNB dip $140",
-        "BNB DCA $10"
+        "BNB DCA $10",
+        "ETH DCA $10"
       ]
     },
     {
-      "date": "2026-01-01",
-      "injected": 1980.0,
-      "usdt": 3164.63568804167,
-      "portfolio_value": 13300.940678549287,
+      "date": "2021-12-01",
+      "injected": 1500.0,
+      "usdt": 3353.4294071048334,
+      "portfolio_value": 8046.475514609946,
       "positions": {
         "BTCUSDT": {
-          "close": 78741.09,
-          "units": 0.0993373709453796,
-          "value": 7821.93286597352,
-          "reinvest_pct": 29.0
+          "close": 46216.93,
+          "units": 0.06429967308434771,
+          "value": 2971.7334899621824,
+          "reinvest_pct": 19.0
         },
         "BNBUSDT": {
-          "close": 781.38,
-          "units": 2.961903458668122,
-          "value": 2314.372124534097,
+          "close": 511.4,
+          "units": 2.1759043622760155,
+          "value": 1112.7574908679542,
+          "reinvest_pct": 9.0
+        },
+        "ETHUSDT": {
+          "close": 3676.23,
+          "units": 0.16553782725100874,
+          "value": 608.5551266749759,
           "reinvest_pct": 5.0
         }
       },
       "actions": [
-        "BTC dip $1227",
+        "BTC dip $784",
         "BTC DCA $10",
-        "BNB dip $132",
-        "BNB DCA $10"
+        "BNB dip $306",
+        "BNB DCA $10",
+        "ETH dip $140",
+        "ETH DCA $10"
       ]
     },
     {
-      "date": "2026-02-01",
-      "injected": 2000.0,
-      "usdt": 2128.5367715841066,
-      "portfolio_value": 11665.492360565468,
+      "date": "2022-01-01",
+      "injected": 1530.0,
+      "usdt": 2341.0845251781243,
+      "portfolio_value": 7116.069714026867,
       "positions": {
         "BTCUSDT": {
-          "close": 66973.26,
-          "units": 0.11327643184120705,
-          "value": 7586.491921573437,
-          "reinvest_pct": 31.0
+          "close": 38466.9,
+          "units": 0.08127144848995405,
+          "value": 3126.2606819182133,
+          "reinvest_pct": 21.0
         },
         "BNBUSDT": {
-          "close": 617.14,
-          "units": 3.1604881670413913,
-          "value": 1950.4636674079243,
+          "close": 374.3,
+          "units": 2.8591851631788803,
+          "value": 1070.193006577855,
+          "reinvest_pct": 10.0
+        },
+        "ETHUSDT": {
+          "close": 2686.94,
+          "units": 0.21531240011041336,
+          "value": 578.5315003526741,
           "reinvest_pct": 6.0
         }
       },
       "actions": [
-        "BTC dip $924",
+        "BTC dip $643",
         "BTC DCA $10",
-        "BNB dip $113",
-        "BNB DCA $10"
+        "BNB dip $246",
+        "BNB DCA $10",
+        "ETH dip $124",
+        "ETH DCA $10"
       ]
     },
     {
-      "date": "2026-03-01",
-      "injected": 2020.0,
-      "usdt": 2128.5367715841066,
-      "portfolio_value": 11834.939225092738,
+      "date": "2022-02-01",
+      "injected": 1560.0,
+      "usdt": 2341.0845251781243,
+      "portfolio_value": 7638.770647660617,
       "positions": {
         "BTCUSDT": {
-          "close": 68284.48,
-          "units": 0.11342287800291173,
-          "value": 7745.022244532265,
-          "reinvest_pct": 33.0
+          "close": 43160.0,
+          "units": 0.08150314450478259,
+          "value": 3517.6757168264166,
+          "reinvest_pct": 23.0
         },
         "BNBUSDT": {
-          "close": 617.43,
-          "units": 3.1766843350280456,
-          "value": 1961.380208976366,
+          "close": 395.6,
+          "units": 2.8844632218239763,
+          "value": 1141.093650553565,
+          "reinvest_pct": 11.0
+        },
+        "ETHUSDT": {
+          "close": 2920.95,
+          "units": 0.21873594382050768,
+          "value": 638.9167551025118,
           "reinvest_pct": 7.0
         }
       },
       "actions": [
         "BTC DCA $10",
-        "BNB DCA $10"
+        "BNB DCA $10",
+        "ETH DCA $10"
       ]
     },
     {
-      "date": "2026-04-01",
-      "injected": 2040.0,
-      "usdt": 1978.8391975732193,
-      "portfolio_value": 12762.852472724428,
+      "date": "2022-03-01",
+      "injected": 1590.0,
+      "usdt": 2341.0845251781243,
+      "portfolio_value": 8035.250805506648,
       "positions": {
         "BTCUSDT": {
-          "close": 76346.57,
-          "units": 0.11355385965670443,
-          "value": 8669.447695050761,
-          "reinvest_pct": 35.0
+          "close": 45510.34,
+          "units": 0.08172287479025178,
+          "value": 3719.235817481787,
+          "reinvest_pct": 25.0
         },
         "BNBUSDT": {
-          "close": 615.38,
-          "units": 3.4361948391245187,
-          "value": 2114.5655801004464,
+          "close": 428.9,
+          "units": 2.9077786799727288,
+          "value": 1247.1462758403034,
+          "reinvest_pct": 12.0
+        },
+        "ETHUSDT": {
+          "close": 3281.51,
+          "units": 0.22178332139973186,
+          "value": 727.7841870064342,
           "reinvest_pct": 8.0
         }
       },
       "actions": [
         "BTC DCA $10",
-        "BNB dip $150",
-        "BNB DCA $10"
+        "BNB DCA $10",
+        "ETH DCA $10"
       ]
     },
     {
-      "date": "2026-05-01",
-      "injected": 2060.0,
-      "usdt": 1279.2454784225924,
-      "portfolio_value": 12806.438782866455,
+      "date": "2022-04-01",
+      "injected": 1620.0,
+      "usdt": 1412.426523688157,
+      "portfolio_value": 7147.632733180641,
       "positions": {
         "BTCUSDT": {
-          "close": 73674.39,
-          "units": 0.12318534380133905,
-          "value": 9075.605061503937,
-          "reinvest_pct": 37.0
+          "close": 37630.8,
+          "units": 0.09774090075022424,
+          "value": 3678.0682879515384,
+          "reinvest_pct": 27.0
         },
         "BNBUSDT": {
-          "close": 710.55,
-          "units": 3.4502684440784277,
-          "value": 2451.5882429399267,
+          "close": 377.1,
+          "units": 3.497005959914471,
+          "value": 1318.720947483747,
+          "reinvest_pct": 13.0
+        },
+        "ETHUSDT": {
+          "close": 2726.66,
+          "units": 0.27081373330638875,
+          "value": 738.4169740571979,
           "reinvest_pct": 9.0
         }
       },
       "actions": [
-        "BTC dip $700",
+        "BTC dip $593",
         "BTC DCA $10",
-        "BNB DCA $10"
+        "BNB dip $212",
+        "BNB DCA $10",
+        "ETH dip $124",
+        "ETH DCA $10"
       ]
     },
     {
-      "date": "2026-06-01",
-      "injected": 2080.0,
-      "usdt": 725.7574327796723,
-      "portfolio_value": 10406.591245084133,
+      "date": "2022-05-01",
+      "injected": 1650.0,
+      "usdt": 806.6204275268572,
+      "portfolio_value": 6198.771219326298,
       "positions": {
         "BTCUSDT": {
-          "close": 58624.71,
-          "units": 0.13155588971988363,
-          "value": 7712.425883620159,
-          "reinvest_pct": 39.0
+          "close": 31801.04,
+          "units": 0.11030197301062208,
+          "value": 3507.7174557897133,
+          "reinvest_pct": 29.0
         },
         "BNBUSDT": {
-          "close": 546.52,
-          "units": 3.6017125241241,
-          "value": 1968.4079286843032,
+          "close": 320.9,
+          "units": 3.950687097645871,
+          "value": 1267.7754896345598,
+          "reinvest_pct": 14.0
+        },
+        "ETHUSDT": {
+          "close": 1941.9,
+          "units": 0.3175538629049733,
+          "value": 616.6578463751677,
           "reinvest_pct": 10.0
         }
       },
       "actions": [
-        "BTC dip $481",
+        "BTC dip $389",
         "BTC DCA $10",
-        "BNB dip $73",
-        "BNB DCA $10"
+        "BNB dip $136",
+        "BNB DCA $10",
+        "ETH dip $81",
+        "ETH DCA $10"
       ]
     },
     {
-      "date": "2026-07-01",
-      "injected": 2100.0,
-      "usdt": 725.7574327796723,
-      "portfolio_value": 11301.607167256352,
+      "date": "2022-06-01",
+      "injected": 1680.0,
+      "usdt": 433.0163897431091,
+      "portfolio_value": 4243.959786071903,
       "positions": {
         "BTCUSDT": {
-          "close": 64311.75,
-          "units": 0.13171138230094387,
-          "value": 8470.589490692726,
-          "reinvest_pct": 41.0
+          "close": 19942.21,
+          "units": 0.12296957223772824,
+          "value": 2452.2850331749464,
+          "reinvest_pct": 31.0
         },
         "BNBUSDT": {
-          "close": 581.74,
-          "units": 3.6189023340048028,
-          "value": 2105.260243783954,
+          "close": 219.6,
+          "units": 4.368538056189449,
+          "value": 959.330957139203,
+          "reinvest_pct": 15.0
+        },
+        "ETHUSDT": {
+          "close": 1071.01,
+          "units": 0.3728512394978995,
+          "value": 399.32740601464536,
           "reinvest_pct": 11.0
         }
       },
       "actions": [
+        "BTC dip $243",
         "BTC DCA $10",
-        "BNB DCA $10"
+        "BNB dip $82",
+        "BNB DCA $10",
+        "ETH dip $49",
+        "ETH DCA $10"
+      ]
+    },
+    {
+      "date": "2022-07-01",
+      "injected": 1710.0,
+      "usdt": 433.0163897431091,
+      "portfolio_value": 5191.118793289934,
+      "positions": {
+        "BTCUSDT": {
+          "close": 23293.32,
+          "units": 0.12339887986755516,
+          "value": 2874.3695963965197,
+          "reinvest_pct": 33.0
+        },
+        "BNBUSDT": {
+          "close": 283.4,
+          "units": 4.403823871291777,
+          "value": 1248.0436851240897,
+          "reinvest_pct": 16.0
+        },
+        "ETHUSDT": {
+          "close": 1678.12,
+          "units": 0.37881028891033725,
+          "value": 635.689122026215,
+          "reinvest_pct": 12.0
+        }
+      },
+      "actions": [
+        "BTC DCA $10",
+        "BNB DCA $10",
+        "ETH DCA $10"
+      ]
+    },
+    {
+      "date": "2022-08-01",
+      "injected": 1740.0,
+      "usdt": 203.12334924973118,
+      "portfolio_value": 4755.423093925407,
+      "positions": {
+        "BTCUSDT": {
+          "close": 20050.02,
+          "units": 0.13151834351972239,
+          "value": 2636.9454179373042,
+          "reinvest_pct": 35.0
+        },
+        "BNBUSDT": {
+          "close": 279.2,
+          "units": 4.611686897726094,
+          "value": 1287.5829818451255,
+          "reinvest_pct": 17.0
+        },
+        "ETHUSDT": {
+          "close": 1554.1,
+          "units": 0.4039452705059171,
+          "value": 627.7713448932458,
+          "reinvest_pct": 13.0
+        }
+      },
+      "actions": [
+        "BTC dip $153",
+        "BTC DCA $10",
+        "BNB dip $48",
+        "BNB DCA $10",
+        "ETH dip $29",
+        "ETH DCA $10"
+      ]
+    },
+    {
+      "date": "2022-09-01",
+      "injected": 1770.0,
+      "usdt": 104.43125400072299,
+      "portfolio_value": 4637.69143157834,
+      "positions": {
+        "BTCUSDT": {
+          "close": 19422.61,
+          "units": 0.13623414496131062,
+          "value": 2646.022666267001,
+          "reinvest_pct": 37.0
+        },
+        "BNBUSDT": {
+          "close": 284.8,
+          "units": 4.646799257276656,
+          "value": 1323.4084284723915,
+          "reinvest_pct": 18.0
+        },
+        "ETHUSDT": {
+          "close": 1328.72,
+          "units": 0.42434002862772024,
+          "value": 563.8290828382245,
+          "reinvest_pct": 14.0
+        }
+      },
+      "actions": [
+        "BTC dip $82",
+        "BTC DCA $10",
+        "BNB DCA $10",
+        "ETH dip $17",
+        "ETH DCA $10"
+      ]
+    },
+    {
+      "date": "2022-10-01",
+      "injected": 1800.0,
+      "usdt": 104.43125400072299,
+      "portfolio_value": 5106.787535242785,
+      "positions": {
+        "BTCUSDT": {
+          "close": 20490.74,
+          "units": 0.13672217028396855,
+          "value": 2801.538443524526,
+          "reinvest_pct": 39.0
+        },
+        "BNBUSDT": {
+          "close": 325.7,
+          "units": 4.677502358289858,
+          "value": 1523.4625180950065,
+          "reinvest_pct": 19.0
+        },
+        "ETHUSDT": {
+          "close": 1572.69,
+          "units": 0.43069856082414804,
+          "value": 677.3553196225294,
+          "reinvest_pct": 15.0
+        }
+      },
+      "actions": [
+        "BTC DCA $10",
+        "BNB DCA $10",
+        "ETH DCA $10"
+      ]
+    },
+    {
+      "date": "2022-11-01",
+      "injected": 1830.0,
+      "usdt": 31.074110211493647,
+      "portfolio_value": 4444.660632719814,
+      "positions": {
+        "BTCUSDT": {
+          "close": 17163.64,
+          "units": 0.14035940510480385,
+          "value": 2409.0782998330155,
+          "reinvest_pct": 41.0
+        },
+        "BNBUSDT": {
+          "close": 300.6,
+          "units": 4.756280077314089,
+          "value": 1429.7377912406153,
+          "reinvest_pct": 20.0
+        },
+        "ETHUSDT": {
+          "close": 1294.46,
+          "units": 0.4440233235748422,
+          "value": 574.7704314346903,
+          "reinvest_pct": 16.0
+        }
+      },
+      "actions": [
+        "BTC dip $52",
+        "BTC DCA $10",
+        "BNB dip $14",
+        "BNB DCA $10",
+        "ETH dip $7",
+        "ETH DCA $10"
+      ]
+    },
+    {
+      "date": "2022-12-01",
+      "injected": 1860.0,
+      "usdt": 6.033725024781248,
+      "portfolio_value": 4085.5369342872373,
+      "positions": {
+        "BTCUSDT": {
+          "close": 16542.4,
+          "units": 0.14247762163848168,
+          "value": 2356.9218081924196,
+          "reinvest_pct": 43.0
+        },
+        "BNBUSDT": {
+          "close": 246.3,
+          "units": 4.796880970533739,
+          "value": 1181.4717830424602,
+          "reinvest_pct": 21.0
+        },
+        "ETHUSDT": {
+          "close": 1196.13,
+          "units": 0.4523836188604717,
+          "value": 541.1096180275761,
+          "reinvest_pct": 17.0
+        }
+      },
+      "actions": [
+        "BTC dip $25",
+        "BTC DCA $10",
+        "BNB DCA $10",
+        "ETH DCA $10"
+      ]
+    },
+    {
+      "date": "2023-01-01",
+      "injected": 1890.0,
+      "usdt": 6.033725024781248,
+      "portfolio_value": 5544.651432800081,
+      "positions": {
+        "BTCUSDT": {
+          "close": 23125.13,
+          "units": 0.14291005163995626,
+          "value": 3304.813522480702,
+          "reinvest_pct": 45.0
+        },
+        "BNBUSDT": {
+          "close": 312.0,
+          "units": 4.828932252585021,
+          "value": 1506.6268628065266,
+          "reinvest_pct": 22.0
+        },
+        "ETHUSDT": {
+          "close": 1585.33,
+          "units": 0.4586914538222777,
+          "value": 727.1773224880715,
+          "reinvest_pct": 18.0
+        }
+      },
+      "actions": [
+        "BTC DCA $10",
+        "BNB DCA $10",
+        "ETH DCA $10"
+      ]
+    },
+    {
+      "date": "2023-02-01",
+      "injected": 1920.0,
+      "usdt": 6.033725024781248,
+      "portfolio_value": 5534.942152102703,
+      "positions": {
+        "BTCUSDT": {
+          "close": 23141.57,
+          "units": 0.14334217443888478,
+          "value": 3317.162963729663,
+          "reinvest_pct": 47.0
+        },
+        "BNBUSDT": {
+          "close": 301.4,
+          "units": 4.862110752916807,
+          "value": 1465.4401809291253,
+          "reinvest_pct": 23.0
+        },
+        "ETHUSDT": {
+          "close": 1605.23,
+          "units": 0.4649210906967443,
+          "value": 746.3052824191349,
+          "reinvest_pct": 19.0
+        }
+      },
+      "actions": [
+        "BTC DCA $10",
+        "BNB DCA $10",
+        "ETH DCA $10"
+      ]
+    },
+    {
+      "date": "2023-03-01",
+      "injected": 1950.0,
+      "usdt": 6.033725024781248,
+      "portfolio_value": 6503.986286335705,
+      "positions": {
+        "BTCUSDT": {
+          "close": 28465.36,
+          "units": 0.14369347862052873,
+          "value": 4090.286598585654,
+          "reinvest_pct": 49.0
+        },
+        "BNBUSDT": {
+          "close": 316.9,
+          "units": 4.893666448719899,
+          "value": 1550.802897599336,
+          "reinvest_pct": 24.0
+        },
+        "ETHUSDT": {
+          "close": 1821.52,
+          "units": 0.4704110112026954,
+          "value": 856.8630651259338,
+          "reinvest_pct": 20.0
+        }
+      },
+      "actions": [
+        "BTC DCA $10",
+        "BNB DCA $10",
+        "ETH DCA $10"
+      ]
+    },
+    {
+      "date": "2023-04-01",
+      "injected": 1980.0,
+      "usdt": 6.033725024781248,
+      "portfolio_value": 6767.978715552223,
+      "positions": {
+        "BTCUSDT": {
+          "close": 29233.21,
+          "units": 0.1440355553202822,
+          "value": 4210.621636144427,
+          "reinvest_pct": 50.0
+        },
+        "BNBUSDT": {
+          "close": 337.5,
+          "units": 4.923296078349528,
+          "value": 1661.612426442966,
+          "reinvest_pct": 25.0
+        },
+        "ETHUSDT": {
+          "close": 1870.09,
+          "units": 0.47575834742715517,
+          "value": 889.7109279400486,
+          "reinvest_pct": 21.0
+        }
+      },
+      "actions": [
+        "BTC DCA $10",
+        "BNB DCA $10",
+        "ETH DCA $10"
+      ]
+    },
+    {
+      "date": "2023-05-01",
+      "injected": 2010.0,
+      "usdt": 0.0,
+      "portfolio_value": 6357.153947061599,
+      "positions": {
+        "BTCUSDT": {
+          "close": 27210.35,
+          "units": 0.14462480628635876,
+          "value": 3935.291597734022,
+          "reinvest_pct": 50.0
+        },
+        "BNBUSDT": {
+          "close": 306.8,
+          "units": 4.955890602469476,
+          "value": 1520.4672368376353,
+          "reinvest_pct": 26.0
+        },
+        "ETHUSDT": {
+          "close": 1873.63,
+          "units": 0.4810955804987862,
+          "value": 901.3951124899409,
+          "reinvest_pct": 22.0
+        }
+      },
+      "actions": [
+        "BTC dip $6",
+        "BTC DCA $10",
+        "BNB DCA $10",
+        "ETH DCA $10"
+      ]
+    },
+    {
+      "date": "2023-06-01",
+      "injected": 2040.0,
+      "usdt": 0.0,
+      "portfolio_value": 6558.245431544087,
+      "positions": {
+        "BTCUSDT": {
+          "close": 30472.0,
+          "units": 0.14495297640975074,
+          "value": 4417.007097157924,
+          "reinvest_pct": 50.0
+        },
+        "BNBUSDT": {
+          "close": 240.3,
+          "units": 4.997505250825697,
+          "value": 1200.9005117734152,
+          "reinvest_pct": 27.0
+        },
+        "ETHUSDT": {
+          "close": 1933.79,
+          "units": 0.4862667728205998,
+          "value": 940.3378226127477,
+          "reinvest_pct": 23.0
+        }
+      },
+      "actions": [
+        "BTC DCA $10",
+        "BNB DCA $10",
+        "ETH DCA $10"
+      ]
+    },
+    {
+      "date": "2023-07-01",
+      "injected": 2070.0,
+      "usdt": 0.0,
+      "portfolio_value": 6374.279617806157,
+      "positions": {
+        "BTCUSDT": {
+          "close": 29232.25,
+          "units": 0.1452950643434541,
+          "value": 4247.301644653936,
+          "reinvest_pct": 50.0
+        },
+        "BNBUSDT": {
+          "close": 241.0,
+          "units": 5.038999026759307,
+          "value": 1214.3987654489931,
+          "reinvest_pct": 28.0
+        },
+        "ETHUSDT": {
+          "close": 1856.14,
+          "units": 0.49165429746852507,
+          "value": 912.5792077032281,
+          "reinvest_pct": 24.0
+        }
+      },
+      "actions": [
+        "BTC DCA $10",
+        "BNB DCA $10",
+        "ETH DCA $10"
+      ]
+    },
+    {
+      "date": "2023-08-01",
+      "injected": 2100.0,
+      "usdt": 0.0,
+      "portfolio_value": 5700.163364919928,
+      "positions": {
+        "BTCUSDT": {
+          "close": 25940.78,
+          "units": 0.14568055776346692,
+          "value": 3779.067299219387,
+          "reinvest_pct": 50.0
+        },
+        "BNBUSDT": {
+          "close": 216.7,
+          "units": 5.085145773413668,
+          "value": 1101.9510890987417,
+          "reinvest_pct": 29.0
+        },
+        "ETHUSDT": {
+          "close": 1645.76,
+          "units": 0.49773051757352216,
+          "value": 819.1449766017998,
+          "reinvest_pct": 25.0
+        }
+      },
+      "actions": [
+        "BTC DCA $10",
+        "BNB DCA $10",
+        "ETH DCA $10"
+      ]
+    },
+    {
+      "date": "2023-09-01",
+      "injected": 2130.0,
+      "usdt": 0.0,
+      "portfolio_value": 5880.846007013938,
+      "positions": {
+        "BTCUSDT": {
+          "close": 26962.56,
+          "units": 0.14605144242723772,
+          "value": 3937.920779530943,
+          "reinvest_pct": 50.0
+        },
+        "BNBUSDT": {
+          "close": 214.6,
+          "units": 5.131744095874059,
+          "value": 1101.272282974573,
+          "reinvest_pct": 30.0
+        },
+        "ETHUSDT": {
+          "close": 1670.89,
+          "units": 0.5037153520030777,
+          "value": 841.6529445084226,
+          "reinvest_pct": 26.0
+        }
+      },
+      "actions": [
+        "BTC DCA $10",
+        "BNB DCA $10",
+        "ETH DCA $10"
+      ]
+    },
+    {
+      "date": "2023-10-01",
+      "injected": 2160.0,
+      "usdt": 0.0,
+      "portfolio_value": 7164.066026153893,
+      "positions": {
+        "BTCUSDT": {
+          "close": 34639.77,
+          "units": 0.14634012794680093,
+          "value": 5069.188373847756,
+          "reinvest_pct": 50.0
+        },
+        "BNBUSDT": {
+          "close": 226.2,
+          "units": 5.175952760772379,
+          "value": 1170.800514486712,
+          "reinvest_pct": 31.0
+        },
+        "ETHUSDT": {
+          "close": 1814.67,
+          "units": 0.5092259958115939,
+          "value": 924.0771378194252,
+          "reinvest_pct": 27.0
+        }
+      },
+      "actions": [
+        "BTC DCA $10",
+        "BNB DCA $10",
+        "ETH DCA $10"
+      ]
+    },
+    {
+      "date": "2023-11-01",
+      "injected": 2190.0,
+      "usdt": 0.0,
+      "portfolio_value": 7773.487355777352,
+      "positions": {
+        "BTCUSDT": {
+          "close": 37723.96,
+          "units": 0.14660521146401387,
+          "value": 5530.52913306,
+          "reinvest_pct": 50.0
+        },
+        "BNBUSDT": {
+          "close": 227.6,
+          "units": 5.219889491879584,
+          "value": 1188.0468483517934,
+          "reinvest_pct": 32.0
+        },
+        "ETHUSDT": {
+          "close": 2051.96,
+          "units": 0.5140993851564154,
+          "value": 1054.9113743655582,
+          "reinvest_pct": 28.0
+        }
+      },
+      "actions": [
+        "BTC DCA $10",
+        "BNB DCA $10",
+        "ETH DCA $10"
+      ]
+    },
+    {
+      "date": "2023-12-01",
+      "injected": 2220.0,
+      "usdt": 0.0,
+      "portfolio_value": 9029.662694930472,
+      "positions": {
+        "BTCUSDT": {
+          "close": 42283.58,
+          "units": 0.14684170988727888,
+          "value": 6208.993187355548,
+          "reinvest_pct": 50.0
+        },
+        "BNBUSDT": {
+          "close": 311.8,
+          "units": 5.251961332803253,
+          "value": 1637.5615435680543,
+          "reinvest_pct": 33.0
+        },
+        "ETHUSDT": {
+          "close": 2281.87,
+          "units": 0.5184817557559676,
+          "value": 1183.1079640068697,
+          "reinvest_pct": 29.0
+        }
+      },
+      "actions": [
+        "BTC DCA $10",
+        "BNB DCA $10",
+        "ETH DCA $10"
+      ]
+    },
+    {
+      "date": "2024-01-01",
+      "injected": 2250.0,
+      "usdt": 0.0,
+      "portfolio_value": 9044.500823344391,
+      "positions": {
+        "BTCUSDT": {
+          "close": 42580.0,
+          "units": 0.14707656193049165,
+          "value": 6262.520007000335,
+          "reinvest_pct": 50.0
+        },
+        "BNBUSDT": {
+          "close": 300.5,
+          "units": 5.285239203019559,
+          "value": 1588.2143805073774,
+          "reinvest_pct": 34.0
+        },
+        "ETHUSDT": {
+          "close": 2283.14,
+          "units": 0.5228616886553955,
+          "value": 1193.7664358366796,
+          "reinvest_pct": 30.0
+        }
+      },
+      "actions": [
+        "BTC DCA $10",
+        "BNB DCA $10",
+        "ETH DCA $10"
+      ]
+    },
+    {
+      "date": "2024-02-01",
+      "injected": 2280.0,
+      "usdt": 0.0,
+      "portfolio_value": 12878.26400118866,
+      "positions": {
+        "BTCUSDT": {
+          "close": 61130.98,
+          "units": 0.1472401451087754,
+          "value": 9000.934365841647,
+          "reinvest_pct": 50.0
+        },
+        "BNBUSDT": {
+          "close": 399.4,
+          "units": 5.3102767593540605,
+          "value": 2120.9245376860117,
+          "reinvest_pct": 35.0
+        },
+        "ETHUSDT": {
+          "close": 3340.09,
+          "units": 0.5258556199566479,
+          "value": 1756.4050976610001,
+          "reinvest_pct": 31.0
+        }
+      },
+      "actions": [
+        "BTC DCA $10",
+        "BNB DCA $10",
+        "ETH DCA $10"
+      ]
+    },
+    {
+      "date": "2024-03-01",
+      "injected": 2310.0,
+      "usdt": 0.0,
+      "portfolio_value": 15663.920158526835,
+      "positions": {
+        "BTCUSDT": {
+          "close": 71280.01,
+          "units": 0.14738043689605207,
+          "value": 10505.279015754959,
+          "reinvest_pct": 50.0
+        },
+        "BNBUSDT": {
+          "close": 606.7,
+          "units": 5.3267593701996185,
+          "value": 3231.7449099001087,
+          "reinvest_pct": 36.0
+        },
+        "ETHUSDT": {
+          "close": 3645.29,
+          "units": 0.5285988859245132,
+          "value": 1926.8962328717687,
+          "reinvest_pct": 32.0
+        }
+      },
+      "actions": [
+        "BTC DCA $10",
+        "BNB DCA $10",
+        "ETH DCA $10"
+      ]
+    },
+    {
+      "date": "2024-04-01",
+      "injected": 2340.0,
+      "usdt": 0.0,
+      "portfolio_value": 13646.08695920151,
+      "positions": {
+        "BTCUSDT": {
+          "close": 60672.0,
+          "units": 0.14754525757115755,
+          "value": 8951.865867357272,
+          "reinvest_pct": 50.0
+        },
+        "BNBUSDT": {
+          "close": 578.4,
+          "units": 5.344048443505289,
+          "value": 3090.997619723459,
+          "reinvest_pct": 37.0
+        },
+        "ETHUSDT": {
+          "close": 3014.05,
+          "units": 0.5319166809179605,
+          "value": 1603.223472120779,
+          "reinvest_pct": 33.0
+        }
+      },
+      "actions": [
+        "BTC DCA $10",
+        "BNB DCA $10",
+        "ETH DCA $10"
+      ]
+    },
+    {
+      "date": "2024-05-01",
+      "injected": 2370.0,
+      "usdt": 0.0,
+      "portfolio_value": 15169.194542168481,
+      "positions": {
+        "BTCUSDT": {
+          "close": 67540.01,
+          "units": 0.1476933179578824,
+          "value": 9975.208171808556,
+          "reinvest_pct": 50.0
+        },
+        "BNBUSDT": {
+          "close": 593.7,
+          "units": 5.36089196717044,
+          "value": 3182.761560909091,
+          "reinvest_pct": 38.0
+        },
+        "ETHUSDT": {
+          "close": 3762.29,
+          "units": 0.5345746365779442,
+          "value": 2011.2248094508338,
+          "reinvest_pct": 34.0
+        }
+      },
+      "actions": [
+        "BTC DCA $10",
+        "BNB DCA $10",
+        "ETH DCA $10"
+      ]
+    },
+    {
+      "date": "2024-06-01",
+      "injected": 2400.0,
+      "usdt": 0.0,
+      "portfolio_value": 14260.07086756883,
+      "positions": {
+        "BTCUSDT": {
+          "close": 62772.01,
+          "units": 0.14785262462975735,
+          "value": 9281.006431785374,
+          "reinvest_pct": 50.0
+        },
+        "BNBUSDT": {
+          "close": 582.2,
+          "units": 5.37806819527075,
+          "value": 3131.1113032866306,
+          "reinvest_pct": 39.0
+        },
+        "ETHUSDT": {
+          "close": 3438.16,
+          "units": 0.5374831690488008,
+          "value": 1847.9531324968248,
+          "reinvest_pct": 35.0
+        }
+      },
+      "actions": [
+        "BTC DCA $10",
+        "BNB DCA $10",
+        "ETH DCA $10"
+      ]
+    },
+    {
+      "date": "2024-07-01",
+      "injected": 2430.0,
+      "usdt": 0.0,
+      "portfolio_value": 14423.419079056364,
+      "positions": {
+        "BTCUSDT": {
+          "close": 64628.0,
+          "units": 0.14800735632499779,
+          "value": 9565.419424571957,
+          "reinvest_pct": 50.0
+        },
+        "BNBUSDT": {
+          "close": 576.5,
+          "units": 5.395414249043516,
+          "value": 3110.456314573587,
+          "reinvest_pct": 40.0
+        },
+        "ETHUSDT": {
+          "close": 3232.74,
+          "units": 0.5405765201998367,
+          "value": 1747.54333991082,
+          "reinvest_pct": 36.0
+        }
+      },
+      "actions": [
+        "BTC DCA $10",
+        "BNB DCA $10",
+        "ETH DCA $10"
+      ]
+    },
+    {
+      "date": "2024-08-01",
+      "injected": 2460.0,
+      "usdt": 0.0,
+      "portfolio_value": 12992.274806179536,
+      "positions": {
+        "BTCUSDT": {
+          "close": 58973.99,
+          "units": 0.1481769226032842,
+          "value": 8738.584351836855,
+          "reinvest_pct": 50.0
+        },
+        "BNBUSDT": {
+          "close": 532.9,
+          "units": 5.414179495806511,
+          "value": 2885.2162533152896,
+          "reinvest_pct": 40.0
+        },
+        "ETHUSDT": {
+          "close": 2513.01,
+          "units": 0.5445558119654883,
+          "value": 1368.474201027392,
+          "reinvest_pct": 37.0
+        }
+      },
+      "actions": [
+        "BTC DCA $10",
+        "BNB DCA $10",
+        "ETH DCA $10"
+      ]
+    },
+    {
+      "date": "2024-09-01",
+      "injected": 2490.0,
+      "usdt": 0.0,
+      "portfolio_value": 13902.75231857408,
+      "positions": {
+        "BTCUSDT": {
+          "close": 63327.59,
+          "units": 0.14833483165998443,
+          "value": 9393.687402082513,
+          "reinvest_pct": 50.0
+        },
+        "BNBUSDT": {
+          "close": 567.4,
+          "units": 5.431803746775845,
+          "value": 3082.0054459206144,
+          "reinvest_pct": 40.0
+        },
+        "ETHUSDT": {
+          "close": 2602.23,
+          "units": 0.548398669822019,
+          "value": 1427.0594705709525,
+          "reinvest_pct": 38.0
+        }
+      },
+      "actions": [
+        "BTC DCA $10",
+        "BNB DCA $10",
+        "ETH DCA $10"
+      ]
+    },
+    {
+      "date": "2024-10-01",
+      "injected": 2520.0,
+      "usdt": 0.0,
+      "portfolio_value": 14969.93388458333,
+      "positions": {
+        "BTCUSDT": {
+          "close": 70292.01,
+          "units": 0.14847709533973977,
+          "value": 10436.753470391941,
+          "reinvest_pct": 50.0
+        },
+        "BNBUSDT": {
+          "close": 576.6,
+          "units": 5.449146792214624,
+          "value": 3141.9780403909526,
+          "reinvest_pct": 40.0
+        },
+        "ETHUSDT": {
+          "close": 2518.61,
+          "units": 0.5523691138367732,
+          "value": 1391.2023738004355,
+          "reinvest_pct": 39.0
+        }
+      },
+      "actions": [
+        "BTC DCA $10",
+        "BNB DCA $10",
+        "ETH DCA $10"
+      ]
+    },
+    {
+      "date": "2024-11-01",
+      "injected": 2550.0,
+      "usdt": 11459.502658194144,
+      "portfolio_value": 19950.768561185356,
+      "positions": {
+        "BTCUSDT": {
+          "close": 96407.99,
+          "units": 0.029716164236475995,
+          "value": 2864.8756645485355,
+          "reinvest_pct": 1.0
+        },
+        "BNBUSDT": {
+          "close": 653.43,
+          "units": 5.464450650317252,
+          "value": 3570.6359884368017,
+          "reinvest_pct": 40.0
+        },
+        "ETHUSDT": {
+          "close": 3703.6,
+          "units": 0.55506918943889,
+          "value": 2055.754250005873,
+          "reinvest_pct": 40.0
+        }
+      },
+      "actions": [
+        "BTC DCA $10",
+        "BTC sell 80%",
+        "BNB DCA $10",
+        "ETH DCA $10"
+      ]
+    },
+    {
+      "date": "2024-12-01",
+      "injected": 2580.0,
+      "usdt": 6802.764578967321,
+      "portfolio_value": 19960.604973629765,
+      "positions": {
+        "BTCUSDT": {
+          "close": 93576.0,
+          "units": 0.031050855039480414,
+          "value": 2905.614811174419,
+          "reinvest_pct": 3.0
+        },
+        "BNBUSDT": {
+          "close": 702.3,
+          "units": 5.478689579549774,
+          "value": 3847.6836917178057,
+          "reinvest_pct": 40.0
+        },
+        "ETHUSDT": {
+          "close": 3337.78,
+          "units": 1.918802884483165,
+          "value": 6404.541891770219,
+          "reinvest_pct": 40.0
+        }
+      },
+      "actions": [
+        "BTC dip $115",
+        "BTC DCA $10",
+        "BNB DCA $10",
+        "ETH dip $4542",
+        "ETH DCA $10"
+      ]
+    },
+    {
+      "date": "2025-01-01",
+      "injected": 2610.0,
+      "usdt": 2440.1952484282356,
+      "portfolio_value": 20058.886961392753,
+      "positions": {
+        "BTCUSDT": {
+          "close": 102429.56,
+          "units": 0.03114848310700311,
+          "value": 3190.525419317761,
+          "reinvest_pct": 5.0
+        },
+        "BNBUSDT": {
+          "close": 677.47,
+          "units": 9.521829248593317,
+          "value": 6450.753661044515,
+          "reinvest_pct": 40.0
+        },
+        "ETHUSDT": {
+          "close": 3300.99,
+          "units": 2.416672765625537,
+          "value": 7977.412632602241,
+          "reinvest_pct": 40.0
+        }
+      },
+      "actions": [
+        "BTC DCA $10",
+        "BNB dip $2729",
+        "BNB DCA $10",
+        "ETH dip $1633",
+        "ETH DCA $10"
+      ]
+    },
+    {
+      "date": "2025-02-01",
+      "injected": 2640.0,
+      "usdt": 825.2067749624566,
+      "portfolio_value": 16104.59286945128,
+      "positions": {
+        "BTCUSDT": {
+          "close": 84349.94,
+          "units": 0.032731291137707244,
+          "value": 2760.882443588138,
+          "reinvest_pct": 7.0
+        },
+        "BNBUSDT": {
+          "close": 588.07,
+          "units": 11.128226776783379,
+          "value": 6544.176320623002,
+          "reinvest_pct": 40.0
+        },
+        "ETHUSDT": {
+          "close": 2237.59,
+          "units": 2.669983030974255,
+          "value": 5974.327330277683,
+          "reinvest_pct": 40.0
+        }
+      },
+      "actions": [
+        "BTC dip $124",
+        "BTC DCA $10",
+        "BNB dip $935",
+        "BNB DCA $10",
+        "ETH dip $557",
+        "ETH DCA $10"
+      ]
+    },
+    {
+      "date": "2025-03-01",
+      "injected": 2670.0,
+      "usdt": 455.2053804290508,
+      "portfolio_value": 15153.495197697866,
+      "positions": {
+        "BTCUSDT": {
+          "close": 82550.01,
+          "units": 0.03357762022049442,
+          "value": 2771.832884978016,
+          "reinvest_pct": 9.0
+        },
+        "BNBUSDT": {
+          "close": 604.81,
+          "units": 11.144760894936187,
+          "value": 6740.462836866354,
+          "reinvest_pct": 40.0
+        },
+        "ETHUSDT": {
+          "close": 1822.43,
+          "units": 2.845647896174034,
+          "value": 5185.994095424445,
+          "reinvest_pct": 40.0
+        }
+      },
+      "actions": [
+        "BTC dip $60",
+        "BTC DCA $10",
+        "BNB DCA $10",
+        "ETH dip $310",
+        "ETH DCA $10"
+      ]
+    },
+    {
+      "date": "2025-04-01",
+      "injected": 2700.0,
+      "usdt": 155.07393695445828,
+      "portfolio_value": 15436.77872054448,
+      "positions": {
+        "BTCUSDT": {
+          "close": 94172.0,
+          "units": 0.033683808896534,
+          "value": 3172.0716514044,
+          "reinvest_pct": 11.0
+        },
+        "BNBUSDT": {
+          "close": 599.88,
+          "units": 11.478297855947757,
+          "value": 6885.60131782594,
+          "reinvest_pct": 40.0
+        },
+        "ETHUSDT": {
+          "close": 1793.61,
+          "units": 2.912579554284199,
+          "value": 5224.031814359681,
+          "reinvest_pct": 40.0
+        }
+      },
+      "actions": [
+        "BTC DCA $10",
+        "BNB dip $190",
+        "BNB DCA $10",
+        "ETH dip $110",
+        "ETH DCA $10"
+      ]
+    },
+    {
+      "date": "2025-05-01",
+      "injected": 2730.0,
+      "usdt": 155.07393695445828,
+      "portfolio_value": 18624.137475199568,
+      "positions": {
+        "BTCUSDT": {
+          "close": 104591.88,
+          "units": 0.033779418613081785,
+          "value": 3533.0528980492168,
+          "reinvest_pct": 13.0
+        },
+        "BNBUSDT": {
+          "close": 658.01,
+          "units": 11.493495193374239,
+          "value": 7562.834772192183,
+          "reinvest_pct": 40.0
+        },
+        "ETHUSDT": {
+          "close": 2528.06,
+          "units": 2.9165351566037643,
+          "value": 7373.175868003712,
+          "reinvest_pct": 40.0
+        }
+      },
+      "actions": [
+        "BTC DCA $10",
+        "BNB DCA $10",
+        "ETH DCA $10"
+      ]
+    },
+    {
+      "date": "2025-06-01",
+      "injected": 2760.0,
+      "usdt": 47.02661730360498,
+      "portfolio_value": 18603.45804159252,
+      "positions": {
+        "BTCUSDT": {
+          "close": 107146.5,
+          "units": 0.03387274877318967,
+          "value": 3629.3464764265673,
+          "reinvest_pct": 15.0
+        },
+        "BNBUSDT": {
+          "close": 656.9,
+          "units": 11.615324352731497,
+          "value": 7630.10656730932,
+          "reinvest_pct": 40.0
+        },
+        "ETHUSDT": {
+          "close": 2485.47,
+          "units": 2.9358545388007213,
+          "value": 7296.978380553028,
+          "reinvest_pct": 40.0
+        }
+      },
+      "actions": [
+        "BTC DCA $10",
+        "BNB dip $70",
+        "BNB DCA $10",
+        "ETH dip $38",
+        "ETH DCA $10"
+      ]
+    },
+    {
+      "date": "2025-07-01",
+      "injected": 2790.0,
+      "usdt": 47.02661730360498,
+      "portfolio_value": 23952.63439745638,
+      "positions": {
+        "BTCUSDT": {
+          "close": 115764.08,
+          "units": 0.03395913135403859,
+          "value": 3931.247598799431,
+          "reinvest_pct": 17.0
+        },
+        "BNBUSDT": {
+          "close": 783.14,
+          "units": 11.628093461703072,
+          "value": 9106.425113598143,
+          "reinvest_pct": 40.0
+        },
+        "ETHUSDT": {
+          "close": 3698.39,
+          "units": 2.938558418056289,
+          "value": 10867.9350677552,
+          "reinvest_pct": 40.0
+        }
+      },
+      "actions": [
+        "BTC DCA $10",
+        "BNB DCA $10",
+        "ETH DCA $10"
+      ]
+    },
+    {
+      "date": "2025-08-01",
+      "injected": 2820.0,
+      "usdt": 33.93209236199213,
+      "portfolio_value": 26631.46201015063,
+      "positions": {
+        "BTCUSDT": {
+          "close": 108246.35,
+          "units": 0.03417248288913989,
+          "value": 3699.046543186848,
+          "reinvest_pct": 19.0
+        },
+        "BNBUSDT": {
+          "close": 857.65,
+          "units": 11.639753229673689,
+          "value": 9982.83435742964,
+          "reinvest_pct": 40.0
+        },
+        "ETHUSDT": {
+          "close": 4391.83,
+          "units": 2.940835373220765,
+          "value": 12915.64901717215,
+          "reinvest_pct": 40.0
+        }
+      },
+      "actions": [
+        "BTC dip $13",
+        "BTC DCA $10",
+        "BNB DCA $10",
+        "ETH DCA $10"
+      ]
+    },
+    {
+      "date": "2025-09-01",
+      "injected": 2850.0,
+      "usdt": 5655.786869653139,
+      "portfolio_value": 27890.27847827597,
+      "positions": {
+        "BTCUSDT": {
+          "close": 114048.93,
+          "units": 0.0342601645534922,
+          "value": 3907.335108949713,
+          "reinvest_pct": 21.0
+        },
+        "BNBUSDT": {
+          "close": 1008.51,
+          "units": 2.3299337695527473,
+          "value": 2349.7615059316413,
+          "reinvest_pct": 1.0
+        },
+        "ETHUSDT": {
+          "close": 4145.15,
+          "units": 3.854479329756819,
+          "value": 15977.394993741478,
+          "reinvest_pct": 40.0
+        }
+      },
+      "actions": [
+        "BTC DCA $10",
+        "BNB DCA $10",
+        "BNB sell 80%",
+        "ETH dip $3777",
+        "ETH DCA $10"
+      ]
+    },
+    {
+      "date": "2025-10-01",
+      "injected": 2880.0,
+      "usdt": 2673.0629762155877,
+      "portfolio_value": 26810.038126410887,
+      "positions": {
+        "BTCUSDT": {
+          "close": 109608.01,
+          "units": 0.04524490228048094,
+          "value": 4959.203701607978,
+          "reinvest_pct": 23.0
+        },
+        "BNBUSDT": {
+          "close": 1088.9,
+          "units": 2.3391173493121373,
+          "value": 2547.0648816659864,
+          "reinvest_pct": 2.0
+        },
+        "ETHUSDT": {
+          "close": 3847.99,
+          "units": 4.321920422589803,
+          "value": 16630.706566921333,
+          "reinvest_pct": 40.0
+        }
+      },
+      "actions": [
+        "BTC dip $1194",
+        "BTC DCA $10",
+        "BNB DCA $10",
+        "ETH dip $1789",
+        "ETH DCA $10"
+      ]
+    },
+    {
+      "date": "2025-11-01",
+      "injected": 2910.0,
+      "usdt": 1201.9587931113697,
+      "portfolio_value": 21766.832836582227,
+      "positions": {
+        "BTCUSDT": {
+          "close": 90360.0,
+          "units": 0.05223587709820543,
+          "value": 4720.033854593843,
+          "reinvest_pct": 25.0
+        },
+        "BNBUSDT": {
+          "close": 875.31,
+          "units": 2.3978704423120116,
+          "value": 2098.8799768601266,
+          "reinvest_pct": 3.0
+        },
+        "ETHUSDT": {
+          "close": 2991.26,
+          "units": 4.595374595326681,
+          "value": 13745.96021201689,
+          "reinvest_pct": 40.0
+        }
+      },
+      "actions": [
+        "BTC dip $622",
+        "BTC DCA $10",
+        "BNB dip $41",
+        "BNB DCA $10",
+        "ETH dip $808",
+        "ETH DCA $10"
+      ]
+    },
+    {
+      "date": "2025-12-01",
+      "injected": 2940.0,
+      "usdt": 515.9300131931128,
+      "portfolio_value": 21538.618826654692,
+      "positions": {
+        "BTCUSDT": {
+          "close": 87648.22,
+          "units": 0.05586389941603279,
+          "value": 4896.371346074314,
+          "reinvest_pct": 27.0
+        },
+        "BNBUSDT": {
+          "close": 864.3,
+          "units": 2.4411645217346725,
+          "value": 2109.898496135277,
+          "reinvest_pct": 4.0
+        },
+        "ETHUSDT": {
+          "close": 2971.64,
+          "units": 4.716728463492209,
+          "value": 14016.418971251987,
+          "reinvest_pct": 40.0
+        }
+      },
+      "actions": [
+        "BTC dip $308",
+        "BTC DCA $10",
+        "BNB dip $27",
+        "BNB DCA $10",
+        "ETH dip $351",
+        "ETH DCA $10"
+      ]
+    },
+    {
+      "date": "2026-01-01",
+      "injected": 2970.0,
+      "usdt": 207.79265194744008,
+      "portfolio_value": 18417.373834914655,
+      "positions": {
+        "BTCUSDT": {
+          "close": 78741.09,
+          "units": 0.057862869757466226,
+          "value": 4556.1854352309265,
+          "reinvest_pct": 29.0
+        },
+        "BNBUSDT": {
+          "close": 781.38,
+          "units": 2.473851762750873,
+          "value": 1933.018290378277,
+          "reinvest_pct": 5.0
+        },
+        "ETHUSDT": {
+          "close": 2451.95,
+          "units": 4.780023025493184,
+          "value": 11720.377457358012,
+          "reinvest_pct": 40.0
+        }
+      },
+      "actions": [
+        "BTC dip $147",
+        "BTC DCA $10",
+        "BNB dip $16",
+        "BNB DCA $10",
+        "ETH dip $145",
+        "ETH DCA $10"
+      ]
+    },
+    {
+      "date": "2026-02-01",
+      "injected": 3000.0,
+      "usdt": 74.53468624312902,
+      "portfolio_value": 15030.173583236052,
+      "positions": {
+        "BTCUSDT": {
+          "close": 66973.26,
+          "units": 0.05904184580051323,
+          "value": 3954.22488967768,
+          "reinvest_pct": 31.0
+        },
+        "BNBUSDT": {
+          "close": 617.14,
+          "units": 2.5029239978095856,
+          "value": 1544.6545160082076,
+          "reinvest_pct": 6.0
+        },
+        "ETHUSDT": {
+          "close": 1964.51,
+          "units": 4.8138006379743725,
+          "value": 9456.759491307035,
+          "reinvest_pct": 40.0
+        }
+      },
+      "actions": [
+        "BTC dip $69",
+        "BTC DCA $10",
+        "BNB dip $8",
+        "BNB DCA $10",
+        "ETH dip $56",
+        "ETH DCA $10"
+      ]
+    },
+    {
+      "date": "2026-03-01",
+      "injected": 3030.0,
+      "usdt": 74.53468624312902,
+      "portfolio_value": 15816.677066149314,
+      "positions": {
+        "BTCUSDT": {
+          "close": 68284.48,
+          "units": 0.05918829196221791,
+          "value": 4041.641738728229,
+          "reinvest_pct": 33.0
+        },
+        "BNBUSDT": {
+          "close": 617.43,
+          "units": 2.51912016579624,
+          "value": 1555.3803639675723,
+          "reinvest_pct": 7.0
+        },
+        "ETHUSDT": {
+          "close": 2105.43,
+          "units": 4.818550261566703,
+          "value": 10145.120277210382,
+          "reinvest_pct": 40.0
+        }
+      },
+      "actions": [
+        "BTC DCA $10",
+        "BNB DCA $10",
+        "ETH DCA $10"
+      ]
+    },
+    {
+      "date": "2026-04-01",
+      "injected": 3060.0,
+      "usdt": 67.91725820610999,
+      "portfolio_value": 17051.499330334173,
+      "positions": {
+        "BTCUSDT": {
+          "close": 76346.57,
+          "units": 0.0593192736160106,
+          "value": 4528.823075473907,
+          "reinvest_pct": 35.0
+        },
+        "BNBUSDT": {
+          "close": 615.38,
+          "units": 2.546123688882819,
+          "value": 1566.833595664709,
+          "reinvest_pct": 8.0
+        },
+        "ETHUSDT": {
+          "close": 2257.51,
+          "units": 4.822979920793018,
+          "value": 10887.925400989447,
+          "reinvest_pct": 40.0
+        }
+      },
+      "actions": [
+        "BTC DCA $10",
+        "BNB dip $7",
+        "BNB DCA $10",
+        "ETH DCA $10"
+      ]
+    },
+    {
+      "date": "2026-05-01",
+      "injected": 3090.0,
+      "usdt": 20.0,
+      "portfolio_value": 15957.145675075266,
+      "positions": {
+        "BTCUSDT": {
+          "close": 73674.39,
+          "units": 0.05992017496547734,
+          "value": 4414.582339274813,
+          "reinvest_pct": 37.0
+        },
+        "BNBUSDT": {
+          "close": 710.55,
+          "units": 2.560197293836728,
+          "value": 1819.1481871356868,
+          "reinvest_pct": 9.0
+        },
+        "ETHUSDT": {
+          "close": 2007.01,
+          "units": 4.834761734453125,
+          "value": 9703.415148664766,
+          "reinvest_pct": 40.0
+        }
+      },
+      "actions": [
+        "BTC dip $34",
+        "BTC DCA $10",
+        "BNB DCA $10",
+        "ETH dip $14",
+        "ETH DCA $10"
+      ]
+    },
+    {
+      "date": "2026-06-01",
+      "injected": 3120.0,
+      "usdt": 1.5,
+      "portfolio_value": 12562.295699705675,
+      "positions": {
+        "BTCUSDT": {
+          "close": 58624.71,
+          "units": 0.06040631809522587,
+          "value": 3541.3028805003687,
+          "reinvest_pct": 39.0
+        },
+        "BNBUSDT": {
+          "close": 546.52,
+          "units": 2.578494885873616,
+          "value": 1409.1990250276485,
+          "reinvest_pct": 10.0
+        },
+        "ETHUSDT": {
+          "close": 1572.01,
+          "units": 4.841123017142166,
+          "value": 7610.293794177657,
+          "reinvest_pct": 40.0
+        }
+      },
+      "actions": [
+        "BTC dip $18",
+        "BTC DCA $10",
+        "BNB DCA $10",
+        "ETH DCA $10"
+      ]
+    },
+    {
+      "date": "2026-07-01",
+      "injected": 3150.0,
+      "usdt": 1.5,
+      "portfolio_value": 14528.61726225211,
+      "positions": {
+        "BTCUSDT": {
+          "close": 64755.21,
+          "units": 0.060560745823898206,
+          "value": 3921.6238135831513,
+          "reinvest_pct": 41.0
+        },
+        "BNBUSDT": {
+          "close": 582.96,
+          "units": 2.5956487214712554,
+          "value": 1513.1593786688832,
+          "reinvest_pct": 11.0
+        },
+        "ETHUSDT": {
+          "close": 1876.08,
+          "units": 4.846453280243953,
+          "value": 9092.334070000075,
+          "reinvest_pct": 40.0
+        }
+      },
+      "actions": [
+        "BTC DCA $10",
+        "BNB DCA $10",
+        "ETH DCA $10"
       ]
     }
   ],
@@ -2627,6 +3400,13 @@
       "symbol": "BNBUSDT",
       "type": "buy",
       "price": 1.95,
+      "amount": 10
+    },
+    {
+      "date": "2017-11-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 427.43,
       "amount": 10
     },
     {
@@ -2651,6 +3431,20 @@
       "amount": 42.9948717948718
     },
     {
+      "date": "2017-12-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 733.98,
+      "amount": 10
+    },
+    {
+      "date": "2017-12-01",
+      "symbol": "ETHUSDT",
+      "type": "sell",
+      "price": 733.98,
+      "amount": 21.737547668624103
+    },
+    {
       "date": "2018-01-01",
       "symbol": "BTCUSDT",
       "type": "buy",
@@ -2663,6 +3457,20 @@
       "type": "buy",
       "price": 11.3131,
       "amount": 10
+    },
+    {
+      "date": "2018-01-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 1124.81,
+      "amount": 10
+    },
+    {
+      "date": "2018-01-01",
+      "symbol": "ETHUSDT",
+      "type": "sell",
+      "price": 1124.81,
+      "amount": 14.662473362528972
     },
     {
       "date": "2018-02-01",
@@ -2679,6 +3487,20 @@
       "amount": 10
     },
     {
+      "date": "2018-02-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 853.5,
+      "amount": 10
+    },
+    {
+      "date": "2018-03-01",
+      "symbol": "BTCUSDT",
+      "type": "dip",
+      "price": 6923.91,
+      "amount": 7.657642497821741
+    },
+    {
       "date": "2018-03-01",
       "symbol": "BTCUSDT",
       "type": "buy",
@@ -2690,6 +3512,13 @@
       "symbol": "BNBUSDT",
       "type": "buy",
       "price": 11.051,
+      "amount": 10
+    },
+    {
+      "date": "2018-03-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 393.92,
       "amount": 10
     },
     {
@@ -2714,11 +3543,18 @@
       "amount": 53.91665369947162
     },
     {
+      "date": "2018-04-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 670.78,
+      "amount": 10
+    },
+    {
       "date": "2018-05-01",
       "symbol": "BTCUSDT",
       "type": "dip",
       "price": 7485.01,
-      "amount": 12.860267804377775
+      "amount": 17.12192944304422
     },
     {
       "date": "2018-05-01",
@@ -2735,11 +3571,18 @@
       "amount": 10
     },
     {
+      "date": "2018-05-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 577.81,
+      "amount": 10
+    },
+    {
       "date": "2018-06-01",
       "symbol": "BTCUSDT",
       "type": "dip",
       "price": 6390.07,
-      "amount": 13.526663499695532
+      "amount": 18.009156696001966
     },
     {
       "date": "2018-06-01",
@@ -2753,6 +3596,20 @@
       "symbol": "BNBUSDT",
       "type": "buy",
       "price": 14.6851,
+      "amount": 10
+    },
+    {
+      "date": "2018-06-01",
+      "symbol": "ETHUSDT",
+      "type": "dip",
+      "price": 454.09,
+      "amount": 5.026140894431427
+    },
+    {
+      "date": "2018-06-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 454.09,
       "amount": 10
     },
     {
@@ -2770,11 +3627,25 @@
       "amount": 10
     },
     {
+      "date": "2018-07-01",
+      "symbol": "ETHUSDT",
+      "type": "dip",
+      "price": 432.22,
+      "amount": 5.7298006196518285
+    },
+    {
+      "date": "2018-07-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 432.22,
+      "amount": 10
+    },
+    {
       "date": "2018-08-01",
       "symbol": "BTCUSDT",
       "type": "dip",
       "price": 7011.21,
-      "amount": 15.389181012345919
+      "amount": 18.6603689836727
     },
     {
       "date": "2018-08-01",
@@ -2791,11 +3662,18 @@
       "amount": 10
     },
     {
+      "date": "2018-08-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 281.41,
+      "amount": 10
+    },
+    {
       "date": "2018-09-01",
       "symbol": "BTCUSDT",
       "type": "dip",
       "price": 6626.57,
-      "amount": 14.275728503805597
+      "amount": 17.310236404265794
     },
     {
       "date": "2018-09-01",
@@ -2812,11 +3690,18 @@
       "amount": 10
     },
     {
+      "date": "2018-09-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 232.94,
+      "amount": 10
+    },
+    {
       "date": "2018-10-01",
       "symbol": "BTCUSDT",
       "type": "dip",
       "price": 6371.93,
-      "amount": 12.780533781564905
+      "amount": 15.49721690718743
     },
     {
       "date": "2018-10-01",
@@ -2833,11 +3718,18 @@
       "amount": 10
     },
     {
+      "date": "2018-10-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 198.73,
+      "amount": 10
+    },
+    {
       "date": "2018-11-01",
       "symbol": "BTCUSDT",
       "type": "dip",
       "price": 4041.32,
-      "amount": 11.058204705287348
+      "amount": 13.408782438266458
     },
     {
       "date": "2018-11-01",
@@ -2854,11 +3746,18 @@
       "amount": 10
     },
     {
+      "date": "2018-11-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 113.73,
+      "amount": 10
+    },
+    {
       "date": "2018-12-01",
       "symbol": "BTCUSDT",
       "type": "dip",
       "price": 3702.9,
-      "amount": 9.255236546816587
+      "amount": 11.222567910288232
     },
     {
       "date": "2018-12-01",
@@ -2875,11 +3774,11 @@
       "amount": 10
     },
     {
-      "date": "2019-01-01",
-      "symbol": "BTCUSDT",
-      "type": "dip",
-      "price": 3434.1,
-      "amount": 7.496741602921435
+      "date": "2018-12-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 131.45,
+      "amount": 10
     },
     {
       "date": "2019-01-01",
@@ -2893,6 +3792,13 @@
       "symbol": "BNBUSDT",
       "type": "buy",
       "price": 6.22,
+      "amount": 10
+    },
+    {
+      "date": "2019-01-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 106.44,
       "amount": 10
     },
     {
@@ -2910,6 +3816,13 @@
       "amount": 10
     },
     {
+      "date": "2019-02-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 135.34,
+      "amount": 10
+    },
+    {
       "date": "2019-03-01",
       "symbol": "BTCUSDT",
       "type": "buy",
@@ -2921,6 +3834,13 @@
       "symbol": "BNBUSDT",
       "type": "buy",
       "price": 17.5376,
+      "amount": 10
+    },
+    {
+      "date": "2019-03-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 141.38,
       "amount": 10
     },
     {
@@ -2945,6 +3865,13 @@
       "amount": 232.86659452433918
     },
     {
+      "date": "2019-04-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 161.83,
+      "amount": 10
+    },
+    {
       "date": "2019-05-01",
       "symbol": "BTCUSDT",
       "type": "buy",
@@ -2959,6 +3886,13 @@
       "amount": 10
     },
     {
+      "date": "2019-05-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 267.9,
+      "amount": 10
+    },
+    {
       "date": "2019-06-01",
       "symbol": "BTCUSDT",
       "type": "buy",
@@ -2968,8 +3902,22 @@
     {
       "date": "2019-06-01",
       "symbol": "BNBUSDT",
+      "type": "dip",
+      "price": 32.114,
+      "amount": 5.130685965104078
+    },
+    {
+      "date": "2019-06-01",
+      "symbol": "BNBUSDT",
       "type": "buy",
       "price": 32.114,
+      "amount": 10
+    },
+    {
+      "date": "2019-06-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 292.7,
       "amount": 10
     },
     {
@@ -2977,7 +3925,7 @@
       "symbol": "BTCUSDT",
       "type": "dip",
       "price": 10080.53,
-      "amount": 98.72286939912834
+      "amount": 101.94740879313893
     },
     {
       "date": "2019-07-01",
@@ -2994,11 +3942,25 @@
       "amount": 10
     },
     {
+      "date": "2019-07-01",
+      "symbol": "ETHUSDT",
+      "type": "dip",
+      "price": 218.42,
+      "amount": 25.102116629452958
+    },
+    {
+      "date": "2019-07-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 218.42,
+      "amount": 10
+    },
+    {
       "date": "2019-08-01",
       "symbol": "BTCUSDT",
       "type": "dip",
       "price": 9587.47,
-      "amount": 63.30920419672306
+      "amount": 55.08517561567825
     },
     {
       "date": "2019-08-01",
@@ -3015,11 +3977,25 @@
       "amount": 10
     },
     {
+      "date": "2019-08-01",
+      "symbol": "ETHUSDT",
+      "type": "dip",
+      "price": 171.57,
+      "amount": 11.261093137847638
+    },
+    {
+      "date": "2019-08-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 171.57,
+      "amount": 10
+    },
+    {
       "date": "2019-09-01",
       "symbol": "BTCUSDT",
       "type": "dip",
       "price": 8289.34,
-      "amount": 39.17450025538693
+      "amount": 29.24336178901228
     },
     {
       "date": "2019-09-01",
@@ -3033,6 +4009,13 @@
       "symbol": "BNBUSDT",
       "type": "buy",
       "price": 15.8349,
+      "amount": 10
+    },
+    {
+      "date": "2019-09-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 180.85,
       "amount": 10
     },
     {
@@ -3050,11 +4033,18 @@
       "amount": 10
     },
     {
+      "date": "2019-10-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 182.18,
+      "amount": 10
+    },
+    {
       "date": "2019-11-01",
       "symbol": "BTCUSDT",
       "type": "dip",
       "price": 7541.89,
-      "amount": 24.406624693995717
+      "amount": 8.764456324969757
     },
     {
       "date": "2019-11-01",
@@ -3071,11 +4061,11 @@
       "amount": 10
     },
     {
-      "date": "2019-12-01",
-      "symbol": "BTCUSDT",
-      "type": "dip",
-      "price": 7195.23,
-      "amount": 7.5223640166334675
+      "date": "2019-11-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 151.37,
+      "amount": 10
     },
     {
       "date": "2019-12-01",
@@ -3089,6 +4079,13 @@
       "symbol": "BNBUSDT",
       "type": "buy",
       "price": 13.7161,
+      "amount": 10
+    },
+    {
+      "date": "2019-12-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 129.16,
       "amount": 10
     },
     {
@@ -3106,6 +4103,13 @@
       "amount": 10
     },
     {
+      "date": "2020-01-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 179.99,
+      "amount": 10
+    },
+    {
       "date": "2020-02-01",
       "symbol": "BTCUSDT",
       "type": "buy",
@@ -3117,6 +4121,13 @@
       "symbol": "BNBUSDT",
       "type": "buy",
       "price": 19.23,
+      "amount": 10
+    },
+    {
+      "date": "2020-02-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 217.21,
       "amount": 10
     },
     {
@@ -3134,6 +4145,13 @@
       "amount": 10
     },
     {
+      "date": "2020-03-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 132.72,
+      "amount": 10
+    },
+    {
       "date": "2020-04-01",
       "symbol": "BTCUSDT",
       "type": "buy",
@@ -3145,6 +4163,13 @@
       "symbol": "BNBUSDT",
       "type": "buy",
       "price": 16.9542,
+      "amount": 10
+    },
+    {
+      "date": "2020-04-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 206.08,
       "amount": 10
     },
     {
@@ -3162,6 +4187,13 @@
       "amount": 10
     },
     {
+      "date": "2020-05-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 231.57,
+      "amount": 10
+    },
+    {
       "date": "2020-06-01",
       "symbol": "BTCUSDT",
       "type": "buy",
@@ -3173,6 +4205,13 @@
       "symbol": "BNBUSDT",
       "type": "buy",
       "price": 15.3838,
+      "amount": 10
+    },
+    {
+      "date": "2020-06-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 225.6,
       "amount": 10
     },
     {
@@ -3190,6 +4229,13 @@
       "amount": 10
     },
     {
+      "date": "2020-07-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 346.33,
+      "amount": 10
+    },
+    {
       "date": "2020-08-01",
       "symbol": "BTCUSDT",
       "type": "buy",
@@ -3201,6 +4247,13 @@
       "symbol": "BNBUSDT",
       "type": "buy",
       "price": 23.1477,
+      "amount": 10
+    },
+    {
+      "date": "2020-08-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 433.79,
       "amount": 10
     },
     {
@@ -3218,6 +4271,13 @@
       "amount": 10
     },
     {
+      "date": "2020-09-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 359.83,
+      "amount": 10
+    },
+    {
       "date": "2020-10-01",
       "symbol": "BTCUSDT",
       "type": "buy",
@@ -3232,6 +4292,13 @@
       "amount": 10
     },
     {
+      "date": "2020-10-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 386.46,
+      "amount": 10
+    },
+    {
       "date": "2020-11-01",
       "symbol": "BTCUSDT",
       "type": "buy",
@@ -3243,13 +4310,20 @@
       "symbol": "BTCUSDT",
       "type": "sell",
       "price": 19695.87,
-      "amount": 1467.0601808140946
+      "amount": 1432.4282365459715
     },
     {
       "date": "2020-11-01",
       "symbol": "BNBUSDT",
       "type": "buy",
       "price": 31.4935,
+      "amount": 10
+    },
+    {
+      "date": "2020-11-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 616.66,
       "amount": 10
     },
     {
@@ -3271,7 +4345,14 @@
       "symbol": "BNBUSDT",
       "type": "sell",
       "price": 37.3588,
-      "amount": 372.8345224163695
+      "amount": 377.60941861947424
+    },
+    {
+      "date": "2020-12-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 736.42,
+      "amount": 10
     },
     {
       "date": "2021-01-01",
@@ -3285,13 +4366,20 @@
       "symbol": "BTCUSDT",
       "type": "sell",
       "price": 33092.98,
-      "amount": 510.14379610384003
+      "amount": 498.5060848575112
     },
     {
       "date": "2021-01-01",
       "symbol": "BNBUSDT",
       "type": "buy",
       "price": 44.3292,
+      "amount": 10
+    },
+    {
+      "date": "2021-01-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 1312.55,
       "amount": 10
     },
     {
@@ -3313,7 +4401,14 @@
       "symbol": "BNBUSDT",
       "type": "sell",
       "price": 210.2138,
-      "amount": 465.51650740148233
+      "amount": 470.89006905474844
+    },
+    {
+      "date": "2021-02-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 1419.18,
+      "amount": 10
     },
     {
       "date": "2021-03-01",
@@ -3327,7 +4422,7 @@
       "symbol": "BTCUSDT",
       "type": "sell",
       "price": 58740.55,
-      "amount": 199.51399914761876
+      "amount": 195.38257574996447
     },
     {
       "date": "2021-03-01",
@@ -3337,11 +4432,25 @@
       "amount": 10
     },
     {
+      "date": "2021-03-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 1919.37,
+      "amount": 10
+    },
+    {
+      "date": "2021-03-01",
+      "symbol": "ETHUSDT",
+      "type": "sell",
+      "price": 1919.37,
+      "amount": 2784.230250026103
+    },
+    {
       "date": "2021-04-01",
       "symbol": "BTCUSDT",
       "type": "dip",
       "price": 57694.27,
-      "amount": 30.35069005883405
+      "amount": 57.89046634853773
     },
     {
       "date": "2021-04-01",
@@ -3362,14 +4471,21 @@
       "symbol": "BNBUSDT",
       "type": "sell",
       "price": 622.65,
-      "amount": 300.2442540040425
+      "amount": 303.4275351810217
+    },
+    {
+      "date": "2021-04-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 2772.42,
+      "amount": 10
     },
     {
       "date": "2021-05-01",
       "symbol": "BTCUSDT",
       "type": "dip",
       "price": 37253.81,
-      "amount": 99.14887709485839
+      "amount": 181.03751111058773
     },
     {
       "date": "2021-05-01",
@@ -3383,7 +4499,7 @@
       "symbol": "BNBUSDT",
       "type": "dip",
       "price": 353.33,
-      "amount": 31.95813692733755
+      "amount": 58.4354619257567
     },
     {
       "date": "2021-05-01",
@@ -3393,11 +4509,25 @@
       "amount": 10
     },
     {
+      "date": "2021-05-01",
+      "symbol": "ETHUSDT",
+      "type": "dip",
+      "price": 2706.15,
+      "amount": 115.50221461299827
+    },
+    {
+      "date": "2021-05-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 2706.15,
+      "amount": 10
+    },
+    {
       "date": "2021-06-01",
       "symbol": "BTCUSDT",
       "type": "dip",
       "price": 35045.0,
-      "amount": 158.6927777903209
+      "amount": 283.98042580184574
     },
     {
       "date": "2021-06-01",
@@ -3411,13 +4541,27 @@
       "symbol": "BNBUSDT",
       "type": "dip",
       "price": 303.71,
-      "amount": 60.103255560321934
+      "amount": 107.71256180470138
     },
     {
       "date": "2021-06-01",
       "symbol": "BNBUSDT",
       "type": "buy",
       "price": 303.71,
+      "amount": 10
+    },
+    {
+      "date": "2021-06-01",
+      "symbol": "ETHUSDT",
+      "type": "dip",
+      "price": 2275.68,
+      "amount": 158.03746585291105
+    },
+    {
+      "date": "2021-06-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 2275.68,
       "amount": 10
     },
     {
@@ -3435,6 +4579,13 @@
       "amount": 10
     },
     {
+      "date": "2021-07-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 2531.05,
+      "amount": 10
+    },
+    {
       "date": "2021-08-01",
       "symbol": "BTCUSDT",
       "type": "buy",
@@ -3449,11 +4600,25 @@
       "amount": 10
     },
     {
+      "date": "2021-08-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 3429.2,
+      "amount": 10
+    },
+    {
+      "date": "2021-08-01",
+      "symbol": "ETHUSDT",
+      "type": "sell",
+      "price": 3429.2,
+      "amount": 1353.4098000550061
+    },
+    {
       "date": "2021-09-01",
       "symbol": "BTCUSDT",
       "type": "dip",
       "price": 43824.1,
-      "amount": 325.0565474701352
+      "amount": 713.161664889571
     },
     {
       "date": "2021-09-01",
@@ -3467,13 +4632,27 @@
       "symbol": "BNBUSDT",
       "type": "dip",
       "price": 387.5,
-      "amount": 131.00014874928198
+      "amount": 288.00630988714465
     },
     {
       "date": "2021-09-01",
       "symbol": "BNBUSDT",
       "type": "buy",
       "price": 387.5,
+      "amount": 10
+    },
+    {
+      "date": "2021-09-01",
+      "symbol": "ETHUSDT",
+      "type": "dip",
+      "price": 3000.61,
+      "amount": 54.62119887855748
+    },
+    {
+      "date": "2021-09-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 3000.61,
       "amount": 10
     },
     {
@@ -3491,11 +4670,18 @@
       "amount": 10
     },
     {
+      "date": "2021-10-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 4287.21,
+      "amount": 10
+    },
+    {
       "date": "2021-11-01",
       "symbol": "BTCUSDT",
       "type": "dip",
       "price": 56950.56,
-      "amount": 374.85042393545365
+      "amount": 814.1248033465786
     },
     {
       "date": "2021-11-01",
@@ -3512,11 +4698,18 @@
       "amount": 10
     },
     {
+      "date": "2021-11-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 4630.26,
+      "amount": 10
+    },
+    {
       "date": "2021-12-01",
       "symbol": "BTCUSDT",
       "type": "dip",
       "price": 46216.93,
-      "amount": 361.10590839115366
+      "amount": 784.2735605572041
     },
     {
       "date": "2021-12-01",
@@ -3530,7 +4723,7 @@
       "symbol": "BNBUSDT",
       "type": "dip",
       "price": 511.4,
-      "amount": 140.24371951278002
+      "amount": 305.5280260058726
     },
     {
       "date": "2021-12-01",
@@ -3540,11 +4733,25 @@
       "amount": 10
     },
     {
+      "date": "2021-12-01",
+      "symbol": "ETHUSDT",
+      "type": "dip",
+      "price": 3676.23,
+      "amount": 140.14289196270138
+    },
+    {
+      "date": "2021-12-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 3676.23,
+      "amount": 10
+    },
+    {
       "date": "2022-01-01",
       "symbol": "BTCUSDT",
       "type": "dip",
       "price": 38466.9,
-      "amount": 308.3325271354243
+      "amount": 642.8515873499183
     },
     {
       "date": "2022-01-01",
@@ -3558,13 +4765,27 @@
       "symbol": "BNBUSDT",
       "type": "dip",
       "price": 374.3,
-      "amount": 117.40232225353913
+      "amount": 245.75200377794238
     },
     {
       "date": "2022-01-01",
       "symbol": "BNBUSDT",
       "type": "buy",
       "price": 374.3,
+      "amount": 10
+    },
+    {
+      "date": "2022-01-01",
+      "symbol": "ETHUSDT",
+      "type": "dip",
+      "price": 2686.94,
+      "amount": 123.74129079884864
+    },
+    {
+      "date": "2022-01-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 2686.94,
       "amount": 10
     },
     {
@@ -3582,6 +4803,13 @@
       "amount": 10
     },
     {
+      "date": "2022-02-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 2920.95,
+      "amount": 10
+    },
+    {
       "date": "2022-03-01",
       "symbol": "BTCUSDT",
       "type": "buy",
@@ -3596,11 +4824,18 @@
       "amount": 10
     },
     {
+      "date": "2022-03-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 3281.51,
+      "amount": 10
+    },
+    {
       "date": "2022-04-01",
       "symbol": "BTCUSDT",
       "type": "dip",
       "price": 37630.8,
-      "amount": 299.2669812520017
+      "amount": 592.7711312945311
     },
     {
       "date": "2022-04-01",
@@ -3614,7 +4849,7 @@
       "symbol": "BNBUSDT",
       "type": "dip",
       "price": 377.1,
-      "amount": 106.53611325072063
+      "amount": 212.19760726603118
     },
     {
       "date": "2022-04-01",
@@ -3624,11 +4859,25 @@
       "amount": 10
     },
     {
+      "date": "2022-04-01",
+      "symbol": "ETHUSDT",
+      "type": "dip",
+      "price": 2726.66,
+      "amount": 123.68926292940496
+    },
+    {
+      "date": "2022-04-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 2726.66,
+      "amount": 10
+    },
+    {
       "date": "2022-05-01",
       "symbol": "BTCUSDT",
       "type": "dip",
       "price": 31801.04,
-      "amount": 213.6415042364268
+      "amount": 389.45516139580235
     },
     {
       "date": "2022-05-01",
@@ -3642,7 +4891,7 @@
       "symbol": "BNBUSDT",
       "type": "dip",
       "price": 320.9,
-      "amount": 73.7910324149515
+      "amount": 135.5862770980061
     },
     {
       "date": "2022-05-01",
@@ -3652,11 +4901,25 @@
       "amount": 10
     },
     {
+      "date": "2022-05-01",
+      "symbol": "ETHUSDT",
+      "type": "dip",
+      "price": 1941.9,
+      "amount": 80.76465766749135
+    },
+    {
+      "date": "2022-05-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 1941.9,
+      "amount": 10
+    },
+    {
       "date": "2022-06-01",
       "symbol": "BTCUSDT",
       "type": "dip",
       "price": 19942.21,
-      "amount": 146.1113652176328
+      "amount": 242.61992398278858
     },
     {
       "date": "2022-06-01",
@@ -3670,13 +4933,27 @@
       "symbol": "BNBUSDT",
       "type": "dip",
       "price": 219.6,
-      "amount": 48.680930009078274
+      "amount": 81.7600704961696
     },
     {
       "date": "2022-06-01",
       "symbol": "BNBUSDT",
       "type": "buy",
       "price": 219.6,
+      "amount": 10
+    },
+    {
+      "date": "2022-06-01",
+      "symbol": "ETHUSDT",
+      "type": "dip",
+      "price": 1071.01,
+      "amount": 49.2240433047899
+    },
+    {
+      "date": "2022-06-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 1071.01,
       "amount": 10
     },
     {
@@ -3694,11 +4971,18 @@
       "amount": 10
     },
     {
+      "date": "2022-07-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 1678.12,
+      "amount": 10
+    },
+    {
       "date": "2022-08-01",
       "symbol": "BTCUSDT",
       "type": "dip",
       "price": 20050.02,
-      "amount": 101.98319954697439
+      "amount": 152.795408615226
     },
     {
       "date": "2022-08-01",
@@ -3712,13 +4996,27 @@
       "symbol": "BNBUSDT",
       "type": "dip",
       "price": 279.2,
-      "amount": 31.529087852835318
+      "amount": 48.035356980461295
     },
     {
       "date": "2022-08-01",
       "symbol": "BNBUSDT",
       "type": "buy",
       "price": 279.2,
+      "amount": 10
+    },
+    {
+      "date": "2022-08-01",
+      "symbol": "ETHUSDT",
+      "type": "dip",
+      "price": 1554.1,
+      "amount": 29.062274897690614
+    },
+    {
+      "date": "2022-08-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 1554.1,
       "amount": 10
     },
     {
@@ -3726,7 +5024,7 @@
       "symbol": "BTCUSDT",
       "type": "dip",
       "price": 19422.61,
-      "amount": 61.434698929584904
+      "amount": 81.59317223740591
     },
     {
       "date": "2022-09-01",
@@ -3740,6 +5038,20 @@
       "symbol": "BNBUSDT",
       "type": "buy",
       "price": 284.8,
+      "amount": 10
+    },
+    {
+      "date": "2022-09-01",
+      "symbol": "ETHUSDT",
+      "type": "dip",
+      "price": 1328.72,
+      "amount": 17.098923011602288
+    },
+    {
+      "date": "2022-09-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 1328.72,
       "amount": 10
     },
     {
@@ -3757,11 +5069,18 @@
       "amount": 10
     },
     {
+      "date": "2022-10-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 1572.69,
+      "amount": 10
+    },
+    {
       "date": "2022-11-01",
       "symbol": "BTCUSDT",
       "type": "dip",
       "price": 17163.64,
-      "amount": 44.49627479614221
+      "amount": 52.428189060281966
     },
     {
       "date": "2022-11-01",
@@ -3775,13 +5094,27 @@
       "symbol": "BNBUSDT",
       "type": "dip",
       "price": 300.6,
-      "amount": 11.32338012531508
+      "amount": 13.680582338683793
     },
     {
       "date": "2022-11-01",
       "symbol": "BNBUSDT",
       "type": "buy",
       "price": 300.6,
+      "amount": 10
+    },
+    {
+      "date": "2022-11-01",
+      "symbol": "ETHUSDT",
+      "type": "dip",
+      "price": 1294.46,
+      "amount": 7.248372390263585
+    },
+    {
+      "date": "2022-11-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 1294.46,
       "amount": 10
     },
     {
@@ -3789,7 +5122,7 @@
       "symbol": "BTCUSDT",
       "type": "dip",
       "price": 16542.4,
-      "amount": 23.892076524300723
+      "amount": 25.040385186712395
     },
     {
       "date": "2022-12-01",
@@ -3803,6 +5136,13 @@
       "symbol": "BNBUSDT",
       "type": "buy",
       "price": 246.3,
+      "amount": 10
+    },
+    {
+      "date": "2022-12-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 1196.13,
       "amount": 10
     },
     {
@@ -3820,6 +5160,13 @@
       "amount": 10
     },
     {
+      "date": "2023-01-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 1585.33,
+      "amount": 10
+    },
+    {
       "date": "2023-02-01",
       "symbol": "BTCUSDT",
       "type": "buy",
@@ -3831,6 +5178,13 @@
       "symbol": "BNBUSDT",
       "type": "buy",
       "price": 301.4,
+      "amount": 10
+    },
+    {
+      "date": "2023-02-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 1605.23,
       "amount": 10
     },
     {
@@ -3848,6 +5202,13 @@
       "amount": 10
     },
     {
+      "date": "2023-03-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 1821.52,
+      "amount": 10
+    },
+    {
       "date": "2023-04-01",
       "symbol": "BTCUSDT",
       "type": "buy",
@@ -3862,11 +5223,18 @@
       "amount": 10
     },
     {
+      "date": "2023-04-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 1870.09,
+      "amount": 10
+    },
+    {
       "date": "2023-05-01",
       "symbol": "BTCUSDT",
       "type": "dip",
       "price": 27210.35,
-      "amount": 14.381280852042508
+      "amount": 6.033725024781248
     },
     {
       "date": "2023-05-01",
@@ -3880,6 +5248,13 @@
       "symbol": "BNBUSDT",
       "type": "buy",
       "price": 306.8,
+      "amount": 10
+    },
+    {
+      "date": "2023-05-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 1873.63,
       "amount": 10
     },
     {
@@ -3897,6 +5272,13 @@
       "amount": 10
     },
     {
+      "date": "2023-06-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 1933.79,
+      "amount": 10
+    },
+    {
       "date": "2023-07-01",
       "symbol": "BTCUSDT",
       "type": "buy",
@@ -3908,6 +5290,13 @@
       "symbol": "BNBUSDT",
       "type": "buy",
       "price": 241.0,
+      "amount": 10
+    },
+    {
+      "date": "2023-07-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 1856.14,
       "amount": 10
     },
     {
@@ -3925,6 +5314,13 @@
       "amount": 10
     },
     {
+      "date": "2023-08-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 1645.76,
+      "amount": 10
+    },
+    {
       "date": "2023-09-01",
       "symbol": "BTCUSDT",
       "type": "buy",
@@ -3936,6 +5332,13 @@
       "symbol": "BNBUSDT",
       "type": "buy",
       "price": 214.6,
+      "amount": 10
+    },
+    {
+      "date": "2023-09-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 1670.89,
       "amount": 10
     },
     {
@@ -3953,6 +5356,13 @@
       "amount": 10
     },
     {
+      "date": "2023-10-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 1814.67,
+      "amount": 10
+    },
+    {
       "date": "2023-11-01",
       "symbol": "BTCUSDT",
       "type": "buy",
@@ -3964,6 +5374,13 @@
       "symbol": "BNBUSDT",
       "type": "buy",
       "price": 227.6,
+      "amount": 10
+    },
+    {
+      "date": "2023-11-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 2051.96,
       "amount": 10
     },
     {
@@ -3981,6 +5398,13 @@
       "amount": 10
     },
     {
+      "date": "2023-12-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 2281.87,
+      "amount": 10
+    },
+    {
       "date": "2024-01-01",
       "symbol": "BTCUSDT",
       "type": "buy",
@@ -3992,6 +5416,13 @@
       "symbol": "BNBUSDT",
       "type": "buy",
       "price": 300.5,
+      "amount": 10
+    },
+    {
+      "date": "2024-01-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 2283.14,
       "amount": 10
     },
     {
@@ -4009,6 +5440,13 @@
       "amount": 10
     },
     {
+      "date": "2024-02-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 3340.09,
+      "amount": 10
+    },
+    {
       "date": "2024-03-01",
       "symbol": "BTCUSDT",
       "type": "buy",
@@ -4020,6 +5458,13 @@
       "symbol": "BNBUSDT",
       "type": "buy",
       "price": 606.7,
+      "amount": 10
+    },
+    {
+      "date": "2024-03-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 3645.29,
       "amount": 10
     },
     {
@@ -4037,6 +5482,13 @@
       "amount": 10
     },
     {
+      "date": "2024-04-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 3014.05,
+      "amount": 10
+    },
+    {
       "date": "2024-05-01",
       "symbol": "BTCUSDT",
       "type": "buy",
@@ -4048,6 +5500,13 @@
       "symbol": "BNBUSDT",
       "type": "buy",
       "price": 593.7,
+      "amount": 10
+    },
+    {
+      "date": "2024-05-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 3762.29,
       "amount": 10
     },
     {
@@ -4065,6 +5524,13 @@
       "amount": 10
     },
     {
+      "date": "2024-06-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 3438.16,
+      "amount": 10
+    },
+    {
       "date": "2024-07-01",
       "symbol": "BTCUSDT",
       "type": "buy",
@@ -4076,6 +5542,13 @@
       "symbol": "BNBUSDT",
       "type": "buy",
       "price": 576.5,
+      "amount": 10
+    },
+    {
+      "date": "2024-07-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 3232.74,
       "amount": 10
     },
     {
@@ -4093,6 +5566,13 @@
       "amount": 10
     },
     {
+      "date": "2024-08-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 2513.01,
+      "amount": 10
+    },
+    {
       "date": "2024-09-01",
       "symbol": "BTCUSDT",
       "type": "buy",
@@ -4104,6 +5584,13 @@
       "symbol": "BNBUSDT",
       "type": "buy",
       "price": 567.4,
+      "amount": 10
+    },
+    {
+      "date": "2024-09-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 2602.23,
       "amount": 10
     },
     {
@@ -4121,6 +5608,13 @@
       "amount": 10
     },
     {
+      "date": "2024-10-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 2518.61,
+      "amount": 10
+    },
+    {
       "date": "2024-11-01",
       "symbol": "BTCUSDT",
       "type": "buy",
@@ -4132,7 +5626,7 @@
       "symbol": "BTCUSDT",
       "type": "sell",
       "price": 96407.99,
-      "amount": 6629.922453971546
+      "amount": 11459.502658194144
     },
     {
       "date": "2024-11-01",
@@ -4142,11 +5636,18 @@
       "amount": 10
     },
     {
+      "date": "2024-11-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 3703.6,
+      "amount": 10
+    },
+    {
       "date": "2024-12-01",
       "symbol": "BTCUSDT",
       "type": "dip",
       "price": 93576.0,
-      "amount": 66.49922453971546
+      "amount": 114.89502658194144
     },
     {
       "date": "2024-12-01",
@@ -4163,6 +5664,20 @@
       "amount": 10
     },
     {
+      "date": "2024-12-01",
+      "symbol": "ETHUSDT",
+      "type": "dip",
+      "price": 3337.78,
+      "amount": 4541.843052644881
+    },
+    {
+      "date": "2024-12-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 3337.78,
+      "amount": 10
+    },
+    {
       "date": "2025-01-01",
       "symbol": "BTCUSDT",
       "type": "buy",
@@ -4174,7 +5689,7 @@
       "symbol": "BNBUSDT",
       "type": "dip",
       "price": 677.47,
-      "amount": 2629.3692917727326
+      "amount": 2729.105831586928
     },
     {
       "date": "2025-01-01",
@@ -4184,11 +5699,25 @@
       "amount": 10
     },
     {
+      "date": "2025-01-01",
+      "symbol": "ETHUSDT",
+      "type": "dip",
+      "price": 3300.99,
+      "amount": 1633.4634989521571
+    },
+    {
+      "date": "2025-01-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 3300.99,
+      "amount": 10
+    },
+    {
       "date": "2025-02-01",
       "symbol": "BTCUSDT",
       "type": "dip",
       "price": 84349.94,
-      "amount": 197.7026968829549
+      "amount": 123.50976242141178
     },
     {
       "date": "2025-02-01",
@@ -4202,13 +5731,27 @@
       "symbol": "BNBUSDT",
       "type": "dip",
       "price": 588.07,
-      "amount": 1498.5404963104572
+      "amount": 934.6741944027294
     },
     {
       "date": "2025-02-01",
       "symbol": "BNBUSDT",
       "type": "buy",
       "price": 588.07,
+      "amount": 10
+    },
+    {
+      "date": "2025-02-01",
+      "symbol": "ETHUSDT",
+      "type": "dip",
+      "price": 2237.59,
+      "amount": 556.8045166416377
+    },
+    {
+      "date": "2025-02-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 2237.59,
       "amount": 10
     },
     {
@@ -4216,7 +5759,7 @@
       "symbol": "BTCUSDT",
       "type": "dip",
       "price": 82550.01,
-      "amount": 158.04675211259803
+      "amount": 59.864474247371966
     },
     {
       "date": "2025-03-01",
@@ -4233,6 +5776,20 @@
       "amount": 10
     },
     {
+      "date": "2025-03-01",
+      "symbol": "ETHUSDT",
+      "type": "dip",
+      "price": 1822.43,
+      "amount": 310.13692028603384
+    },
+    {
+      "date": "2025-03-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 1822.43,
+      "amount": 10
+    },
+    {
       "date": "2025-04-01",
       "symbol": "BTCUSDT",
       "type": "buy",
@@ -4244,13 +5801,27 @@
       "symbol": "BNBUSDT",
       "type": "dip",
       "price": 599.88,
-      "amount": 835.9055969412352
+      "amount": 190.08215217162032
     },
     {
       "date": "2025-04-01",
       "symbol": "BNBUSDT",
       "type": "buy",
       "price": 599.88,
+      "amount": 10
+    },
+    {
+      "date": "2025-04-01",
+      "symbol": "ETHUSDT",
+      "type": "dip",
+      "price": 1793.61,
+      "amount": 110.0492913029722
+    },
+    {
+      "date": "2025-04-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 1793.61,
       "amount": 10
     },
     {
@@ -4268,6 +5839,13 @@
       "amount": 10
     },
     {
+      "date": "2025-05-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 2528.06,
+      "amount": 10
+    },
+    {
       "date": "2025-06-01",
       "symbol": "BTCUSDT",
       "type": "buy",
@@ -4279,13 +5857,27 @@
       "symbol": "BNBUSDT",
       "type": "dip",
       "price": 656.9,
-      "amount": 501.5433581647412
+      "amount": 70.02957478178331
     },
     {
       "date": "2025-06-01",
       "symbol": "BNBUSDT",
       "type": "buy",
       "price": 656.9,
+      "amount": 10
+    },
+    {
+      "date": "2025-06-01",
+      "symbol": "ETHUSDT",
+      "type": "dip",
+      "price": 2485.47,
+      "amount": 38.017744869069986
+    },
+    {
+      "date": "2025-06-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 2485.47,
       "amount": 10
     },
     {
@@ -4303,11 +5895,18 @@
       "amount": 10
     },
     {
+      "date": "2025-07-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 3698.39,
+      "amount": 10
+    },
+    {
       "date": "2025-08-01",
       "symbol": "BTCUSDT",
       "type": "dip",
       "price": 108246.35,
-      "amount": 129.593556332009
+      "amount": 13.094524941612846
     },
     {
       "date": "2025-08-01",
@@ -4321,6 +5920,13 @@
       "symbol": "BNBUSDT",
       "type": "buy",
       "price": 857.65,
+      "amount": 10
+    },
+    {
+      "date": "2025-08-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 4391.83,
       "amount": 10
     },
     {
@@ -4342,14 +5948,28 @@
       "symbol": "BNBUSDT",
       "type": "sell",
       "price": 1008.51,
-      "amount": 9843.185630581644
+      "amount": 9399.04602372657
+    },
+    {
+      "date": "2025-09-01",
+      "symbol": "ETHUSDT",
+      "type": "dip",
+      "price": 4145.15,
+      "amount": 3777.191246435425
+    },
+    {
+      "date": "2025-09-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 4145.15,
+      "amount": 10
     },
     {
       "date": "2025-10-01",
       "symbol": "BTCUSDT",
       "type": "dip",
       "price": 109608.01,
-      "amount": 2199.9404934143167
+      "amount": 1194.015242627159
     },
     {
       "date": "2025-10-01",
@@ -4366,11 +5986,25 @@
       "amount": 10
     },
     {
+      "date": "2025-10-01",
+      "symbol": "ETHUSDT",
+      "type": "dip",
+      "price": 3847.99,
+      "amount": 1788.708650810392
+    },
+    {
+      "date": "2025-10-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 3847.99,
+      "amount": 10
+    },
+    {
       "date": "2025-11-01",
       "symbol": "BTCUSDT",
       "type": "dip",
       "price": 90360.0,
-      "amount": 1903.4723221589586
+      "amount": 621.7044845295852
     },
     {
       "date": "2025-11-01",
@@ -4384,7 +6018,7 @@
       "symbol": "BNBUSDT",
       "type": "dip",
       "price": 875.31,
-      "amount": 127.24988591846943
+      "amount": 41.42716983372006
     },
     {
       "date": "2025-11-01",
@@ -4394,11 +6028,25 @@
       "amount": 10
     },
     {
+      "date": "2025-11-01",
+      "symbol": "ETHUSDT",
+      "type": "dip",
+      "price": 2991.26,
+      "amount": 807.9725287409132
+    },
+    {
+      "date": "2025-11-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 2991.26,
+      "amount": 10
+    },
+    {
       "date": "2025-12-01",
       "symbol": "BTCUSDT",
       "type": "dip",
       "price": 87648.22,
-      "amount": 1561.3111025012504
+      "amount": 307.9896982778424
     },
     {
       "date": "2025-12-01",
@@ -4412,7 +6060,7 @@
       "symbol": "BNBUSDT",
       "type": "dip",
       "price": 864.3,
-      "amount": 140.21799922511255
+      "amount": 27.419072845005818
     },
     {
       "date": "2025-12-01",
@@ -4422,11 +6070,25 @@
       "amount": 10
     },
     {
+      "date": "2025-12-01",
+      "symbol": "ETHUSDT",
+      "type": "dip",
+      "price": 2971.64,
+      "amount": 350.6200087954086
+    },
+    {
+      "date": "2025-12-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 2971.64,
+      "amount": 10
+    },
+    {
       "date": "2026-01-01",
       "symbol": "BTCUSDT",
       "type": "dip",
       "price": 78741.09,
-      "amount": 1226.8031332352325
+      "amount": 147.40110356214046
     },
     {
       "date": "2026-01-01",
@@ -4440,7 +6102,7 @@
       "symbol": "BNBUSDT",
       "type": "dip",
       "price": 781.38,
-      "amount": 132.27648700173626
+      "amount": 15.541156385238894
     },
     {
       "date": "2026-01-01",
@@ -4450,11 +6112,25 @@
       "amount": 10
     },
     {
+      "date": "2026-01-01",
+      "symbol": "ETHUSDT",
+      "type": "dip",
+      "price": 2451.95,
+      "amount": 145.1951012982934
+    },
+    {
+      "date": "2026-01-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 2451.95,
+      "amount": 10
+    },
+    {
       "date": "2026-02-01",
       "symbol": "BTCUSDT",
       "type": "dip",
       "price": 66973.26,
-      "amount": 923.5443495320843
+      "amount": 68.95986906475763
     },
     {
       "date": "2026-02-01",
@@ -4468,13 +6144,27 @@
       "symbol": "BNBUSDT",
       "type": "dip",
       "price": 617.14,
-      "amount": 112.5545669254793
+      "amount": 7.941639144134124
     },
     {
       "date": "2026-02-01",
       "symbol": "BNBUSDT",
       "type": "buy",
       "price": 617.14,
+      "amount": 10
+    },
+    {
+      "date": "2026-02-01",
+      "symbol": "ETHUSDT",
+      "type": "dip",
+      "price": 1964.51,
+      "amount": 56.35645749541934
+    },
+    {
+      "date": "2026-02-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 1964.51,
       "amount": 10
     },
     {
@@ -4492,6 +6182,13 @@
       "amount": 10
     },
     {
+      "date": "2026-03-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 2105.43,
+      "amount": 10
+    },
+    {
       "date": "2026-04-01",
       "symbol": "BTCUSDT",
       "type": "buy",
@@ -4503,7 +6200,7 @@
       "symbol": "BNBUSDT",
       "type": "dip",
       "price": 615.38,
-      "amount": 149.69757401088748
+      "amount": 6.617428037019031
     },
     {
       "date": "2026-04-01",
@@ -4513,11 +6210,18 @@
       "amount": 10
     },
     {
+      "date": "2026-04-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 2257.51,
+      "amount": 10
+    },
+    {
       "date": "2026-05-01",
       "symbol": "BTCUSDT",
       "type": "dip",
       "price": 73674.39,
-      "amount": 699.5937191506267
+      "amount": 34.27104037213849
     },
     {
       "date": "2026-05-01",
@@ -4534,11 +6238,25 @@
       "amount": 10
     },
     {
+      "date": "2026-05-01",
+      "symbol": "ETHUSDT",
+      "type": "dip",
+      "price": 2007.01,
+      "amount": 13.646217833971498
+    },
+    {
+      "date": "2026-05-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 2007.01,
+      "amount": 10
+    },
+    {
       "date": "2026-06-01",
       "symbol": "BTCUSDT",
       "type": "dip",
       "price": 58624.71,
-      "amount": 480.7208270163592
+      "amount": 18.5
     },
     {
       "date": "2026-06-01",
@@ -4550,29 +6268,36 @@
     {
       "date": "2026-06-01",
       "symbol": "BNBUSDT",
-      "type": "dip",
+      "type": "buy",
       "price": 546.52,
-      "amount": 72.76721862656099
+      "amount": 10
     },
     {
       "date": "2026-06-01",
-      "symbol": "BNBUSDT",
+      "symbol": "ETHUSDT",
       "type": "buy",
-      "price": 546.52,
+      "price": 1572.01,
       "amount": 10
     },
     {
       "date": "2026-07-01",
       "symbol": "BTCUSDT",
       "type": "buy",
-      "price": 64311.75,
+      "price": 64755.21,
       "amount": 10
     },
     {
       "date": "2026-07-01",
       "symbol": "BNBUSDT",
       "type": "buy",
-      "price": 581.74,
+      "price": 582.96,
+      "amount": 10
+    },
+    {
+      "date": "2026-07-01",
+      "symbol": "ETHUSDT",
+      "type": "buy",
+      "price": 1876.08,
       "amount": 10
     }
   ]

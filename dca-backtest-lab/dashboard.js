@@ -116,8 +116,10 @@ function render(data) {
   choosePair(select.value);
   const recordByDate = Object.fromEntries(records.map(record => [record.date, record]));
   document.querySelector('#events-table').innerHTML = [...events].reverse().map(event => {
-    const portfolioValue = recordByDate[event.date]?.portfolio_value;
-    return `<tr><td>${event.date}</td><td>${event.symbol}</td><td class="${event.type}">${event.type}</td><td>${fmtUsd(event.price)}</td><td>${fmtUsd(event.amount)}</td><td>${event.drawdown_pct == null ? '-' : `${event.drawdown_pct.toFixed(1)}%`}</td><td>${event.reinvest_pct == null ? '-' : `${event.reinvest_pct.toFixed(0)}%`}</td><td>${portfolioValue == null ? '-' : fmtUsd(portfolioValue)}</td></tr>`;
+    const record = recordByDate[event.date];
+    const portfolioValue = record?.portfolio_value;
+    const externalInvestment = record?.injected;
+    return `<tr><td>${event.date}</td><td>${event.symbol}</td><td class="${event.type}">${event.type}</td><td>${fmtUsd(event.price)}</td><td>${fmtUsd(event.amount)}</td><td>${event.drawdown_pct == null ? '-' : `${event.drawdown_pct.toFixed(1)}%`}</td><td>${event.reinvest_pct == null ? '-' : `${event.reinvest_pct.toFixed(0)}%`}</td><td>${externalInvestment == null ? '-' : fmtUsd(externalInvestment)}</td><td>${portfolioValue == null ? '-' : fmtUsd(portfolioValue)}</td></tr>`;
   }).join('');
 }
 

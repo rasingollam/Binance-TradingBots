@@ -54,8 +54,15 @@ function render(data) {
 
   Plotly.react('equity-chart', [
     { x: dates, y: records.map(row => row.injected), name: 'Cost basis', mode: 'lines', line: { color: '#94a3b8', dash: 'dot' } },
-    { x: dates, y: stat.values, name: 'Portfolio', mode: 'lines', fill: 'tozeroy', line: { color: '#5b8cff', width: 3 }, fillcolor: 'rgba(91,140,255,.12)' },
-  ], layout({ yaxis: { gridcolor: '#25304d', tickprefix: '$' } }), { responsive: true });
+    { x: dates, y: stat.values, name: 'Portfolio', mode: 'lines', line: { color: '#f8fafc', width: 3 } },
+    ...pairs.map(symbol => ({
+      x: dates,
+      y: records.map(row => row.positions[symbol].value),
+      name: symbol,
+      mode: 'lines',
+      line: { color: colors[symbol] || '#60a5fa', width: 2 },
+    })),
+  ], layout({ yaxis: { gridcolor: '#25304d', tickprefix: '$' }, legend: { orientation: 'h', y: 1.12, itemclick: 'toggle', itemdoubleclick: 'toggleothers' } }), { responsive: true });
   Plotly.react('drawdown-chart', [{ x: dates, y: stat.drawdowns, type: 'scatter', mode: 'lines', fill: 'tozeroy', line: { color: '#ff6b7a' }, fillcolor: 'rgba(255,107,122,.22)' }], layout({ yaxis: { ticksuffix: '%' } }), { responsive: true });
   Plotly.react('allocation-chart', [
     ...pairs.map(symbol => ({ x: dates, y: records.map(row => row.positions[symbol].value), stackgroup: 'one', name: symbol, mode: 'lines', line: { color: colors[symbol] || '#60a5fa' } })),

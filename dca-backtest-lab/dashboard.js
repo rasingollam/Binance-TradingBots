@@ -114,7 +114,11 @@ function render(data) {
     { x: dates, y: records.map(row => row.usdt), name: 'USDT reserve', mode: 'lines', yaxis: 'y2', line: { color: '#f8fafc', width: 2 }, hovertemplate: '%{x}<br>Reserve: $%{y:,.2f}<extra></extra>' },
   ], layout({ barmode: 'group', yaxis: { tickprefix: '$' }, yaxis2: { title: 'Reserve', tickprefix: '$', overlaying: 'y', side: 'right', gridcolor: 'transparent' } }), { responsive: true });
   choosePair(select.value);
-  document.querySelector('#events-table').innerHTML = [...events].reverse().map(event => `<tr><td>${event.date}</td><td>${event.symbol}</td><td class="${event.type}">${event.type}</td><td>${fmtUsd(event.price)}</td><td>${fmtUsd(event.amount)}</td><td>${event.drawdown_pct == null ? '-' : `${event.drawdown_pct.toFixed(1)}%`}</td><td>${event.reinvest_pct == null ? '-' : `${event.reinvest_pct.toFixed(0)}%`}</td></tr>`).join('');
+  const recordByDate = Object.fromEntries(records.map(record => [record.date, record]));
+  document.querySelector('#events-table').innerHTML = [...events].reverse().map(event => {
+    const portfolioValue = recordByDate[event.date]?.portfolio_value;
+    return `<tr><td>${event.date}</td><td>${event.symbol}</td><td class="${event.type}">${event.type}</td><td>${fmtUsd(event.price)}</td><td>${fmtUsd(event.amount)}</td><td>${event.drawdown_pct == null ? '-' : `${event.drawdown_pct.toFixed(1)}%`}</td><td>${event.reinvest_pct == null ? '-' : `${event.reinvest_pct.toFixed(0)}%`}</td><td>${portfolioValue == null ? '-' : fmtUsd(portfolioValue)}</td></tr>`;
+  }).join('');
 }
 
 function renderPrice(data, symbol) {

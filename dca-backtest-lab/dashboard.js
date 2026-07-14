@@ -51,7 +51,8 @@ function render(data) {
     ['Portfolio', fmtUsd(stat.last.portfolio_value)], ['External investment', fmtUsd(stat.last.injected)], ['Total return', fmtPct(stat.returnPct)], ['Annualized', fmtPct(stat.annual)], ['Max drawdown', fmtPct(stat.maxDd)], ['Sharpe', stat.sharpe.toFixed(2)], ['Profit factor', stat.profitFactor.toFixed(2)], ['Idle reserve', fmtUsd(stat.last.usdt)],
   ].map(([label, value]) => `<div class="metric"><span>${label}</span><strong>${value}</strong></div>`).join('');
   const tiers = (config.drawdown_tiers || []).map(tier => `${tier.minimum_drawdown_pct}% DD -> ${tier.reserve_percentage}% reserve`).join(' | ');
-  document.querySelector('#strategy').innerHTML = `<b>Monthly investment:</b> ${fmtUsd(config.monthly_total)}. <b>Take profit:</b> sell ${(config.tp_percentage * 100).toFixed(0)}% when price reaches ${config.tp_multiplier}x the prior sell ATH. <b>Drawdown reinvestment:</b> ${tiers || 'legacy progressive settings'}. <b>Pairs:</b> ${config.pairs.map(pair => `${pair.symbol} (${fmtUsd(pair.monthly_invest)}/mo)`).join(' | ')}.`;
+  const minimums = config.min_order_usdt || {};
+  document.querySelector('#strategy').innerHTML = `<b>Monthly investment:</b> ${fmtUsd(config.monthly_total)}. <b>Minimum orders:</b> ${pairs.map(symbol => `${symbol} ${fmtUsd(minimums[symbol] || 0)}`).join(', ')}. Orders below the minimum are skipped. <b>Take profit:</b> sell ${(config.tp_percentage * 100).toFixed(0)}% when price reaches ${config.tp_multiplier}x the prior sell ATH. <b>Drawdown reinvestment:</b> ${tiers || 'legacy progressive settings'}. <b>Pairs:</b> ${config.pairs.map(pair => `${pair.symbol} (${fmtUsd(pair.monthly_invest)}/mo)`).join(' | ')}.`;
 
   Plotly.react('equity-chart', [
     { x: dates, y: records.map(row => row.injected), name: 'Cost basis', mode: 'lines', line: { color: '#94a3b8', dash: 'dot' } },

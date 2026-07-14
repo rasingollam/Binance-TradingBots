@@ -13,8 +13,14 @@ import requests
 PAIRS = [
     ("BTCUSDT", 10),
     ("BNBUSDT", 10),
-    ("ETHUSDT", 10),
 ]
+
+# Minimum USDT order size per pair. Orders below this amount are skipped.
+# Set a pair's value to the actual Binance minimum plus a small safety margin.
+MIN_ORDER_USDT = {
+    "BTCUSDT": 10,
+    "BNBUSDT": 10,
+}
 
 TP_MULTIPLIER = 1  # Sell when price reaches previous sell ATH * this value.
 TP_PERCENTAGE = 0.20  # Position fraction to sell at take profit.
@@ -82,6 +88,9 @@ def reinvest_rate(drawdown_pct):
 
 def run_backtest():
     monthly_total = sum(pair[1] for pair in PAIRS)
+    missing_minimums = [symbol for symbol, _ in PAIRS if symbol not in MIN_ORDER_USDT]
+    if missing_minimums:
+        raise ValueError(f"Missing MIN_ORDER_USDT for: {', '.join(missing_minimums)}")
     candles = {symbol: fetch_monthly_klines(symbol) for symbol, *_ in PAIRS}
 
     common_dates = set(candle["date"] for candle in candles[PAIRS[0][0]])
@@ -121,13 +130,13 @@ def run_backtest():
             # Reserve is used only on red candles and scales with ATH drawdown.
             if candle["close"] < candle["open"] and asset["reinvest"] > 0:
                 dip_amount = min(usdt * asset["reinvest"] / 100, usdt - monthly_total)
-                if dip_amount > 5:
+                if dip_amount >= MIN_ORDER_USDT[symbol]:
                     asset["units"] += dip_amount / close
                     usdt -= dip_amount
                     events.append({"date": date, "symbol": symbol, "type": "dip", "price": close, "amount": dip_amount, "drawdown_pct": drawdown_pct, "reinvest_pct": asset["reinvest"]})
                     actions.append(f"{symbol[:3]} dip ${dip_amount:.0f}")
 
-            if usdt >= monthly_invest:
+            if monthly_invest >= MIN_ORDER_USDT[symbol] and usdt >= monthly_invest:
                 asset["units"] += monthly_invest / close
                 usdt -= monthly_invest
                 events.append({"date": date, "symbol": symbol, "type": "buy", "price": close, "amount": monthly_invest})
@@ -181,6 +190,7 @@ def run_backtest():
                 for symbol, monthly_invest in PAIRS
             ],
             "monthly_total": monthly_total,
+            "min_order_usdt": MIN_ORDER_USDT,
             "tp_multiplier": TP_MULTIPLIER,
             "tp_percentage": TP_PERCENTAGE,
             "drawdown_tiers": [

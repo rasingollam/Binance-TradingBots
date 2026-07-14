@@ -16,7 +16,7 @@ PAIRS = [
 ]
 
 TP_MULTIPLIER = 1.5  # Sell when price reaches previous sell ATH * this value.
-TP_PERCENTAGE = 0.35  # Position fraction to sell at take profit.
+TP_PERCENTAGE = 0.80  # Position fraction to sell at take profit.
 # ===== END PARAMETERS =====
 
 KLINE_COLUMNS = [

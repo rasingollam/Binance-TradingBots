@@ -12,8 +12,8 @@ import requests
 # ===== PARAMETERS =====
 # (symbol, monthly_invest)
 PAIRS = [
-    ("BTCUSDT", 10),
-    ("BNBUSDT", 10),
+    ("BTCUSDT", 15),
+    ("BNBUSDT", 15),
     ("AMZN", 10),
     ("GOOGL", 10),
     ("NVDA", 10),

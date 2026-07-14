@@ -3,6 +3,7 @@
 import argparse
 import json
 import time
+from datetime import datetime, timezone
 from pathlib import Path
 
 import requests
@@ -25,6 +26,9 @@ MIN_ORDER_USDT = {
 TP_MULTIPLIER = 1  # Sell when price reaches previous sell ATH * this value.
 TP_PERCENTAGE = 0.20  # Position fraction to sell at take profit.
 
+START_DATE = "2017-11-01"  # Inclusive, YYYY-MM-DD.
+END_DATE = ""  # Inclusive, YYYY-MM-DD. Empty means latest available candle.
+
 # (minimum drawdown from ATH %, reserve percentage to deploy)
 # No extra reserve buy occurs at a fresh ATH.
 DRAWDOWN_TIERS = [
@@ -43,16 +47,24 @@ KLINE_COLUMNS = [
 ]
 
 
-def fetch_monthly_klines(symbol):
-    """Fetch all available monthly Binance spot candles for one pair."""
+def date_to_ms(value):
+    return int(datetime.strptime(value, "%Y-%m-%d").replace(tzinfo=timezone.utc).timestamp() * 1000)
+
+
+def fetch_monthly_klines(symbol, start_date, end_date):
+    """Fetch only the requested monthly Binance spot candles for one pair."""
     rows = []
-    start_time = 0
+    start_time = date_to_ms(start_date)
     url = "https://api.binance.com/api/v3/klines"
+    end_time = date_to_ms(end_date) + 86_399_999 if end_date else None
 
     while True:
+        params = {"symbol": symbol, "interval": "1M", "startTime": start_time, "limit": 500}
+        if end_time is not None:
+            params["endTime"] = end_time
         response = requests.get(
             url,
-            params={"symbol": symbol, "interval": "1M", "startTime": start_time, "limit": 500},
+            params=params,
             timeout=30,
         )
         response.raise_for_status()
@@ -87,11 +99,17 @@ def reinvest_rate(drawdown_pct):
 
 
 def run_backtest():
+    datetime.strptime(START_DATE, "%Y-%m-%d")
+    if END_DATE:
+        datetime.strptime(END_DATE, "%Y-%m-%d")
+        if END_DATE < START_DATE:
+            raise ValueError("END_DATE must be on or after START_DATE")
+
     monthly_total = sum(pair[1] for pair in PAIRS)
     missing_minimums = [symbol for symbol, _ in PAIRS if symbol not in MIN_ORDER_USDT]
     if missing_minimums:
         raise ValueError(f"Missing MIN_ORDER_USDT for: {', '.join(missing_minimums)}")
-    candles = {symbol: fetch_monthly_klines(symbol) for symbol, *_ in PAIRS}
+    candles = {symbol: fetch_monthly_klines(symbol, START_DATE, END_DATE) for symbol, *_ in PAIRS}
 
     common_dates = set(candle["date"] for candle in candles[PAIRS[0][0]])
     for symbol, *_ in PAIRS[1:]:
@@ -193,6 +211,8 @@ def run_backtest():
                 for symbol, monthly_invest in PAIRS
             ],
             "monthly_total": monthly_total,
+            "start_date": START_DATE,
+            "end_date": END_DATE or "latest",
             "min_order_usdt": MIN_ORDER_USDT,
             "tp_multiplier": TP_MULTIPLIER,
             "tp_percentage": TP_PERCENTAGE,

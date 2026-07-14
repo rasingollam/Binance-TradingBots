@@ -147,12 +147,15 @@ def run_backtest():
                 asset["ath_sell"] = close
             elif close >= asset["ath_sell"] * TP_MULTIPLIER:
                 sell_amount = asset["units"] * TP_PERCENTAGE * close
-                asset["units"] -= asset["units"] * TP_PERCENTAGE
-                usdt += sell_amount
-                asset["reinvest"] = 0.0
-                asset["ath_sell"] = asset["ath"]
-                events.append({"date": date, "symbol": symbol, "type": "sell", "price": close, "amount": sell_amount})
-                actions.append(f"{symbol[:3]} sell {TP_PERCENTAGE * 100:.0f}%")
+                if sell_amount >= MIN_ORDER_USDT[symbol]:
+                    asset["units"] -= asset["units"] * TP_PERCENTAGE
+                    usdt += sell_amount
+                    asset["reinvest"] = 0.0
+                    asset["ath_sell"] = asset["ath"]
+                    events.append({"date": date, "symbol": symbol, "type": "sell", "price": close, "amount": sell_amount})
+                    actions.append(f"{symbol[:3]} sell {TP_PERCENTAGE * 100:.0f}%")
+                else:
+                    actions.append(f"{symbol[:3]} sell skipped (${sell_amount:.2f} < ${MIN_ORDER_USDT[symbol]:.2f})")
 
         positions = {}
         portfolio_value = usdt

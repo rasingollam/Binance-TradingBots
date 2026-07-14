@@ -21,12 +21,12 @@
     <section id="metrics" class="metrics"></section>
     <section class="card strategy-card"><div id="strategy"></div></section>
     <section class="card"><h2>Portfolio Growth</h2><p class="chart-note">Use the legend to hide or show the portfolio, cost basis, or individual pair lines. Double-click a legend item to focus on one line.</p><div id="equity-chart" class="chart large"></div></section>
-    <section class="card"><h2>Earnings by Pair</h2><p class="chart-note">Running P&amp;L by asset: current position value plus realized sell proceeds minus all buys. Use the legend to compare or isolate pairs.</p><div id="pair-profit-chart" class="chart large"></div></section>
+    <section class="card"><h2>Earnings by Pair</h2><p class="chart-note">Solid lines show running P&amp;L. Dashed lines show each pair's external DCA cost basis. Dip reinvestment is strategy-generated capital, not additional external investment.</p><div id="pair-profit-chart" class="chart large"></div></section>
     <section class="grid two"><article class="card"><h2>Drawdown</h2><div id="drawdown-chart" class="chart"></div></article><article class="card"><h2>Portfolio Allocation</h2><div id="allocation-chart" class="chart"></div></article></section>
     <section class="card"><div class="section-heading"><div><h2>Price, Buys and Sells</h2><p>Green: monthly DCA. Blue: reserve dip buy. Red: profit-taking sell.</p></div><div id="pair-tabs" class="pair-tabs"></div><select id="pair-select" aria-label="Select pair"></select></div><div id="price-chart" class="chart large"></div></section>
     <section class="grid two"><article class="card"><h2>Monthly Returns</h2><div id="returns-chart" class="chart"></div></article><article class="card"><h2>Investment and Selling Flows</h2><p class="chart-note">Bars show USDT moved each month. The line is the available reserve.</p><div id="events-chart" class="chart"></div></article></section>
     <section class="card"><h2>Trade Events</h2><div class="table-wrap"><table><thead><tr><th>Date</th><th>Pair</th><th>Type</th><th>Price</th><th>USDT Amount</th><th>ATH Drawdown</th><th>Reserve Rate</th></tr></thead><tbody id="events-table"></tbody></table></div></section>
   </main>
-  <script src="dashboard.js?v=6"></script>
+  <script src="dashboard.js?v=7"></script>
 </body>
 </html>

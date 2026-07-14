@@ -76,15 +76,29 @@ function render(data) {
     const record = records.find(row => row.date === date);
     for (const symbol of pairs) pairProfit[symbol].push(record.positions[symbol].value + pairFlows[symbol].sells - pairFlows[symbol].buys);
   }
-  Plotly.react('pair-profit-chart', pairs.map(symbol => ({
-    x: dates,
-    y: pairProfit[symbol],
-    name: symbol,
-    mode: 'lines',
-    line: { color: colors[symbol] || '#60a5fa', width: 2 },
-    fill: 'tozeroy',
-    hovertemplate: '%{x}<br>' + symbol + ' P&L: $%{y:,.2f}<extra></extra>',
-  })), layout({ yaxis: { tickprefix: '$' }, shapes: [{ type: 'line', x0: dates[0], x1: dates.at(-1), y0: 0, y1: 0, line: { color: '#94a3b8', dash: 'dot' } }], legend: { orientation: 'h', y: 1.12, itemclick: 'toggle', itemdoubleclick: 'toggleothers' } }), { responsive: true });
+  const pairProfitTraces = [];
+  for (const pair of config.pairs) {
+    const symbol = pair.symbol;
+    const color = colors[symbol] || '#60a5fa';
+    pairProfitTraces.push({
+      x: dates,
+      y: pairProfit[symbol],
+      name: `${symbol} P&L`,
+      mode: 'lines',
+      line: { color, width: 2 },
+      fill: 'tozeroy',
+      hovertemplate: '%{x}<br>' + symbol + ' P&L: $%{y:,.2f}<extra></extra>',
+    });
+    pairProfitTraces.push({
+      x: dates,
+      y: dates.map((_, index) => (index + 1) * pair.monthly_invest),
+      name: `${symbol} cost basis`,
+      mode: 'lines',
+      line: { color, width: 1.5, dash: 'dash' },
+      hovertemplate: '%{x}<br>' + symbol + ' cost basis: $%{y:,.2f}<extra></extra>',
+    });
+  }
+  Plotly.react('pair-profit-chart', pairProfitTraces, layout({ yaxis: { tickprefix: '$' }, shapes: [{ type: 'line', x0: dates[0], x1: dates.at(-1), y0: 0, y1: 0, line: { color: '#94a3b8', dash: 'dot' } }], legend: { orientation: 'h', y: 1.12, itemclick: 'toggle', itemdoubleclick: 'toggleothers' } }), { responsive: true });
   Plotly.react('drawdown-chart', [{ x: dates, y: stat.drawdowns, type: 'scatter', mode: 'lines', fill: 'tozeroy', line: { color: '#ff6b7a' }, fillcolor: 'rgba(255,107,122,.22)' }], layout({ yaxis: { ticksuffix: '%' } }), { responsive: true });
   Plotly.react('allocation-chart', [
     ...pairs.map(symbol => ({ x: dates, y: records.map(row => row.positions[symbol].value), stackgroup: 'one', name: symbol, mode: 'lines', line: { color: colors[symbol] || '#60a5fa' } })),

@@ -14,6 +14,9 @@ import requests
 PAIRS = [
     ("BTCUSDT", 10),
     ("BNBUSDT", 10),
+    ("AMZN", 10),
+    ("GOOGL", 10),
+    ("NVDA", 10),
 ]
 
 # Minimum USDT order size per pair. Orders below this amount are skipped.
@@ -21,6 +24,9 @@ PAIRS = [
 MIN_ORDER_USDT = {
     "BTCUSDT": 10,
     "BNBUSDT": 10,
+    "AMZN": 10,
+    "GOOGL": 10,
+    "NVDA": 10,
 }
 
 TP_MULTIPLIER = 1  # Sell when price reaches previous sell ATH * this value.
@@ -89,6 +95,45 @@ def fetch_monthly_klines(symbol, start_date, end_date):
     ]
 
 
+def fetch_monthly_stock_data(symbol, start_date, end_date):
+    """Fetch monthly Yahoo Finance candles for a stock ticker."""
+    params = {
+        "interval": "1mo",
+        "period1": date_to_ms(start_date) // 1000,
+        "period2": date_to_ms(end_date) // 1000 + 86_400 if end_date else int(time.time()) + 86_400,
+    }
+    response = requests.get(
+        f"https://query1.finance.yahoo.com/v8/finance/chart/{symbol}",
+        params=params,
+        headers={"User-Agent": "Mozilla/5.0"},
+        timeout=30,
+    )
+    response.raise_for_status()
+    result = response.json()["chart"]["result"][0]
+    timestamps = result.get("timestamp", [])
+    quote = result["indicators"]["quote"][0]
+    adjusted = result.get("indicators", {}).get("adjclose", [{}])[0].get("adjclose", [])
+    rows = []
+    for index, timestamp in enumerate(timestamps):
+        close = adjusted[index] if index < len(adjusted) and adjusted[index] is not None else quote["close"][index]
+        if quote["open"][index] is None or close is None:
+            continue
+        rows.append({
+            "date": time.strftime("%Y-%m-01", time.gmtime(timestamp)),
+            "open": float(quote["open"][index]),
+            "high": float(quote["high"][index]),
+            "low": float(quote["low"][index]),
+            "close": float(close),
+        })
+    return rows
+
+
+def fetch_asset_monthly_data(symbol, start_date, end_date):
+    if symbol.endswith("USDT"):
+        return fetch_monthly_klines(symbol, start_date, end_date)
+    return fetch_monthly_stock_data(symbol, start_date, end_date)
+
+
 def reinvest_rate(drawdown_pct):
     """Return the reserve percentage for the current ATH drawdown."""
     rate = 0
@@ -109,7 +154,7 @@ def run_backtest():
     missing_minimums = [symbol for symbol, _ in PAIRS if symbol not in MIN_ORDER_USDT]
     if missing_minimums:
         raise ValueError(f"Missing MIN_ORDER_USDT for: {', '.join(missing_minimums)}")
-    candles = {symbol: fetch_monthly_klines(symbol, START_DATE, END_DATE) for symbol, *_ in PAIRS}
+    candles = {symbol: fetch_asset_monthly_data(symbol, START_DATE, END_DATE) for symbol, *_ in PAIRS}
 
     common_dates = set(candle["date"] for candle in candles[PAIRS[0][0]])
     for symbol, *_ in PAIRS[1:]:
@@ -207,6 +252,7 @@ def run_backtest():
                 {
                     "symbol": symbol,
                     "monthly_invest": monthly_invest,
+                    "market": "crypto" if symbol.endswith("USDT") else "stock",
                 }
                 for symbol, monthly_invest in PAIRS
             ],

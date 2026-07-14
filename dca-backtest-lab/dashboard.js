@@ -64,6 +64,27 @@ function render(data) {
       line: { color: colors[symbol] || '#60a5fa', width: 2 },
     })),
   ], layout({ yaxis: { gridcolor: '#25304d', tickprefix: '$' }, legend: { orientation: 'h', y: 1.12, itemclick: 'toggle', itemdoubleclick: 'toggleothers' } }), { responsive: true });
+  const pairFlows = Object.fromEntries(pairs.map(symbol => [symbol, { buys: 0, sells: 0 }]));
+  const pairProfit = Object.fromEntries(pairs.map(symbol => [symbol, []]));
+  const eventsByDate = Object.groupBy ? Object.groupBy(events, event => event.date) : events.reduce((groups, event) => { (groups[event.date] ||= []).push(event); return groups; }, {});
+  for (const date of dates) {
+    for (const event of eventsByDate[date] || []) {
+      if (!pairFlows[event.symbol]) continue;
+      if (event.type === 'sell') pairFlows[event.symbol].sells += event.amount;
+      else pairFlows[event.symbol].buys += event.amount;
+    }
+    const record = records.find(row => row.date === date);
+    for (const symbol of pairs) pairProfit[symbol].push(record.positions[symbol].value + pairFlows[symbol].sells - pairFlows[symbol].buys);
+  }
+  Plotly.react('pair-profit-chart', pairs.map(symbol => ({
+    x: dates,
+    y: pairProfit[symbol],
+    name: symbol,
+    mode: 'lines',
+    line: { color: colors[symbol] || '#60a5fa', width: 2 },
+    fill: 'tozeroy',
+    hovertemplate: '%{x}<br>' + symbol + ' P&L: $%{y:,.2f}<extra></extra>',
+  })), layout({ yaxis: { tickprefix: '$' }, shapes: [{ type: 'line', x0: dates[0], x1: dates.at(-1), y0: 0, y1: 0, line: { color: '#94a3b8', dash: 'dot' } }], legend: { orientation: 'h', y: 1.12, itemclick: 'toggle', itemdoubleclick: 'toggleothers' } }), { responsive: true });
   Plotly.react('drawdown-chart', [{ x: dates, y: stat.drawdowns, type: 'scatter', mode: 'lines', fill: 'tozeroy', line: { color: '#ff6b7a' }, fillcolor: 'rgba(255,107,122,.22)' }], layout({ yaxis: { ticksuffix: '%' } }), { responsive: true });
   Plotly.react('allocation-chart', [
     ...pairs.map(symbol => ({ x: dates, y: records.map(row => row.positions[symbol].value), stackgroup: 'one', name: symbol, mode: 'lines', line: { color: colors[symbol] || '#60a5fa' } })),

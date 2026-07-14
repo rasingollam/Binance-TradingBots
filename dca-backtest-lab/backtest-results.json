@@ -1,28 +1,19 @@
 {
   "version": 1,
-  "generated_at": "2026-07-14T16:29:47Z",
+  "generated_at": "2026-07-14T16:32:36Z",
   "config": {
     "pairs": [
       {
         "symbol": "BTCUSDT",
-        "monthly_invest": 10,
-        "reinvest_start_pct": 1,
-        "reinvest_step_pct": 2,
-        "reinvest_cap_pct": 50
+        "monthly_invest": 10
       },
       {
         "symbol": "BNBUSDT",
-        "monthly_invest": 10,
-        "reinvest_start_pct": 1,
-        "reinvest_step_pct": 1,
-        "reinvest_cap_pct": 40
+        "monthly_invest": 10
       },
       {
         "symbol": "ETHUSDT",
-        "monthly_invest": 10,
-        "reinvest_start_pct": 1,
-        "reinvest_step_pct": 1,
-        "reinvest_cap_pct": 40
+        "monthly_invest": 10
       }
     ],
     "monthly_total": 30,
@@ -3372,24 +3363,24 @@
       "date": "2026-07-01",
       "injected": 3150.0,
       "usdt": 475.59883389509065,
-      "portfolio_value": 23731.260259953873,
+      "portfolio_value": 23722.501156917864,
       "positions": {
         "BTCUSDT": {
-          "close": 64851.92,
-          "units": 0.08737859927793379,
-          "value": 5666.669930084619,
+          "close": 64846.0,
+          "units": 0.0873786133551142,
+          "value": 5666.153561625735,
           "reinvest_pct": 15
         },
         "BNBUSDT": {
-          "close": 582.9,
-          "units": 11.161653537458974,
-          "value": 6506.127846984836,
+          "close": 582.51,
+          "units": 11.161665023415454,
+          "value": 6501.781492789736,
           "reinvest_pct": 15
         },
         "ETHUSDT": {
-          "close": 1875.61,
-          "units": 5.908938238220807,
-          "value": 11082.863648989327,
+          "close": 1874.95,
+          "units": 5.908940114993627,
+          "value": 11078.967268607303,
           "reinvest_pct": 40
         }
       },
@@ -6351,21 +6342,21 @@
       "date": "2026-07-01",
       "symbol": "BTCUSDT",
       "type": "buy",
-      "price": 64851.92,
+      "price": 64846.0,
       "amount": 10
     },
     {
       "date": "2026-07-01",
       "symbol": "BNBUSDT",
       "type": "buy",
-      "price": 582.9,
+      "price": 582.51,
       "amount": 10
     },
     {
       "date": "2026-07-01",
       "symbol": "ETHUSDT",
       "type": "buy",
-      "price": 1875.61,
+      "price": 1874.95,
       "amount": 10
     }
   ]

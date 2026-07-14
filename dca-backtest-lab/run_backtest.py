@@ -9,11 +9,11 @@ import requests
 
 
 # ===== PARAMETERS =====
-# (symbol, monthly_invest, legacy settings kept only for easy editing)
+# (symbol, monthly_invest)
 PAIRS = [
-    ("BTCUSDT", 10, 1, 2, 50),
-    ("BNBUSDT", 10, 1, 1, 40),
-    ('ETHUSDT', 10, 1, 1, 40),
+    ("BTCUSDT", 10),
+    ("BNBUSDT", 10),
+    ("ETHUSDT", 10),
 ]
 
 TP_MULTIPLIER = 1.5  # Sell when price reaches previous sell ATH * this value.
@@ -97,7 +97,7 @@ def run_backtest():
     }
     state = {
         symbol: {"units": 0.0, "ath": 0.0, "ath_sell": 0.0, "reinvest": 0.0}
-        for symbol, _, start, _, cap in PAIRS
+        for symbol, _ in PAIRS
     }
     records = []
     events = []
@@ -109,7 +109,7 @@ def run_backtest():
         injected += monthly_total
         actions = []
 
-        for symbol, monthly_invest, start, step, cap in PAIRS:
+        for symbol, monthly_invest in PAIRS:
             asset = state[symbol]
             candle = candle_by_date[symbol][date]
             close = candle["close"]
@@ -177,11 +177,8 @@ def run_backtest():
                 {
                     "symbol": symbol,
                     "monthly_invest": monthly_invest,
-                    "reinvest_start_pct": start,
-                    "reinvest_step_pct": step,
-                    "reinvest_cap_pct": cap,
                 }
-                for symbol, monthly_invest, start, step, cap in PAIRS
+                for symbol, monthly_invest in PAIRS
             ],
             "monthly_total": monthly_total,
             "tp_multiplier": TP_MULTIPLIER,
